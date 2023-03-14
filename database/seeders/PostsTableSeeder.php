@@ -16,18 +16,18 @@ class PostsTableSeeder extends Seeder
         $posts = [
             [
                 'title' => 'Post 1',
-                'excert' => 'Summary of Post one',
+                'excerpt' => 'Summary of Post one',
                 'body' => 'Body of post one',
-                'img_path' => 'Empty',
-                'is_published' => 'false',
+                'image_path' => 'Empty',
+                'is_published' => false,
                 'min_to_read' => 2,
             ],
             [
                 'title' => 'Post 2',
-                'excert' => 'Summary of Post two',
+                'excerpt' => 'Summary of Post two',
                 'body' => 'Body of post two',
-                'img_path' => 'Empty',
-                'is_published' => 'false',
+                'image_path' => 'Empty',
+                'is_published' => false,
                 'min_to_read' => 3,
             ]
         ];
