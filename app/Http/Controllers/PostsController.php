@@ -13,7 +13,7 @@ class PostsController extends Controller
     public function index()
     {
         return view('blog.index', [
-            'posts' => Post::all(),
+            'posts' => Post::orderBy('id', 'desc')->get(),
         ]);
     }
 
@@ -38,7 +38,9 @@ class PostsController extends Controller
      */
     public function show(string $id)
     {
-        return $id;
+        return view('blog.show', [
+            'post' => Post::findOrFail($id),
+        ]);
     }
 
     /**
