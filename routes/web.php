@@ -20,12 +20,14 @@ use App\Http\Controllers\HomeController;
 Route::get('/', HomeController::class);
 
 Route::prefix('/blog')->group(function () {
+
+    Route::get('/create', [PostsController::class, 'create'])->name('blog.create');
     Route::get('/', [PostsController::class, 'index'])->name('blog.index');
     Route::get('/{id}', [PostsController::class, 'show'])->name('blog.show');
 
     // post
-    Route::get('/create', [PostsController::class, 'create'])->name('blog.create');
-    Route::post('/blog', [PostsController::class, 'store'])->name('blog.sotre');
+
+    Route::post('/store', [PostsController::class, 'store'])->name('blog.store');
 
     // update
     Route::get('/edit/{id}', [PostsController::class, 'edit'])->name('blog.edit');
