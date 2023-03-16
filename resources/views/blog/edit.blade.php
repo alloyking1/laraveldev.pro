@@ -55,7 +55,7 @@
         <input
             type="text"
             name="excerpt"
-            value={{ $post->excerpt }}
+            value="{{ $post->excerpt }}"
             class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
 
         <input
@@ -78,7 +78,7 @@
                     </span>
                 <input
                     type="file"
-                    name="image"
+                    name="image_path"
                     class="hidden">
             </label>
         </div>
