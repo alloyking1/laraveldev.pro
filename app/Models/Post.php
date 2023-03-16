@@ -12,4 +12,10 @@ class Post extends Model
     protected $fillable = [
         'title', 'excerpt', 'body', 'image_path', 'is_published', 'min_to_read'
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
