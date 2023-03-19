@@ -5,6 +5,23 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     />
+    @if ($post->meta != null)
+        
+        <meta
+            name="description"
+            content="{{ $post->meta->meta_description ? $post->meta->meta_description : ''  }}"
+        />
+
+        <meta
+            name="keyword"
+            content="{{ $post->meta->meta_keyword ? $post->meta->meta_keyword : ''  }}"
+        />
+
+        <meta
+            name="robots"
+            content="{{ $post->meta->meta_robots ? $post->meta->meta_robots : ''  }}"
+        />
+    @endif
     <meta
         http-equiv="X-UA-Compatible"
         content="ie=edge"
@@ -15,13 +32,14 @@
     @vite('resources/css/app.css')
 </head>
 <body>
+    
     <div class="w-4/5 mx-auto">
         <div class="pt-10">
             <a href="{{ URL::previous() }}"
                class="text-green-500 italic hover:text-green-400 hover:border-b-2 border-green-400 pb-3 transition-all py-20">
                 < Back to previous page
             </a>
-        </div>
+        </div> 
 
         <h4 class="text-left sm:text-center text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 py-10 sm:py-20">
             {{ $post->title }}
