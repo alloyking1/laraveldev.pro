@@ -15,6 +15,7 @@
     </title>
     
     @vite('resources/css/app.css')
+    <link rel="stylesheet" href="{{ asset('/prism.css') }}">
 </head>
 <body class="w-full h-full bg-gray-100">
     <div class="w-4/5 mx-auto pb-10">
@@ -100,6 +101,6 @@
         {{ $posts->links() }}
     </div>
 
-    
+    <script src="{{ asset('/prism.js') }}"></script>
 </body>
 </html>
