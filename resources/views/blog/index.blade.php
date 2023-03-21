@@ -19,7 +19,7 @@
     <div class="w-4/5 mx-auto pb-10">
         <div class="text-center pt-20">
             <h1 class="text-3xl text-gray-700">
-                All Articles
+                All Blog Posts
             </h1>
             <hr class="border border-1 border-gray-300 mt-10">
         </div>
@@ -59,7 +59,12 @@
                 </h2>
 
                 <p class="text-gray-900 text-lg py-8 w-full break-words">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa maiores nisi quasi tenetur voluptatem! At blanditiis dolor doloremque eaque, esse molestiae neque numquam quod repellat rerum sequi sit suscipit veritatis!
+                    @if (strlen($post->body > 100))
+                        {{substr($post->body,0,500)}} 
+                    @else
+                        {{ $post->body }}
+                    @endif
+                   
                 </p>
 
                 <span class="text-gray-500 text-sm sm:text-base">
