@@ -13,6 +13,7 @@
     <title>
         Laravel App
     </title>
+    
     @vite('resources/css/app.css')
 </head>
 <body class="w-full h-full bg-gray-100">
@@ -60,7 +61,8 @@
 
                 <p class="text-gray-900 text-lg py-8 w-full break-words">
                     @if (strlen($post->body > 100))
-                        {{substr($post->body,0,500)}} 
+                        {{-- {{substr({!!$post->body!!},0,500)}}  --}}
+                        {!! $post->body !!}
                     @else
                         {{ $post->body }}
                     @endif

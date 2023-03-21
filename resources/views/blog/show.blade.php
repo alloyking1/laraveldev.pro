@@ -59,7 +59,7 @@
                     <a
                         href=""
                         class="font-bold text-green-500 italic hover:text-green-400 hover:border-b-2 border-green-400 pb-3 transition-all py-20">
-                        Code With Dary
+                        {{ $post->user->name }}
                     </a>
                     On 17-07-2022
                 </span>
@@ -72,7 +72,7 @@
             </p>
 
             <p class="text-base text-black pt-10">
-                {{ $post->body }}
+                {!! $post->body !!}
             </p>
         </div>
     </div>
