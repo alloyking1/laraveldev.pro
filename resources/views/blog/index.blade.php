@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    />
-    <meta
-        http-equiv="X-UA-Compatible"
-        content="ie=edge"
-    />
-    <title>
-        Laravel App
-    </title>
-    
-    @vite('resources/css/app.css')
-    <link rel="stylesheet" href="{{ asset('/prism.css') }}">
-</head>
-<body class="w-full h-full bg-gray-100">
+<x-guest-layout>
     <div class="w-4/5 mx-auto pb-10">
         <div class="text-center pt-20">
             <h1 class="text-3xl text-gray-700">
@@ -101,6 +82,4 @@
         {{ $posts->links() }}
     </div>
 
-    <script src="{{ asset('/prism.js') }}"></script>
-</body>
-</html>
+</x-guest-layout>

@@ -1,38 +1,5 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    />
-    @if ($post->meta != null)
-        
-        <meta
-            name="description"
-            content="{{ $post->meta->meta_description ? $post->meta->meta_description : ''  }}"
-        />
 
-        <meta
-            name="keyword"
-            content="{{ $post->meta->meta_keyword ? $post->meta->meta_keyword : ''  }}"
-        />
-
-        <meta
-            name="robots"
-            content="{{ $post->meta->meta_robots ? $post->meta->meta_robots : ''  }}"
-        />
-    @endif
-    <meta
-        http-equiv="X-UA-Compatible"
-        content="ie=edge"
-    />
-    <title>
-        Laravel App
-    </title>
-    @vite('resources/css/app.css')
-</head>
-<body>
-    
+<x-guest-layout>
     <div class="w-4/5 mx-auto">
         <div class="pt-10">
             <a href="{{ URL::previous() }}"
@@ -76,5 +43,4 @@
             </p>
         </div>
     </div>
-    </body>
-</html>
+</x-guest-layout>

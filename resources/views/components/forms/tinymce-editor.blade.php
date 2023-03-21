@@ -1,3 +1,5 @@
 
-@props(['name'])
-<textarea id="myeditorinstance" name={{ $name }}>Hello, World!</textarea>
+@props(['name','value'])
+<textarea id="myeditorinstance" name={{ $name }}>
+  {!! $value !!}
+</textarea>
