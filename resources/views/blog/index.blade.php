@@ -42,12 +42,9 @@
                 </h2>
 
                 <p class="text-gray-900 text-lg py-8 w-full break-words">
-                    @if (strlen($post->body > 100))
-                        {{-- {{substr({!!$post->body!!},0,500)}}  --}}
-                        {!! $post->body !!}
-                    @else
-                        {{ $post->body }}
-                    @endif
+                    
+                        {{-- {!! substr($post->body, 0, 50) !!} --}}
+                        {{ $post->excerpt }}
                    
                 </p>
 
