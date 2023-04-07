@@ -65,9 +65,9 @@
 
 
       <div class="pt-10">
-        {{-- <a href="{{ route('blog.index') }}"
-           class="text-green-500 italic hover:text-green-400 hover:border-b-2 border-green-400 pb-3 transition-all py-20">
-            < checkout the blog
-        </a> --}}
+        <a href="{{ route('blog.index') }}"
+           class="text-green-500 border italic border-green-500 rounded-md p-4 font-bold hover:text-green-400 hover:border-b-2 transition-all">
+            << blog page
+        </a>
     </div> 
 </x-guest-layout>

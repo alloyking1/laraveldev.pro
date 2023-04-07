@@ -1,8 +1,14 @@
 <x-guest-layout>
     <div class="w-4/5 mx-auto pb-10">
+        <div class="pt-10">
+            <a href="{{ route('landing') }}"
+               class="text-green-500 italic hover:text-green-400 hover:border-b-2 border-green-400 pb-3 transition-all py-20">
+                < Back to home page
+            </a>
+        </div> 
         <div class="text-center pt-20">
             <h1 class="text-3xl text-gray-700">
-                All Blog Posts
+                Recent Blog Posts
             </h1>
             <hr class="border border-1 border-gray-300 mt-10">
         </div>
@@ -43,7 +49,6 @@
 
                 <p class="text-gray-900 text-lg py-8 w-full break-words">
                     
-                        {{-- {!! substr($post->body, 0, 50) !!} --}}
                         {{ $post->excerpt }}
                    
                 </p>
