@@ -9,8 +9,9 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <x-head.tinymce-config/>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        {{-- <x-head.tinymce-config/> --}}
+       
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -27,6 +28,6 @@
                 {{ $slot }}
             </main>
         </div>
-        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        {{-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> --}}
     </body>
 </html>
