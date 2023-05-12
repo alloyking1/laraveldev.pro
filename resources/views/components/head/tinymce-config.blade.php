@@ -43,9 +43,9 @@ tinymce.init({
     }
 
     /* Provide alternative source and posted for the media dialog */
-    if (meta.filetype === 'media') {
-      callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
-    }
+    // if (meta.filetype === 'media') {
+    //   callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
+    // }
   },
   templates: [
     { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
