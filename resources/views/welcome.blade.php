@@ -7,7 +7,7 @@
       </div>
     </div>
         <h3 class="text-2xl font-semibold text-gray-400 py-2">Hello, my name is Moses</h3>
-        <h1 class="text-4xl font-semibold">A Software developer and online educator</h1>
+        <h1 class="text-4xl font-semibold">A freelance consultant and online educator</h1>
         <p class="text-l py-2">I write clean and maintainable code and create technical contents for technical audience </p>
    </div>
     <div class="flex">
@@ -64,9 +64,14 @@
 
 
       <!-- Calendly link widget begin -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <a href="" class="bg-black text-white px-6 p-2 rounded-md " onclick="Calendly.initPopupWidget({url: 'https://calendly.com/tekiii-handles/laraveldev-chat'});return false;">Lets have a chat</a>
+      <div class="mt-4">
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+        <a href="" class="bg-black text-white px-6 p-2 rounded-md " onclick="Calendly.initPopupWidget({url: 'https://calendly.com/tekiii-handles/laraveldev-chat'});return false;">
+          Lets have a chat
+        </a>
+      </div>
+    
     <!-- Calendly link widget end -->
 
 
@@ -77,4 +82,6 @@
         </a>
 
     </div>  --}}
+
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/4263e5da2d7c463e45f004125/46949ed20624752475b5fa791.js");</script>
 </x-guest-layout>
