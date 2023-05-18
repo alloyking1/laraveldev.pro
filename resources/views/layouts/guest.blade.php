@@ -27,7 +27,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        {{-- <x-head.tinymce-config/> --}}
+        <x-head.tinymce-config/>
         <link rel="stylesheet" href="{{ asset('/prism.css') }}">
     </head>
     <body class="font-sans text-gray-900bg-gray-100 antialiased">
