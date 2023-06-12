@@ -13,6 +13,10 @@ class Post extends Model
         'user_id', 'title', 'excerpt', 'body', 'image_path', 'is_published', 'min_to_read'
     ];
 
+    protected $cast = [
+        'is_published' => 'boolean'
+    ];
+
 
     public function user()
     {

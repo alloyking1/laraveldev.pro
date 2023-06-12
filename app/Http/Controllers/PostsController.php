@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePostRequest;
+use App\Models\Category;
 
 class PostsController extends Controller
 {
@@ -31,7 +32,9 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('blog.create');
+        return view('blog.create', [
+            'category' => Category::get()
+        ]);
     }
 
     /**
@@ -42,7 +45,7 @@ class PostsController extends Controller
         $validated = $request->validated();
         // dd($validated);
         $post = Post::create(['user_id' => Auth::user()->id, 'is_published' => 'on'], $validated);
-        dd('true' . $post);
+        // dd('true' . $post);
         // $post = Post::create([
         //     'user_id' => Auth::user()->id,
         //     'title' => $validated->title,

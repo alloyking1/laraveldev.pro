@@ -14,8 +14,19 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
+
+        DB::table('categories')->insert([
+            ['title' => 'laravel', 'description' => ''],
+            ['title' => 'php', 'description' => ''],
+            ['title' => 'git', 'description' => ''],
+            ['title' => 'alpineJs', 'description' => ''],
+            ['title' => 'vueJS', 'description' => ''],
+            ['title' => 'livewire', 'description' => ''],
+            ['title' => 'alpineJs', 'description' => ''],
+        ]);
     }
 
     /**
