@@ -7,7 +7,7 @@
         <br/>and tutorials on everything related to Laravel development.
       </p>
       <div class="flex justify-center mt-4">
-        <a href="{{ route('blog.index') }}" class="font-black border border-black text-black px-24 p-2 rounded-md">
+        <a href="{{ route('blog.list') }}" class="font-black border border-black text-black px-24 p-2 rounded-md">
           Explore
         </a>
       </div>
