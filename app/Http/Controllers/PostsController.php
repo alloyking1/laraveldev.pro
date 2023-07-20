@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTransferObjects\BlogPostDto;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePostRequest;
 use App\Models\Category;
+use App\Services\Blog\BlogPostService;
 
 class PostsController extends Controller
 {
-    public function __construct()
+    public function __construct(protected BlogPostService $service)
     {
         $this->middleware('auth')->only([
             'create', 'update', 'edit', 'destroy'
@@ -40,12 +42,12 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePostRequest $request)
+    public function store(StorePostRequest $request, BlogPost $blogPost)
     {
-        $validated = $request->validated();
-        // dd($validated);
-        $post = Post::create(['user_id' => Auth::user()->id, 'is_published' => 'on'], $validated);
-        // dd('true' . $post);
+        // $post = $this->service->store( new BlogPostDto::fromAppRequest($request));
+
+        // $validated = $request->validated();
+        // $post = Post::create(['user_id' => Auth::user()->id, 'is_published' => 'on'], $validated);
         // $post = Post::create([
         //     'user_id' => Auth::user()->id,
         //     'title' => $validated->title,
@@ -56,14 +58,14 @@ class PostsController extends Controller
         //     'min_to_read' => $validated->min_to_read,
         // ]);
 
-        $post->meta()->create([
-            'post_id' => $post->id,
-            'meta_description' => $validated->meta_description,
-            'meta_keywords' => $validated->meta_keywords,
-            'meta_robots' => $validated->meta_robots,
-        ]);
+        // $post->meta()->create([
+        //     'post_id' => $post->id,
+        //     'meta_description' => $validated->meta_description,
+        //     'meta_keywords' => $validated->meta_keywords,
+        //     'meta_robots' => $validated->meta_robots,
+        // ]);
 
-        return redirect(route('blog.index'));
+        // return redirect(route('blog.index'));
     }
 
     /**
