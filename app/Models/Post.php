@@ -23,13 +23,23 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function meta()
+    public function tags()
     {
-        return $this->hasOne(PostMeta::class);
+        return $this->belongsToMany(Tags::class, 'post_tag');
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class, 'post_category');
     }
+
+    // public function meta()
+    // {
+    //     return $this->hasOne(PostMeta::class);
+    // }
+
+    // public function categories()
+    // {
+    //     return $this->belongsToMany(Category::class);
+    // }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -34,9 +35,14 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-Route::prefix('/blog')->group(function () {
+Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.list');
+
+    Route::middleware('auth')->group(function () {
+        Route::get('/create', [BlogPostController::class, 'edit'])->name('blog.create');
+        // Route::post('/update', [BlogPostController::class, 'update'])->name('blog.update');
+        // Route::delete('/destroy', [BlogPostController::class, 'destroy'])->name('blog.destroy');
+    });
+
     Route::get('/{blog}', [BlogController::class, 'show'])->name('blog.show');
 });
-// Route::resource('blog', PostsController::class);
-// Route::post('/post/image/upload', [PostsController::class, 'imageUpload'])->name('image.upload');

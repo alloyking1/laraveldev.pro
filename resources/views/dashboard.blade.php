@@ -7,23 +7,16 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-
-            <div>
-                <h1 class="text-xl font-bold pt-8 pb-2">
-                    Post of: {{ Auth::user()->name }}
-                </h1>
-
+            <x-blog.btn.btn-primary href="{{ route('blog.create') }}"/>
+            <x-blog.components.layout>
+                
                 @foreach (Auth::user()->posts as $post)
-                    <h2>
-                        {{ $post->title }}    
-                    </h2>
+                    <x-blog.components.post-card href="{{ route('blog.show', $post)}}" :title="$post->title" :excerpt="$post->excerpt" :userName="$post->user->name" :date="$post->updated_at" />
                 @endforeach
-            </div>
+            </x-blog.components.layout>
+            <x-blog.components.paginate>
+                {{-- {{ $post->links() }} --}}
+            </x-blog.components.paginate>
         </div>
     </div>
 </x-app-layout>
