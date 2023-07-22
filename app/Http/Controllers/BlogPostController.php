@@ -14,11 +14,16 @@ class BlogPostController extends Controller
     {
     }
 
-    public function edit(BlogPostCreateRequest $request)
+    public function edit()
     {
         return view('blog.create', [
             'category' => Category::get(),
             'tag' => Tag::get(),
         ]);
+    }
+
+    public function update(Request $request)
+    {
+        return $request->all();
     }
 }

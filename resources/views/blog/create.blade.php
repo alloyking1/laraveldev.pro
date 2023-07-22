@@ -19,7 +19,7 @@
 
             <x-blog.components.card title="Create Post" subtitle="Use the form below to create a post..">
             <form
-                action="#"
+                action="{{ route('blog.update') }}"
                 method="POST"
                 enctype="multipart/form-data">
                 @csrf
