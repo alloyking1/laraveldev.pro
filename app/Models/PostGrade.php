@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Post;
 
-class Tag extends Model
+class PostGrade extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'description', 'post_id'];
 
     public function post()
     {
-        return $this->belongsToMany(Post::class, 'post_tab');
+        return $this->hasMany(Post::class, 'post_id');
     }
 }

@@ -17,7 +17,7 @@ class BlogPostController extends Controller
     {
     }
 
-    public function edit()
+    public function show()
     {
         return view('blog.create', [
             'category' => Category::get(),
@@ -25,8 +25,20 @@ class BlogPostController extends Controller
         ]);
     }
 
-    public function update(BlogPostRequest $request, Post $blogPost = null)
+    public function create(BlogPostRequest $request)
     {
-        $post = $this->service->updateOrCreate(BlogPostDto::fromPostRequest($request), $blogPost);
+        $post = $this->service->createPost(BlogPostDto::fromPostRequest($request));
+        return back()->with('success', 'Post created successfully');
+    }
+
+    public function edit(Post $post)
+    {
+        // dd($post);
+        return view('blog.create', [
+            // 'post' => Post::where('id', $id)->first()
+            'post' => $post,
+            'category' => Category::get(),
+            'tag' => Tag::get(),
+        ]);
     }
 }

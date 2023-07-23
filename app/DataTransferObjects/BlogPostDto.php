@@ -11,7 +11,12 @@ class BlogPostDto
         public readonly string $excerpt,
         public readonly string $min_to_read,
         public readonly string $category,
+        public readonly string $tag,
         public readonly string $body,
+        public readonly string $meta_description,
+        public readonly string $meta_keywords,
+        public readonly string $meta_robots,
+        public readonly string $grade,
     ) {
     }
 
@@ -19,10 +24,15 @@ class BlogPostDto
     {
         return new self(
             title: $request->validated('title'),
-            excerpt: $request->validated('body'),
-            min_to_read: $request->validated('body'),
-            category: $request->validated('body'),
+            excerpt: $request->validated('excerpt'),
+            min_to_read: $request->validated('min_to_read'),
+            category: $request->validated('category'),
+            tag: $request->validated('tag'),
             body: $request->validated('body'),
+            meta_description: $request->validated('meta_description'),
+            meta_keywords: $request->validated('meta_keywords'),
+            meta_robots: $request->validated('meta_robots'),
+            grade: $request->validated('grade'),
         );
     }
 }

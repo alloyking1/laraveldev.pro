@@ -14,9 +14,9 @@
 
         <p class=" italic">
             Categories:
-            @foreach ($post->categories as $category)
+            {{-- @foreach ($post->categories as $category)
                     {{ $category->title }}
-            @endforeach
+            @endforeach --}}
         </p>
 
         <div class="block lg:flex flex-row">

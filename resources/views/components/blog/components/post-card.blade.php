@@ -2,6 +2,7 @@
     'title',
     'excerpt',
     'href' => '#',
+    'editRoute' => '#',
     'userName',
     'date',
     'route'
@@ -30,6 +31,11 @@
                 </span>
             </a>
 
-           
+        <div class="py-4 text-blue-200">
+            {{-- fix error.. if auth user === post_user_id --}}
+           @if (Auth::user())
+               <a href="{{ $editRoute }}">Edit Post</a>
+           @endif
+        </div>
         </div>
 </div>

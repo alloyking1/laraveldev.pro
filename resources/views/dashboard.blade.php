@@ -11,7 +11,7 @@
             <x-blog.components.layout>
                 
                 @foreach (Auth::user()->posts as $post)
-                    <x-blog.components.post-card href="{{ route('blog.show', $post)}}" :title="$post->title" :excerpt="$post->excerpt" :userName="$post->user->name" :date="$post->updated_at" />
+                    <x-blog.components.post-card editRoute="{{ route('blog.edit', $post) }}" href="{{ route('blog.show', $post)}}" :title="$post->title" :excerpt="$post->excerpt" :userName="$post->user->name" :date="$post->updated_at" />
                 @endforeach
             </x-blog.components.layout>
             <x-blog.components.paginate>

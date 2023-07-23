@@ -39,9 +39,9 @@ Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.list');
 
     Route::middleware('auth')->group(function () {
-        Route::get('/create', [BlogPostController::class, 'edit'])->name('blog.create');
-        Route::post('/save', [BlogPostController::class, 'update'])->name('blog.save');
-        Route::post('/update/{Post}', [BlogPostController::class, 'update'])->name('blog.update');
+        Route::get('/create', [BlogPostController::class, 'show'])->name('blog.create');
+        Route::post('/save', [BlogPostController::class, 'create'])->name('blog.save');
+        Route::get('/update/{Post}', [BlogPostController::class, 'edit'])->name('blog.edit');
         // Route::delete('/destroy', [BlogPostController::class, 'destroy'])->name('blog.destroy');
     });
 

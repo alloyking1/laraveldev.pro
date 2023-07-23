@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Tag;
+use App\Models\Category;
 
 class Post extends Model
 {
@@ -23,23 +25,23 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function tags()
+    public function tag()
     {
-        return $this->belongsToMany(Tags::class, 'post_tag');
+        return $this->belongsToMany(Tag::class, 'post_tag')->withTimestamps();
     }
 
     public function category()
     {
-        return $this->belongsToMany(Category::class, 'post_category');
+        return $this->belongsToMany(Category::class, 'post_category')->withTimestamps();
     }
 
-    // public function meta()
-    // {
-    //     return $this->hasOne(PostMeta::class);
-    // }
+    public function meta()
+    {
+        return $this->hasOne(PostMeta::class);
+    }
 
-    // public function categories()
-    // {
-    //     return $this->belongsToMany(Category::class);
-    // }
+    public function grade()
+    {
+        return $this->hasOne(PostGrade::class, 'post_id');
+    }
 }

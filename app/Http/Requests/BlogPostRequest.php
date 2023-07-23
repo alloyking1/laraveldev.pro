@@ -27,7 +27,12 @@ class BlogPostRequest extends FormRequest
             'excerpt' => ['required', 'string', 'max:555'],
             'min_to_read' => ['required', 'integer'],
             'category' => ['required', 'integer'],
-            'body' => ['string'],
+            'tag' => ['required', 'integer'],
+            'body' => ['required', 'string'],
+            'meta_description' => ['required', 'string'],
+            'meta_keywords' => ['required', 'string'],
+            'meta_robots' => ['required', 'string'],
+            'grade' => ['required', 'string'],
         ];
     }
 }
