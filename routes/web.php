@@ -40,7 +40,8 @@ Route::prefix('blog')->group(function () {
 
     Route::middleware('auth')->group(function () {
         Route::get('/create', [BlogPostController::class, 'edit'])->name('blog.create');
-        Route::post('/update', [BlogPostController::class, 'update'])->name('blog.update');
+        Route::post('/save', [BlogPostController::class, 'update'])->name('blog.save');
+        Route::post('/update/{Post}', [BlogPostController::class, 'update'])->name('blog.update');
         // Route::delete('/destroy', [BlogPostController::class, 'destroy'])->name('blog.destroy');
     });
 

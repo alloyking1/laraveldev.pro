@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\BlogPostCreateRequest;
+use App\Http\Requests\BlogPostRequest;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Services\Blog\BlogPostService;
 use Illuminate\Http\Request;
+use App\DataTransferObjects\BlogPostDto;
+use App\Models\Post;
 
 class BlogPostController extends Controller
 {
-    public function __construct(BlogPostService $service)
+    public function __construct(protected BlogPostService $service)
     {
     }
 
@@ -22,8 +25,8 @@ class BlogPostController extends Controller
         ]);
     }
 
-    public function update(Request $request)
+    public function update(BlogPostRequest $request, Post $blogPost = null)
     {
-        return $request->all();
+        $post = $this->service->updateOrCreate(BlogPostDto::fromPostRequest($request), $blogPost);
     }
 }

@@ -12,12 +12,18 @@ class BlogPostService
         return Post::orderBy('id', 'desc')->paginate($paginate);
     }
 
-    public function store(BlogPostDto $dto)
+    public function updateOrCreate(BlogPostDto $dto, Post $blogPost = null)
     {
-        return Post::create([
-            'title' => $dto->title,
-            'body' => $dto->body
-        ]);
+        dd($dto);
+        // return Post::create([
+        //     'title' => $dto->title,
+        //     'body' => $dto->body
+        // ]);
+
+        $post = Post::updateOrCreate(
+            ['id' => $blogPost->id],
+            ['price' => 99, 'discounted' => 1]
+        );
     }
 
     // public function update(BlogPost $blogPost, BlogPostDto $dto)
