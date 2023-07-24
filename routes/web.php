@@ -43,7 +43,7 @@ Route::prefix('blog')->group(function () {
         Route::post('/save', [BlogPostController::class, 'create'])->name('blog.save');
         Route::get('/edit/{Post}', [BlogPostController::class, 'edit'])->name('blog.edit');
         Route::post('/save/{Post}', [BlogPostController::class, 'update'])->name('blog.update');
-        // Route::delete('/destroy', [BlogPostController::class, 'destroy'])->name('blog.destroy');
+        Route::delete('/destroy', [BlogPostController::class, 'destroy'])->name('blog.destroy');
     });
 
     Route::get('/{blog}', [BlogController::class, 'show'])->name('blog.show');

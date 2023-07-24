@@ -11,10 +11,11 @@ use Illuminate\Http\Request;
 use App\DataTransferObjects\BlogPostDto;
 use App\Models\Post;
 use App\Services\Blog\BlogPostCategoryService;
+use App\Services\Blog\BlogPostTagService;
 
 class BlogPostController extends Controller
 {
-    public function __construct(protected BlogPostService $service, protected BlogPostCategoryService $category)
+    public function __construct(protected BlogPostService $service, protected BlogPostCategoryService $category, protected BlogPostTagService $tag)
     {
     }
 
@@ -38,7 +39,8 @@ class BlogPostController extends Controller
             'post' => $this->service->getPost($id),
             'category' => $this->category->allPostCategory(),
             'selectedCategory' => $this->category->selectedPostCategory($id),
-            'tag' => Tag::get(),
+            'tag' => $this->tag->allTags(),
+            'selectedTags' => $this->tag->postSelectedTags($id),
         ]);
     }
 
@@ -46,5 +48,9 @@ class BlogPostController extends Controller
     {
         $update = $this->service->updatePost(BlogPostDto::fromPostRequest($request), $post);
         dd($update);
+    }
+
+    public function destroy(BlogPostRequest $request, $post)
+    {
     }
 }

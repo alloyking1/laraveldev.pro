@@ -60,15 +60,13 @@
                                 <x-input-error :messages="$errors->get('tag')" class="" />
                                     <select name="tag" multiple class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
                                         <option value="#" disabled>Select Tag</option>
-                                        @foreach ($tag as $otherTags)
-                                            @foreach ($postValue->tag as $selectedTag )
-                                                @if ($selectedTag->name == $otherTags->name)
-                                                    <option value="{{ $otherTags->id }}" selected> {{ $otherTags->name }}</option>
+                                            @foreach ($tag as $selectedTag )
+                                                @if (in_array($selectedTag->name, array_values($selectedTags)))
+                                                    <option value="{{ $selectedTag->id }}" selected> {{ $selectedTag->name }}</option>
                                                 @else
-                                                    <option value="{{ $otherTags->id }}"> {{ $otherTags->name }}</option>
+                                                    <option value="{{ $selectedTag->id }}"> {{ $selectedTag->name }}</option>
                                                 @endif
                                             @endforeach
-                                        @endforeach
                                     </select>
                             </div>
                         </div>
@@ -99,19 +97,18 @@
                         </div>
 
                         <div class="mt-4">
-                                <x-input-error :messages="$errors->get('grade')" class="" />
-                                    <select name="grade" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
-                                        <option value="#" disabled>Select Tag</option>
-                                        @foreach (App\Enums\BLogPostGradeEnum::cases() as $item)
-                                            @if($postValue->grade->name == $item->value)
-                                            
-                                                <option value="{{ $item }}" selected> {{ $item->value }}</option>
-                                            @else
-                                                <option value="{{ $item }}"> {{ $item->value }}</option>
-                                            @endif
-                                        @endforeach
-                                    </select>
-                            </div>
+                        <x-input-error :messages="$errors->get('grade')" class="" />
+                            <select name="grade" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
+                                <option value="#" disabled>Select Grade</option>
+                                @foreach (App\Enums\BLogPostGradeEnum::cases() as $item)
+                                    @if($postValue->grade->name == $item->value)
+                                        <option value="{{ $item }}" selected> {{ $item->value }}</option>
+                                    @else
+                                        <option value="{{ $item }}"> {{ $item->value }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
 
 
                         <div class="mt-4 flex justify-between">
