@@ -43,26 +43,36 @@
                         </div>
                         <div class="mt-1">
                             <x-input-error :messages="$errors->get('category')" class="" />
-                            @foreach ($postValue->category as $category )
+                            
                             <select name="category" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
-                                <option value="#" disabled>Select Category</option>
-                                @foreach ($category as $each)
-                                    <option value="{{ $category->id ?? $each->id }}"> {{ $each->title ?? $category->title }}</option>
+                                @foreach ($postValue->category as $selectedCategory )
+                                    <option value="#" disabled>Select Category</option>
+                                    @foreach ($category as $otherCategories)
+                                    @if ($selectedCategory->name == $otherCategories->name)
+                                        <option value="{{ $otherCategories->id }}" selected> {{ $otherCategories->title }}</option>
+                                    @else
+                                        <option value="{{ $otherCategories->id}}"> {{ $otherCategories->title }}</option>
+                                    @endif
+                                    @endforeach
                                 @endforeach
                             </select>
-                            @endforeach
+                           
                         </div>
 
                         <div class="mt-1">
                             <x-input-error :messages="$errors->get('tag')" class="" />
-                                @foreach ($postValue->tag as $tag )
                                 <select name="tag" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
                                     <option value="#" disabled>Select Tag</option>
-                                    @foreach ($tag as $item)
-                                        <option value="{{ $tag->id ?? $item->id }}"> {{ $item->name ?? $tag->name }}</option>
+                                    @foreach ($postValue->tag as $selectedTag )
+                                        @foreach ($tag as $otherTags)
+                                            @if ($selectedTag->name == $otherTags->name)
+                                                <option value="{{ $otherTags->id }}" selected> {{ $otherTags->name }}</option>
+                                            @else
+                                                <option value="{{ $otherTags->id }}"> {{ $otherTags->name }}</option>
+                                            @endif
+                                        @endforeach
                                     @endforeach
                                 </select>
-                                @endforeach
                         </div>
                     </div>
 

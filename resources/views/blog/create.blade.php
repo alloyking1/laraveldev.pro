@@ -86,7 +86,7 @@
                 <div class="mt-4">
                         <x-input-error :messages="$errors->get('tag')" class="" />
                             <select name="grade" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
-                                <option value="#" disabled>Select Tag</option>
+                                <option value="#" disabled selected hidden>Select Tag</option>
                                 @foreach (App\Enums\BLogPostGradeEnum::cases() as $item)
                                     <option value="{{ $item }}"> {{ $item }}</option>
                                 @endforeach
