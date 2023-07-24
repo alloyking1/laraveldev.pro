@@ -42,17 +42,15 @@
                             </div>
                             <div class="mt-1">
                                 <x-input-error :messages="$errors->get('category')" class="" />
-                                
-                                <select name="category" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
-                                    @foreach ($postValue->category as $selectedCategory )
-                                        <option value="#" disabled>Select Category</option>
-                                        @foreach ($category as $otherCategories)
-                                        @if ($selectedCategory->name == $otherCategories->name)
+                                <select name="category" multiple class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
+                                    
+                                    <option value="#" disabled>Select Category</option>
+                                    @foreach ($category as $otherCategories)
+                                        @if (in_array($otherCategories->title, array_values($selectedCategory)))
                                             <option value="{{ $otherCategories->id }}" selected> {{ $otherCategories->title }}</option>
                                         @else
                                             <option value="{{ $otherCategories->id}}"> {{ $otherCategories->title }}</option>
                                         @endif
-                                        @endforeach
                                     @endforeach
                                 </select>
                             
@@ -60,10 +58,10 @@
 
                             <div class="mt-1">
                                 <x-input-error :messages="$errors->get('tag')" class="" />
-                                    <select name="tag" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
+                                    <select name="tag" multiple class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
                                         <option value="#" disabled>Select Tag</option>
-                                        @foreach ($postValue->tag as $selectedTag )
-                                            @foreach ($tag as $otherTags)
+                                        @foreach ($tag as $otherTags)
+                                            @foreach ($postValue->tag as $selectedTag )
                                                 @if ($selectedTag->name == $otherTags->name)
                                                     <option value="{{ $otherTags->id }}" selected> {{ $otherTags->name }}</option>
                                                 @else

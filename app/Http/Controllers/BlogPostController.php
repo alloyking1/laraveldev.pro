@@ -10,10 +10,11 @@ use App\Services\Blog\BlogPostService;
 use Illuminate\Http\Request;
 use App\DataTransferObjects\BlogPostDto;
 use App\Models\Post;
+use App\Services\Blog\BlogPostCategoryService;
 
 class BlogPostController extends Controller
 {
-    public function __construct(protected BlogPostService $service)
+    public function __construct(protected BlogPostService $service, protected BlogPostCategoryService $category)
     {
     }
 
@@ -33,10 +34,10 @@ class BlogPostController extends Controller
 
     public function edit($id)
     {
-
         return view('blog.edit', [
             'post' => $this->service->getPost($id),
-            'category' => Category::get(),
+            'category' => $this->category->allPostCategory(),
+            'selectedCategory' => $this->category->selectedPostCategory($id),
             'tag' => Tag::get(),
         ]);
     }

@@ -31,7 +31,7 @@ class BlogPostService
         ]);
 
         $post->category()->syncWithoutDetaching($postDto->category); //make a multi select form
-        $post->tag()->syncWithoutDetaching($postDto->tag); //make a multi select form
+        $post->tag()->syncWithoutDetaching($postDto->tag); //make a multi select form by passing multiple id's to sync method
 
         $post->meta()->create([
             'post_id' => $post->id,
@@ -51,7 +51,6 @@ class BlogPostService
 
     public function updatePost(BlogPostDto $postDto, $blogPost)
     {
-        // dd($postDto);
         //refactor into a single function with create
         $post = tap(Post::find($blogPost))->update([
             'title' => $postDto->title,
@@ -60,8 +59,8 @@ class BlogPostService
             'body' => $postDto->body,
         ]);
 
-        // $post->category()->sync($postDto->category); //make a multi select form
-        // $post->tag()->syncWithoutDetaching($postDto->tag); //make a multi select form
+        $post->category()->attach($postDto->category);
+        $post->tag()->attach($postDto->tag);
 
         PostMeta::where('post_id', $post->id)->update([
             'post_id' => $post->id,
