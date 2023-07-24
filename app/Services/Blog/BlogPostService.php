@@ -4,6 +4,8 @@ namespace App\Services\Blog;
 
 use App\DataTransferObjects\BlogPostDto;
 use App\Models\Post;
+use App\Models\PostGrade;
+use App\Models\PostMeta;
 
 class BlogPostService
 {
@@ -46,28 +48,33 @@ class BlogPostService
         return ($post);
     }
 
-    public function updatePost(BlogPostDto $dto, Post $blogPost)
+
+    public function updatePost(BlogPostDto $postDto, $blogPost)
     {
-        // dd($dto);
-        // return Post::create([
-        //     'title' => $dto->title,
-        //     'body' => $dto->body
-        // ]);
+        // dd($postDto);
+        //refactor into a single function with create
+        $post = tap(Post::find($blogPost))->update([
+            'title' => $postDto->title,
+            'excerpt' => $postDto->excerpt,
+            'min_to_read' => $postDto->min_to_read,
+            'body' => $postDto->body,
+        ]);
 
-        $post = Post::updateOrCreate(
-            ['id' => $blogPost->id],
-            [$dto]
-        );
+        // $post->category()->sync($postDto->category); //make a multi select form
+        // $post->tag()->syncWithoutDetaching($postDto->tag); //make a multi select form
 
-        dd($post);
+        PostMeta::where('post_id', $post->id)->update([
+            'post_id' => $post->id,
+            'meta_description' => $postDto->meta_description,
+            'meta_keywords' => $postDto->meta_keywords,
+            'meta_robots' => $postDto->meta_robots,
+        ]);
+
+        PostGrade::where('post_id', $post->id)->update([
+            'post_id' => $post->id,
+            'name' => $postDto->grade,
+        ]);
+
+        return ($post->category());
     }
-
-    // public function update(BlogPost $blogPost, BlogPostDto $dto)
-    // {
-    //     //usa a tap method to return updated post no boolean
-    //     return tap($blogpost)->update([
-    //         'title' => $dto->title,
-    //         'body' => $dto->body
-    //     ]);
-    // }
 }

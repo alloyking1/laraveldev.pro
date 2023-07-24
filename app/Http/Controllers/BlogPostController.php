@@ -40,4 +40,10 @@ class BlogPostController extends Controller
             'tag' => Tag::get(),
         ]);
     }
+
+    public function update(BlogPostRequest $request, $post)
+    {
+        $update = $this->service->updatePost(BlogPostDto::fromPostRequest($request), $post);
+        dd($update);
+    }
 }

@@ -20,7 +20,7 @@
             @foreach ($post as $postValue )
                 <x-blog.components.card title="Edit Post" subtitle="Use the form below to edit post..">
                     <form
-                        action="{{ route('blog.save') }}"
+                        action="{{ route('blog.update', $postValue->id) }}"
                         method="POST"
                         enctype="multipart/form-data">
                         @csrf
@@ -87,15 +87,15 @@
 
                         <div class="mt-4 grid grid-cols-3 gap-2">
                             <div class="mt-4">
-                                <x-text-input id="meta_description" placeholder="Meta Description.." class="block mt-1 w-full" type="text" name="meta_description" :value="old('meta_description', $postValue->meta_description ?? '')" required autofocus autocomplete="meta_description" />
+                                <x-text-input id="meta_description" placeholder="Meta Description.." class="block mt-1 w-full" type="text" name="meta_description" :value="old('meta_description', $postValue->meta->meta_description ?? '')" required autofocus autocomplete="meta_description" />
                                 <x-input-error :messages="$errors->get('meta_description')" class="mt-2" />
                             </div>
                             <div class="mt-4">
-                                <x-text-input id="meta_keywords" placeholder="Meta Keywords.." class="block mt-1 w-full" type="text" name="meta_keywords" :value="old('meta_keywords', $postValue->meta_keywords ?? '')" required autofocus autocomplete="meta_keywords" />
+                                <x-text-input id="meta_keywords" placeholder="Meta Keywords.." class="block mt-1 w-full" type="text" name="meta_keywords" :value="old('meta_keywords', $postValue->meta->meta_keywords ?? '')" required autofocus autocomplete="meta_keywords" />
                                 <x-input-error :messages="$errors->get('meta_keywords')" class="mt-2" />
                             </div>
                             <div class="mt-4">
-                                <x-text-input id="meta_robots" placeholder="Meta Robots..." class="block mt-1 w-full" type="text" name="meta_robots" :value="old('meta_robots', $postValue->meta_robots ?? '')" required autofocus autocomplete="meta_robots" />
+                                <x-text-input id="meta_robots" placeholder="Meta Robots..." class="block mt-1 w-full" type="text" name="meta_robots" :value="old('meta_robots', $postValue->meta->meta_robots ?? '')" required autofocus autocomplete="meta_robots" />
                                 <x-input-error :messages="$errors->get('meta_robots')" class="mt-2" />
                             </div>
                         </div>
@@ -105,7 +105,12 @@
                                     <select name="grade" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
                                         <option value="#" disabled>Select Tag</option>
                                         @foreach (App\Enums\BLogPostGradeEnum::cases() as $item)
-                                            <option value="{{ $postValue->grade->name ?? $item }}"> {{ $item ?? $postValue->grade->name }}</option>
+                                            @if($postValue->grade->name == $item->value)
+                                            
+                                                <option value="{{ $item }}" selected> {{ $item->value }}</option>
+                                            @else
+                                                <option value="{{ $item }}"> {{ $item->value }}</option>
+                                            @endif
                                         @endforeach
                                     </select>
                             </div>
