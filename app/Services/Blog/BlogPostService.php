@@ -12,9 +12,10 @@ class BlogPostService
         return Post::orderBy('id', 'desc')->paginate($paginate);
     }
 
-    public function singlePost($id)
+    public function getPost($id)
     {
-        return Post::find($id);
+        $postWithRelationships = Post::with(['category', 'tag', 'grade', 'meta'])->where('id', $id)->get();
+        return $postWithRelationships;
     }
 
     public function createPost(BlogPostDto $postDto): Post

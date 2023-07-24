@@ -1,5 +1,5 @@
 <x-app-layout>
-    {{ dd($post->name) }}
+    
     <div class="w-4/5 mx-auto pb-32">
 
         <div class="m-auto pt-20">

@@ -31,12 +31,11 @@ class BlogPostController extends Controller
         return back()->with('success', 'Post created successfully');
     }
 
-    public function edit(Post $post)
+    public function edit($id)
     {
-        // dd($post);
-        return view('blog.create', [
-            // 'post' => Post::where('id', $id)->first()
-            'post' => $post,
+
+        return view('blog.edit', [
+            'post' => $this->service->getPost($id),
             'category' => Category::get(),
             'tag' => Tag::get(),
         ]);
