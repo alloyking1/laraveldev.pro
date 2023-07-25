@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -17,9 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('landing');
+Route::prefix('pages')->group(function () {
+    Route::get('/', [PagesController::class, 'home'])->name('pages.home');
+    Route::get('/', [PagesController::class, 'blog'])->name('pages.blog');
+    Route::get('/', [PagesController::class, 'tutorial'])->name('pages.tutorial');
+    Route::get('/', [PagesController::class, 'packages'])->name('pages.packages');
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
