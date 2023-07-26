@@ -46,6 +46,7 @@
                 {{ $slot }}
             {{-- </div> --}}
         </div>
+        <x-footer/>
         <script src="{{ asset('/prism.js') }}"></script>
     </body>
 </html>

@@ -10,4 +10,16 @@ class PagesController extends Controller
     {
         return view('blog.pages.home');
     }
+    public function blog()
+    {
+        return view('blog.pages.home');
+    }
+    public function packages()
+    {
+        return view('blog.pages.home');
+    }
+    public function tutorial()
+    {
+        return view('blog.pages.home');
+    }
 }

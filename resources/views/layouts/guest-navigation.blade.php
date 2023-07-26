@@ -18,15 +18,18 @@
           <a href="{{ route('pages.home') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
             Home
           </a>
-          <a href="{{ route('pages.about') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
-            About
+          <a href="{{ route('pages.blog') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
+            Blog
           </a>
-          <a href="{{ route('pages.contact') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200">
-            Contact
+          <a href="{{ route('pages.tutorial') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200">
+            Tutorial
+          </a>
+          <a href="{{ route('pages.packages') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200">
+            Packages
           </a>
         </div>
         <div>
-          <a href="{{ route('dashboard') }}" class="inline-block text-sm px-6 py-4 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-800 hover:bg-white mt-4 lg:mt-0">Request Leave</a>
+          <a href="#" class="inline-block text-sm px-6 py-4 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-800 hover:bg-white mt-4 lg:mt-0">Request Leave</a>
         </div>
       </div>
  
@@ -37,15 +40,18 @@
         <a href="{{ route('pages.home') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
           Home
         </a>
-        <a href="{{ route('pages.about') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
-          About
+        <a href="{{ route('pages.blog') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
+          Blog
         </a>
-        <a href="{{ route('pages.contact') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200">
-          Contact
+        <a href="{{ route('pages.tutorial') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200">
+          Tutorial
+        </a>
+        <a href="{{ route('pages.packages') }}" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200">
+          Packages
         </a>
       </div>
       <div>
-        <a href="{{ route('dashboard') }}" class="inline-block text-sm px-6 py-4 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-800 hover:bg-white mt-4 lg:mt-0">Request Leave</a>
+        <a href="#" class="inline-block text-sm px-6 py-4 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-800 hover:bg-white mt-4 lg:mt-0">Request Leave</a>
       </div>
     </div>
   </nav>
