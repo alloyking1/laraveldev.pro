@@ -14,6 +14,11 @@ class BlogPostService
         return Post::orderBy('id', 'desc')->paginate($paginate);
     }
 
+    public function recentPost($limit = 10)
+    {
+        return Post::with('tag')->orderBy('created_at', 'desc')->limit($limit)->get();
+    }
+
     public function getPost($id)
     {
         $postWithRelationships = Post::with(['category', 'tag', 'grade', 'meta'])->where('id', $id)->get();

@@ -1,6 +1,7 @@
 @props([
     'color',
-    'textColor' => 'white',
+    'textColor' => null,
+    'textSize' => null,
     'title' => null,
     'sub-title'=> null
 ])
@@ -9,9 +10,11 @@
     'bg-black' => $color === 'black', 
     'bg-gray-100' => $color === 'white',
     'bg-gray-200' => $color === 'gray',
+    'bg-[rgb(240 250 249/var(--tw-bg-opacity))]' => $color === 'green',
+    'bg-blue-900' => $color === 'blue',
 ]) }}>
     <div {{ $attributes->when($title)->merge(['class' => 'font-bold']) }}>
-        <x-blog.text.large :color="$textColor" :value="$title"/>
+        <x-blog.text.text :color="$textColor" :textSize="$textSize" :value="$title"/>
     </div>
  {{ $slot }}
 </div>

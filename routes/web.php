@@ -18,12 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::prefix('/pages')->group(function () {
-    Route::get('/', [PagesController::class, 'home'])->name('pages.home');
     Route::get('/blog', [PagesController::class, 'blog'])->name('pages.blog');
     Route::get('/tutorial', [PagesController::class, 'tutorial'])->name('pages.tutorial');
     Route::get('/packages', [PagesController::class, 'packages'])->name('pages.packages');
 });
+
 
 
 Route::get('/dashboard', function () {
