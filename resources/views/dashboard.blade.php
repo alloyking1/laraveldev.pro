@@ -14,9 +14,6 @@
                     <x-blog.components.post-card editRoute="{{ route('blog.edit', $post) }}" href="{{ route('blog.show', $post)}}" :title="$post->title" :excerpt="$post->excerpt" :userName="$post->user->name" :date="$post->updated_at" />
                 @endforeach
             </x-blog.components.layout>
-            <x-blog.components.paginate>
-                {{-- {{ $post->links() }} --}}
-            </x-blog.components.paginate>
         </div>
     </div>
 </x-app-layout>

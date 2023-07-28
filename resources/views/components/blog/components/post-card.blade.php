@@ -11,13 +11,14 @@
 
 <div {{ $attributes->merge(['class' => 'w-full rounded-xs bg-white shadow-sm rounded-md p-4 pb-0']) }}>
         <div class="w-11/12 mx-auto pb-10">
-            @foreach ($tagDetail as $tag )
-                <x-blog.components.post-tag :text="$tag->name" :color="array_rand(['sky' => 'sky','black' => 'black', 'green' => 'green', 'orange' => 'orange', 'blue' => 'blue'], 1)"/>
-            @endforeach
-            
+            @if($tagDetail)
+                @foreach ($tagDetail as $tag )
+                    <x-blog.components.post-tag :text="$tag->name" :color="array_rand(['sky' => 'sky','black' => 'black', 'green' => 'green', 'orange' => 'orange', 'blue' => 'blue'], 1)"/>
+                @endforeach
+            @endif
             <a href="{{ $href }}">
-                <h2 class="text-gray-900 text-xl font-bold pt-6 pb-0 sm:pt-0 hover:text-gray-700 link link-underline link-underline-black break-words">
-                        {{ $title }}
+                <h2 class="text-gray-900 text-xl font-bold pt-6 pb-0 sm:pt-0 hover:text-gray-700">
+                    <span class="link link-underline link-underline-black text-black">{{ $title }}</span>
                 </h2>
 
                 <p class="text-gray-500 text-xs py-8 w-full break-words">
