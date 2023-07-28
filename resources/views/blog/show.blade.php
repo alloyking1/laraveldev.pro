@@ -3,15 +3,18 @@
     
     @foreach ($postDetail as $post )
     
-    @php
-        $meta_description = $post->meta->meta_description;
-        $meta_keywords = $post->meta->meta_keywords;
-        $meta_robots = $post->meta->meta_robots
-    @endphp
-    @section('title', "$post->title")
-    @section('meta_description', "$meta_description") 
-    @section('meta_keywords', "$meta_keywords")
-    @section('meta_robots', "$meta_robots")
+    @if ($post->meta)
+        @php
+            $meta_description = $post->meta->meta_description;
+            $meta_keywords = $post->meta->meta_keywords;
+            $meta_robots = $post->meta->meta_robots
+        @endphp
+        @section('title', "$post->title")
+        @section('meta_description', "$meta_description") 
+        @section('meta_keywords', "$meta_keywords")
+        @section('meta_robots', "$meta_robots")
+    @endif
+    
 
     <div class="w-4/5 mx-auto">
         <div class="pt-10">
