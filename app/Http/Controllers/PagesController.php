@@ -19,7 +19,7 @@ class PagesController extends Controller
     }
     public function blog()
     {
-        return view('blog.pages.index', [
+        return view('blog.index', [
             'posts' => $this->blogPostService->allPost(10)
         ]);
     }
