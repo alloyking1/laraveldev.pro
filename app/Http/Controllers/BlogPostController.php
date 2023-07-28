@@ -19,6 +19,15 @@ class BlogPostController extends Controller
     {
     }
 
+
+    public function index(string $id)
+    {
+        return view('blog.show', [
+            'postDetail' => $this->service->getPost($id)
+        ]);
+    }
+
+
     public function show()
     {
         return view('blog.create', [

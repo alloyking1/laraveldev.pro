@@ -1,3 +1,4 @@
+{{-- <x-guest-layout postMetaTag="{{ $posts }}"> --}}
 <x-guest-layout>
     <x-blog.pages.section color="white" title="Blog Posts" textColor="black" textSize="large">
         <x-blog.pages.grid-5 class="mt-32">

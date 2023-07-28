@@ -1,25 +1,17 @@
+@props([
+    'postMetaTag' => null
+])
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        {{-- @if ($post->meta != null)
-            <meta
-                name="description"
-                content="{{ $post->meta->meta_description ? $post->meta->meta_description : ''  }}"
-            />
-            <meta
-                name="keyword"
-                content="{{ $post->meta->meta_keyword ? $post->meta->meta_keyword : ''  }}"
-            />
-            <meta
-                name="robots"
-                content="{{ $post->meta->meta_robots ? $post->meta->meta_robots : ''  }}"
-            />
-        @endif --}}
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <meta name="description" content="@yield('meta_description')">
+        <meta name="keyword" content="@yield('meta_keywords')">
+        <meta name="robots" content="@yield('meta_robots')">
+        <title>@yield('title')</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

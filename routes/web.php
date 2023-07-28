@@ -52,5 +52,5 @@ Route::prefix('blog')->group(function () {
         Route::delete('/destroy', [BlogPostController::class, 'destroy'])->name('blog.destroy');
     });
 
-    Route::get('/{blog}', [BlogController::class, 'show'])->name('blog.show');
+    Route::get('/{blog}', [BlogPostController::class, 'index'])->name('blog.show');
 });
