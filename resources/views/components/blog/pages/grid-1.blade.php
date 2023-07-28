@@ -3,7 +3,7 @@
     'cols' => 3
 ])
 
-<div {{ $attributes->merge(['class' => 'grid md:grid-cols-1 gap-4'])->class([
+<div {{ $attributes->merge(['class' => 'grid grid-cols-1 md:px-32 place-contents-center gap-4'])->class([
 ]) }}>
     {{ $slot }}
 </div>

@@ -1,6 +1,6 @@
 <nav class="flex items-center justify-between flex-wrap bg-black p-6" x-data="{ open: false }">
     <div class="flex items-center flex-shrink-0 text-gray-100 mr-6">
-        <a href="{{ route('dashboard') }}">
+        <a href="{{ route('home') }}">
             <x-application-logo class="block h-9 w-auto fill-current text-gray-500" />
         </a>
     </div>
