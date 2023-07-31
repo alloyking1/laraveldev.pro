@@ -100,7 +100,7 @@
                         <x-input-error :messages="$errors->get('grade')" class="" />
                             <select name="grade" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
                                 <option value="#" disabled>Select Grade</option>
-                                @foreach (App\Enums\BLogPostGradeEnum::cases() as $item)
+                                @foreach (App\Enums\BlogPostGradeEnum::cases() as $item)
                                     @if($postValue->grade != NULL &&  $postValue->grade->name == $item->value)
                                         <option value="{{ $item }}" selected> {{ $item->value }}</option>
                                     @else
