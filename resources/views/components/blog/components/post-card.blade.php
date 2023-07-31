@@ -7,6 +7,8 @@
     'date',
     'route',
     'tagDetail' => null,
+    'userId' => null,
+    'postId' => null,
 ])
 
 <div {{ $attributes->merge(['class' => 'w-full rounded-xs bg-white shadow-sm rounded-md p-4 pb-0']) }}>
@@ -30,12 +32,24 @@
                 </div>
             </a>
 
-        {{-- <div class="py-4 text-blue-200">
-            {{-- fix error.. if auth user === post_user_id 
-           @if (Auth::user())
-               <a href="{{ $editRoute }}">Edit Post</a>
-           @endif
-        </div> --}}
+            <div class="flex justify-between">
+            <div class="text-blue-400 text-md p-4">
+                @if (Auth::id() === $userId)
+                    <a href="{{ $editRoute }}">Edit Post</a>
+                @endif
+            </div> 
+            <div class="py-4 text-red-500 text-md">
+            @if (Auth::user() && Auth::id() === $userId)
+
+                <form action="{{ route('blog.destroy', $postId) }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button type="submit">Delete</button>
+                </form>
+            @endif
+            </div> 
+            </div>
+
         </div>
 </div>
 

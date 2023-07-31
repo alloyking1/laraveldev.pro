@@ -11,7 +11,16 @@
             <x-blog.components.layout>
                 
                 @foreach (Auth::user()->posts as $post)
-                    <x-blog.components.post-card editRoute="{{ route('blog.edit', $post) }}" href="{{ route('blog.show', $post)}}" :title="$post->title" :excerpt="$post->excerpt" :userName="$post->user->name" :date="$post->updated_at" />
+                    <x-blog.components.post-card 
+                        editRoute="{{ route('blog.edit', $post) }}" 
+                        href="{{ route('blog.show', $post)}}" 
+                        :userId="$post->user_id" 
+                        :title="$post->title" 
+                        :excerpt="$post->excerpt" 
+                        :userName="$post->user->name" 
+                        :date="$post->updated_at" 
+                        :postId="$post->id"
+                    />
                 @endforeach
             </x-blog.components.layout>
         </div>

@@ -81,4 +81,9 @@ class BlogPostService
 
         return ($post->category());
     }
+
+    public function delete($postId)
+    {
+        return Post::find('id')->delete();
+    }
 }

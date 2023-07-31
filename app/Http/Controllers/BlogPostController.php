@@ -59,7 +59,10 @@ class BlogPostController extends Controller
         dd($update);
     }
 
-    public function destroy(BlogPostRequest $request, $post)
+    public function destroy($post)
     {
+        dd($post);
+        // $this->service->delete($post);
+        // return back()->with('success', 'Post deleted');
     }
 }
