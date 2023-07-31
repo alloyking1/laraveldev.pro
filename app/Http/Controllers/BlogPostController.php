@@ -56,13 +56,12 @@ class BlogPostController extends Controller
     public function update(BlogPostRequest $request, $post)
     {
         $update = $this->service->updatePost(BlogPostDto::fromPostRequest($request), $post);
-        dd($update);
+        return back()->with('success', 'Post updated successfully');
     }
 
     public function destroy($post)
     {
-        dd($post);
-        // $this->service->delete($post);
-        // return back()->with('success', 'Post deleted');
+        $this->service->delete($post);
+        return back()->with('success', 'Post deleted');
     }
 }
