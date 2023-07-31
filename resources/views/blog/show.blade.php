@@ -16,7 +16,7 @@
     @endif
 
     <x-blog.pages.section color="black" textColor="white" textSize="large">
-        <div class="px-32">
+        <div class="px-34">
             <div class="text-center grid place-content-center justify-center">
             <x-blog.text.text textSize="header2" color="white" value="{{ $post->title }}" class="font-black font-serif"/>
             <x-blog.text.text textSize="large"  color="gray" class="font-mono mt-8" value="{{ $post->excerpt }}"/>
