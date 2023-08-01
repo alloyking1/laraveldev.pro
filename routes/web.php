@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
@@ -52,4 +53,11 @@ Route::prefix('blog')->group(function () {
     });
 
     Route::get('/{blog}', [BlogPostController::class, 'index'])->name('blog.show');
+});
+
+Route::prefix('/category')->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::get('/list', [CategoryController::class, 'index'])->name('category.show');
+        Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
+    });
 });
