@@ -15,7 +15,8 @@
                             {{ $item->description }}
                         </td>
                         <td class="px-6 py-4 text-gray-900">
-                            {{ 'Click to edit '}}
+                            <x-blog.nav.link text="Tutorials" :link="route('pages.blog')" text="testingf"/> 
+                            {{-- {{ 'Click to edit '}} --}}
                         </td>
                     </tr>
                     @endforeach
