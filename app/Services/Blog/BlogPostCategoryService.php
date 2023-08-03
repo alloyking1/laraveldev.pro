@@ -27,15 +27,16 @@ class BlogPostCategoryService
         return $value;
     }
 
-    public function create(CategoryDto $dto)
+    public function updateOrCreate(CategoryDto $dto, $id = null)
     {
-        return Category::create([
-            'title' => $dto->title,
-            'description' => $dto->description
-        ]);
-    }
-
-    public function updateCategory()
-    {
+        return Category::updateOrCreate(
+            [
+                'id' => $id
+            ],
+            [
+                'title' => $dto->title,
+                'description' => $dto->description
+            ]
+        );
     }
 }

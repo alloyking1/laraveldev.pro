@@ -8,6 +8,7 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashBoardController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,9 +59,17 @@ Route::prefix('blog')->group(function () {
 Route::prefix('/category')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/list', [CategoryController::class, 'index'])->name('category.show');
-        Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
-        Route::post('/save', [CategoryController::class, 'save'])->name('category.save');
-        Route::get('/update/{Category}', [CategoryController::class, 'edit'])->name('category.update');
+        Route::get('/create/{id?}', [CategoryController::class, 'create'])->name('category.create');
+        Route::post('/save/{id?}', [CategoryController::class, 'save'])->name('category.save');
         Route::get('/delete', [CategoryController::class, 'destroy'])->name('category.delete');
+    });
+});
+
+Route::prefix('/tag')->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::get('/list', [TagController::class, 'index'])->name('tag.show');
+        Route::get('/create/{id?}', [TagController::class, 'create'])->name('tag.create');
+        Route::post('/save/{id?}', [TagController::class, 'save'])->name('tag.save');
+        Route::get('/delete', [TagController::class, 'destroy'])->name('tag.delete');
     });
 });

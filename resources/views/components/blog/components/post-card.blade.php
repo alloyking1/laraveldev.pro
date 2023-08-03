@@ -15,7 +15,7 @@
         <div class="w-11/12 mx-auto pb-10">
             @if($tagDetail)
                 @foreach ($tagDetail as $tag )
-                    <x-blog.components.post-tag :text="$tag->name" :color="array_rand(['sky' => 'sky','black' => 'black', 'green' => 'green', 'orange' => 'orange', 'blue' => 'blue'], 1)"/>
+                    <x-blog.components.post-tag :text="$tag->title" :color="array_rand(['sky' => 'sky','black' => 'black', 'green' => 'green', 'orange' => 'orange', 'blue' => 'blue'], 1)"/>
                 @endforeach
             @endif
             <a href="{{ $href }}">
@@ -34,7 +34,7 @@
 
             <div class="flex justify-between">
             <div class="text-blue-400 text-md p-4">
-                @if (Auth::id() === $userId)
+                @if (Auth::user() && Auth::id() === $userId)
                     <a href="{{ $editRoute }}">Edit Post</a>
                 @endif
             </div> 

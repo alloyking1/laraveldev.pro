@@ -19,15 +19,29 @@
   <x-blog.pages.section color="white" title="Recent Posts" textColor="black" textSize="large">
     <x-blog.pages.grid-5 class="mt-32">
         @foreach ($recentPost as $post)
-          <x-blog.components.post-card :tagDetail="$post->tag" editRoute="{{ route('blog.edit', $post) }}" href="{{ route('blog.show', $post)}}" :title="$post->title" :excerpt="$post->excerpt" :userName="$post->user->name" :date="$post->updated_at" />
+          @foreach ($post->post as $postValue )
+            <x-blog.components.post-card :tagDetail="$postValue->tag" editRoute="{{ route('blog.edit', $postValue) }}" href="{{ route('blog.show', $postValue)}}" :title="$postValue->title" :excerpt="$postValue->excerpt" :userName="$postValue->user->name" :date="$postValue->updated_at" />
+          @endforeach
         @endforeach
     </x-blog.pages.grid-5>
 </x-blog.pages.section>
 
 <x-blog.pages.section color="gray" title="Laravel Packages" textColor="black" textSize="large">
   <x-blog.pages.grid-3 class="mt-32">
-      @foreach ($recentPost as $post)
-        <x-blog.components.post-card :tagDetail="$post->tag" editRoute="{{ route('blog.edit', $post) }}" href="{{ route('blog.show', $post)}}" :title="$post->title" :excerpt="$post->excerpt" :userName="$post->user->name" :date="$post->updated_at" />
+      @foreach ($recentPackages as $post)
+        @foreach ($post->post as $postValue )
+          <x-blog.components.post-card :tagDetail="$postValue->tag" editRoute="{{ route('blog.edit', $postValue) }}" href="{{ route('blog.show', $postValue)}}" :title="$postValue->title" :excerpt="$postValue->excerpt" :userName="$postValue->user->name" :date="$postValue->updated_at" />
+        @endforeach
+      @endforeach
+  </x-blog.pages.grid-3>
+</x-blog.pages.section>
+
+<x-blog.pages.section color="lightGray" title="Laravel News" textColor="black" textSize="large">
+  <x-blog.pages.grid-3 class="mt-32">
+      @foreach ($recentNews as $post)
+        @foreach ($post->post as $postValue )
+          <x-blog.components.post-card :tagDetail="$postValue->tag" editRoute="{{ route('blog.edit', $postValue) }}" href="{{ route('blog.show', $postValue)}}" :title="$postValue->title" :excerpt="$postValue->excerpt" :userName="$postValue->user->name" :date="$postValue->updated_at" />
+        @endforeach
       @endforeach
   </x-blog.pages.grid-3>
 </x-blog.pages.section>

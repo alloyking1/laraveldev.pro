@@ -17,22 +17,22 @@
                     </ul>
                 @endif
             </div>
-
+            
             <div class="pb-8">
                 <x-blog.components.flash-message status="success" message="message"/>
                 <x-blog.components.flash-message status="error" message="dbError"/>
             </div>
 
-            <x-blog.components.card title="Create Category" subtitle="Use the form below to create a category..">
-            <form action="{{ route('category.save', ['id' => $category ? $category->id : null] ) }}" method="POST">
+            <x-blog.components.card title="Create Tag" subtitle="Use the form below to create a tag..">
+            <form action="{{ route('tag.save', ['id' => $tag ? $tag->id : null] ) }}" method="POST">
                 @csrf
                 <div class="mt-4">
-                    <x-text-input id="title" placeholder="title" class="block mt-1 w-full" type="text" name="title" :value="old('category', $category->title ?? '')" required autofocus autocomplete="category" />
+                    <x-text-input id="title" placeholder="title" class="block mt-1 w-full" type="text" name="title" :value="old('title', $tag->title ?? '')" required autofocus autocomplete="title" />
                     <x-input-error :messages="$errors->get('category')" class="mt-2" />
                 </div>
                 <div class="mt-4">
-                    <textarea placeholder="Enter Excerpt" :value="old('description', $category->description ?? '')" name="description" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="6" cols="30" type="text">
-                    {{ $category->description ?? '' }}
+                    <textarea placeholder="Enter Excerpt" :value="old('description', $tag->description ?? '')" name="description" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="6" cols="30" type="text">
+                    {{ $tag->description ?? '' }}
                     </textarea>
                     <x-input-error :messages="$errors->get('excerpt')" class="mt-2" />
                 </div>
@@ -41,7 +41,7 @@
                 <button
                     type="submit"
                     class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-2xl">
-                    Save category
+                    Save tag
                 </button>
                 </div>
             </form>

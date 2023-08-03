@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\DataTransferObjects\CategoryDto;
 use App\Http\Requests\CategoryRequest;
+use App\Models\Category;
 use App\Services\Blog\BlogPostCategoryService;
-use App\Services\Blog\BlogPostService;
 use Exception;
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -19,25 +18,21 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function create()
+    public function create($id = null)
     {
-        return view('blog.category.create');
+        return view('blog.category.create', [
+            'category' => $id ? Category::find($id) : ''
+        ]);
     }
 
     public function save(CategoryRequest $request)
     {
         try {
-            app(BlogPostCategoryService::class)->create(CategoryDto::fromCategoryRequest($request));
+            app(BlogPostCategoryService::class)->updateOrCreate(CategoryDto::fromCategoryRequest($request), $request->id);
             return redirect()->back()->with('message', 'category created successfully');
         } catch (Exception $e) {
             //write error to log file
             return back()->with('dbError', $e->getMessage());
         }
-    }
-
-    public function edit(CategoryRequest $request)
-    {
-        $categoryService = app(BlogPostCategoryService::class)->updateCategory(CategoryDto::fromCategoryRequest($request));
-        dd($categoryService);
     }
 }

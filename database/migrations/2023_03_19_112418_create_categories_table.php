@@ -20,13 +20,9 @@ return new class extends Migration
         });
 
         DB::table('categories')->insert([
-            ['title' => 'laravel', 'description' => ''],
-            ['title' => 'php', 'description' => ''],
-            ['title' => 'git', 'description' => ''],
-            ['title' => 'alpineJs', 'description' => ''],
-            ['title' => 'vueJS', 'description' => ''],
-            ['title' => 'livewire', 'description' => ''],
-            ['title' => 'alpineJs', 'description' => ''],
+            ['title' => 'News', 'description' => ''],
+            ['title' => 'Packages', 'description' => ''],
+            ['title' => 'Blog Post', 'description' => ''],
         ]);
     }
 

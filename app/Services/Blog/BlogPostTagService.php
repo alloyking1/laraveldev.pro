@@ -2,6 +2,7 @@
 
 namespace App\Services\Blog;
 
+use App\DataTransferObjects\TagDto;
 use App\Models\Tag;
 use App\Models\Post;
 
@@ -22,5 +23,18 @@ class BlogPostTagService
             }
         }
         return $value;
+    }
+
+    public function updateOrCreate(TagDto $dto, $id = null)
+    {
+        return Tag::updateOrCreate(
+            [
+                'id' => $id
+            ],
+            [
+                'title' => $dto->title,
+                'description' => $dto->description
+            ]
+        );
     }
 }

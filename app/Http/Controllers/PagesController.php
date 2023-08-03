@@ -12,9 +12,10 @@ class PagesController extends Controller
     }
     public function home()
     {
-        $recentPost = $this->blogPostService->recentPost(10);
         return view('blog.pages.home', [
-            'recentPost' => $recentPost
+            'recentPost' => $this->blogPostService->recentPost('tutorial', 10),
+            'recentPackages' => $this->blogPostService->recentPost('packages', 10),
+            'recentNews' => $this->blogPostService->recentPost('news', 10),
         ]);
     }
     public function blog()

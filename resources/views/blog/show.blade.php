@@ -23,7 +23,7 @@
                 <x-blog.pages.grid-1>
                     <div class="mt-4">
                         @foreach ($post->tag as $tag )
-                        <x-blog.components.post-tag :text="$tag->name" :color="array_rand(['sky' => 'sky', 'green' => 'green', 'orange' => 'orange', 'blue' => 'blue'], 1)"/>
+                        <x-blog.components.post-tag :text="$tag->title" :color="array_rand(['sky' => 'sky', 'green' => 'green', 'orange' => 'orange', 'blue' => 'blue'], 1)"/>
                     @endforeach
                     </div>
                 </x-blog.pages.grid-1>

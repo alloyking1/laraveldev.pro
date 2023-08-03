@@ -4,10 +4,10 @@
         
         <div class="max-w-7xl mx-auto w-full sm:px-6 lg:px-8">
             <x-blog.pages.grid-1>
-                <x-blog.btn.btn-primary href="{{ route('category.create') }}" text="New Category"/>
+                <x-blog.btn.btn-primary href="{{ route('tag.create') }}" text="New Tag"/>
                 <x-blog.components.admin-table :th="['title', 'description', 'edit']">
                     
-                    @foreach ($category as $item)
+                    @foreach ($tag as $item)
                     <tr class="bg-white border-b">
                         <td class="px-6 py-4 text-gray-900">
                             {{ $item->title }}
@@ -16,7 +16,7 @@
                             {{ $item->description }}
                         </td>
                         <td class="px-6 py-4 text-gray-900">
-                            <x-blog.nav.link text="Tutorials" link="{{ route('category.create', $item->id) }}" text="Edit"/> 
+                            <x-blog.nav.link text="Tutorials" link="{{ route('tag.create', $item->id) }}" text="Edit"/> 
                         </td>
                     </tr>
                     @endforeach

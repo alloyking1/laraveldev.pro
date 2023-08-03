@@ -3,6 +3,7 @@
 namespace App\Services\Blog;
 
 use App\DataTransferObjects\BlogPostDto;
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\PostGrade;
 use App\Models\PostMeta;
@@ -14,9 +15,13 @@ class BlogPostService
         return Post::orderBy('id', 'desc')->paginate($paginate);
     }
 
-    public function recentPost($limit = 10)
+    public function recentPost($category = null, $limit = 10)
     {
-        return Post::with('tag')->orderBy('created_at', 'desc')->limit($limit)->get();
+        if (!$category == null) {
+            return $test = Category::with('post')->where('title', $category)->limit($limit)->get();
+        } else {
+            return Post::with('tag')->orderBy('created_at', 'desc')->limit($limit)->get();
+        }
     }
 
     public function getPost($id)
