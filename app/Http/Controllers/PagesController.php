@@ -13,23 +13,32 @@ class PagesController extends Controller
     public function home()
     {
         return view('blog.pages.home', [
-            'recentPost' => $this->blogPostService->recentPost('tutorial', 10),
-            'recentPackages' => $this->blogPostService->recentPost('packages', 10),
-            'recentNews' => $this->blogPostService->recentPost('news', 10),
+            'recentPost' => $this->blogPostService->recentPost('tutorial', 5),
+            'recentPackages' => $this->blogPostService->recentPost('packages', 5),
+            'recentNews' => $this->blogPostService->recentPost('news', 5),
         ]);
     }
+
+    public function tutorial()
+    {
+        return view('blog.pages.list-post-by-category', [
+            'data' => $this->blogPostService->recentPost('tutorial', 1),
+            'title' => 'Tutorials'
+        ]);
+    }
+
     public function blog()
     {
-        return view('blog.index', [
-            'posts' => $this->blogPostService->allPost(10)
+        return view('blog.pages.list-post-by-category', [
+            'data' => $this->blogPostService->recentPost('blog', 1),
+            'title' => 'Blog'
         ]);
     }
     public function packages()
     {
-        return view('blog.pages.home');
-    }
-    public function tutorial()
-    {
-        return view('blog.pages.home');
+        return view('blog.pages.list-post-by-category', [
+            'data' => $this->blogPostService->recentPost('news', 1),
+            'title' => 'Packages'
+        ]);
     }
 }

@@ -15,13 +15,19 @@ class BlogPostService
         return Post::orderBy('id', 'desc')->paginate($paginate);
     }
 
-    public function recentPost($category = null, $limit = 10)
+    public function recentPost($category = null, $limit = 5, $paginate = null)
     {
-        if (!$category == null) {
-            return $test = Category::with('post')->where('title', $category)->limit($limit)->get();
-        } else {
-            return Post::with('tag')->orderBy('created_at', 'desc')->limit($limit)->get();
-        }
+        // if (!$category == null) {
+        return $categoryPost = Category::with('post')->where('title', $category)->take($limit)->get();
+        // foreach ($categoryPost as $post) {
+        //     return ($post->post);
+        // }
+        // return $post->paginate();
+        // dd($categoryPost->post);
+        // return $categoryPost->post->paginate(5);
+        // } else {
+        //     return Post::with('tag')->orderBy('created_at', 'desc')->limit($limit)->get();
+        // }
     }
 
     public function getPost($id)

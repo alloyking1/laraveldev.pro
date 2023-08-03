@@ -16,7 +16,7 @@
   </div>
   </x-blog.pages.section>
 
-  <x-blog.pages.section color="white" title="Recent Posts" textColor="black" textSize="large">
+  <x-blog.pages.section color="white" title="Recent Tutorials" textColor="black" textSize="large">
     <x-blog.pages.grid-5 class="mt-32">
         @foreach ($recentPost as $post)
           @foreach ($post->post as $postValue )

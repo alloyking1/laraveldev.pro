@@ -17,11 +17,14 @@
         <a href="{{ route('home') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer">
           <x-blog.text.text color="white" textSize="x-small" value="Home"/>
         </a>
+        <a href="{{ route('pages.tutorial') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer">
+          <x-blog.text.text color="white" textSize="x-small" value="Tutorials"/>
+        </a>
+        <a href="{{ route('pages.packages') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer">
+          <x-blog.text.text color="white" textSize="x-small" value="Packages"/>
+        </a>
         <a href="{{ route('pages.blog') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer">
           <x-blog.text.text color="white" textSize="x-small" value="Blog"/>
-        </a>
-        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer">
-          <x-blog.text.text color="white" textSize="x-small" value="Packages"/>
         </a>
          {{-- <x-blog.nav.link text="Tutorials" link="{{ route('pages.blog') }}"/> --}}
         </div>
@@ -36,11 +39,14 @@
         <a href="{{ route('home') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer">
           <x-blog.text.text color="white" textSize="x-small" value="Home"/>
         </a>
+        <a href="{{ route('pages.tutorial') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer">
+          <x-blog.text.text color="white" textSize="x-small" value="Tutorials"/>
+        </a>
+        <a href="{{ route('pages.packages') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer">
+          <x-blog.text.text color="white" textSize="x-small" value="Packages"/>
+        </a>
         <a href="{{ route('pages.blog') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer">
           <x-blog.text.text color="white" textSize="x-small" value="Blog"/>
-        </a>
-        <a href="#" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer">
-          <x-blog.text.text color="white" textSize="x-small" value="Packages"/>
         </a>
       </div>
       {{-- <div>
