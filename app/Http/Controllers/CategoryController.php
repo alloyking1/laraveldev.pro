@@ -6,6 +6,7 @@ use App\DataTransferObjects\CategoryDto;
 use App\Http\Requests\CategoryRequest;
 use App\Services\Blog\BlogPostCategoryService;
 use App\Services\Blog\BlogPostService;
+use Exception;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -20,7 +21,18 @@ class CategoryController extends Controller
 
     public function create()
     {
-        dd('create');
+        return view('blog.category.create');
+    }
+
+    public function save(CategoryRequest $request)
+    {
+        try {
+            app(BlogPostCategoryService::class)->create(CategoryDto::fromCategoryRequest($request));
+            return redirect()->back()->with('message', 'category created successfully');
+        } catch (Exception $e) {
+            //write error to log file
+            return ($e);
+        }
     }
 
     public function edit(CategoryRequest $request)

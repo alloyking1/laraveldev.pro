@@ -2,6 +2,7 @@
 
 namespace App\Services\Blog;
 
+use App\DataTransferObjects\CategoryDto;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Facades\DB;
@@ -24,5 +25,17 @@ class BlogPostCategoryService
         }
 
         return $value;
+    }
+
+    public function create(CategoryDto $dto)
+    {
+        return Category::create([
+            'title' => $dto->title,
+            'description' => $dto->description
+        ]);
+    }
+
+    public function updateCategory()
+    {
     }
 }

@@ -6,15 +6,15 @@ use App\Http\Requests\CategoryRequest;
 
 class CategoryDto
 {
-    public function __construct(protected $title, protected $description)
+    public function __construct(public string $title, public string $description)
     {
     }
 
     public static function fromCategoryRequest(CategoryRequest $request)
     {
         return new self(
-            title: $request->title(),
-            description: $request->description(),
+            title: $request->validated('title'),
+            description: $request->validated('description'),
         );
     }
 }

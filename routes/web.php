@@ -59,8 +59,8 @@ Route::prefix('/category')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/list', [CategoryController::class, 'index'])->name('category.show');
         Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
-        Route::post('/create', [CategoryController::class, 'save'])->name('category.create');
-        Route::get('/update', [CategoryController::class, 'edit'])->name('category.update');
+        Route::post('/save', [CategoryController::class, 'save'])->name('category.save');
+        Route::get('/update/{Category}', [CategoryController::class, 'edit'])->name('category.update');
         Route::get('/delete', [CategoryController::class, 'destroy'])->name('category.delete');
     });
 });

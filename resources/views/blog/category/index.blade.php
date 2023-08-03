@@ -1,11 +1,12 @@
 <x-app-layout>
 
     <div class="py-12">
-        <x-blog.btn.btn-primary href="{{ route('category.create') }}" text="New Category"/>
+        
         <div class="max-w-7xl mx-auto w-full sm:px-6 lg:px-8">
             <x-blog.pages.grid-1>
-
+                <x-blog.btn.btn-primary href="{{ route('category.create') }}" text="New Category"/>
                 <x-blog.components.admin-table :th="['title', 'description', 'edit']">
+                    
                     @foreach ($category as $item)
                     <tr class="bg-white border-b">
                         <td class="px-6 py-4 text-gray-900">
@@ -15,8 +16,10 @@
                             {{ $item->description }}
                         </td>
                         <td class="px-6 py-4 text-gray-900">
-                            <x-blog.nav.link text="Tutorials" :link="route('pages.blog')" text="testingf"/> 
-                            {{-- {{ 'Click to edit '}} --}}
+                            {{-- <x-blog.nav.link text="Tutorials" :link="route('pages.blog')" text="Edit"/>  --}}
+                                <a href="route('category.edit', ['id' => $item->id])" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer">
+                                    <x-blog.text.text color="gray-300" textSize="x-small" value="Edit"/>
+                                </a>
                         </td>
                     </tr>
                     @endforeach

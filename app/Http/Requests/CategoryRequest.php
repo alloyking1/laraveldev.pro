@@ -23,7 +23,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'title' => 'required | string | max:55',
-            'description' => 'optional | string | max: 100'
+            'description' => 'sometimes | string | max: 100'
         ];
     }
 }
