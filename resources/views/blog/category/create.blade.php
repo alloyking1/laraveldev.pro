@@ -19,11 +19,8 @@
             </div>
 
             <div class="pb-8">
-                @if (session()->has('message'))
-                    <div class="bg-green-500 text-white font-bold rounded-t px-4">
-                        {{ session()->get('message') }}
-                    </div>
-                @endif
+                <x-blog.components.flash-message status="success" message="message"/>
+                <x-blog.components.flash-message status="error" message="dbError"/>
             </div>
 
             <x-blog.components.card title="Create Category" subtitle="Use the form below to create a category..">

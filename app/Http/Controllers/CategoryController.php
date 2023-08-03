@@ -31,7 +31,7 @@ class CategoryController extends Controller
             return redirect()->back()->with('message', 'category created successfully');
         } catch (Exception $e) {
             //write error to log file
-            return ($e);
+            return back()->with('dbError', $e->getMessage());
         }
     }
 
