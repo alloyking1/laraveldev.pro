@@ -10,7 +10,7 @@
     'bg-black' => $color === 'black', 
     'bg-gray-100' => $color === 'white',
     'bg-gray-200' => $color === 'gray',
-    'bg-gray-50' => $color === 'logoGreen',
+    'bg-gray-50' => $color === 'lightGray',
     'bg-[rgb(240 250 249/var(--tw-bg-opacity))]' => $color === 'green',
     
     'bg-blue-900' => $color === 'blue',
