@@ -4,42 +4,46 @@ namespace App\Http\Controllers;
 
 use App\Services\Blog\BlogPostService;
 use Illuminate\Http\Request;
+use App\Enums\BlogPostCategoryEnum;
 
 class PagesController extends Controller
 {
+    public $paginate = 10;
+    public $recentPostPaginate = 5;
+
     public function __construct(protected BlogPostService $blogPostService)
     {
     }
+
     public function home()
     {
         return view('blog.pages.home', [
-            //fetch constants from enum class
-            'recentPost' => $this->blogPostService->recentPost('tutorial', 5),
-            'recentPackages' => $this->blogPostService->recentPost('packages', 5),
-            'recentNews' => $this->blogPostService->recentPost('news', 5),
+            'recentPost' => $this->blogPostService->recentPost(BlogPostCategoryEnum::TUTORIAL, $this->recentPostPaginate),
+            'recentPackages' => $this->blogPostService->recentPost(BlogPostCategoryEnum::PACKAGES, $this->recentPostPaginate),
+            'recentNews' => $this->blogPostService->recentPost(BlogPostCategoryEnum::BLOG, $this->recentPostPaginate),
         ]);
     }
 
     public function tutorial()
     {
         return view('blog.pages.list-post-by-category', [
-            'data' => $this->blogPostService->recentPost('tutorial', 1),
-            'title' => 'Tutorials'
+            'data' => $this->blogPostService->recentPost(BlogPostCategoryEnum::TUTORIAL, $this->paginate),
+            'title' => BlogPostCategoryEnum::TUTORIAL
         ]);
     }
 
     public function blog()
     {
         return view('blog.pages.list-post-by-category', [
-            'data' => $this->blogPostService->recentPost('blog', 1),
-            'title' => 'Blog'
+            'data' => $this->blogPostService->recentPost(BlogPostCategoryEnum::BLOG, $this->paginate),
+            'title' => BlogPostCategoryEnum::BLOG
         ]);
     }
     public function packages()
     {
         return view('blog.pages.list-post-by-category', [
-            'data' => $this->blogPostService->recentPost('news', 1),
-            'title' => 'Packages'
+            'data' => $this->blogPostService->recentPost(BlogPostCategoryEnum::PACKAGES, $this->paginate),
+            'title' => BlogPostCategoryEnum::PACKAGES
         ]);
     }
 }

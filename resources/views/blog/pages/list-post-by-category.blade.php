@@ -12,7 +12,7 @@
         </x-blog.pages.grid-5>
         <x-blog.pages.grid-1>
             <x-blog.components.paginate>
-                {{-- {{ $data->links() }} --}}
+                {{-- {{ $post->post->links() }} --}}
             </x-blog.components.paginate>
         </x-blog.pages.grid-1>
     </x-blog.pages.section>

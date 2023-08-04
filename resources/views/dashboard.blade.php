@@ -20,6 +20,7 @@
                         :userName="$post->user->name" 
                         :date="$post->updated_at" 
                         :postId="$post->id"
+                        :tagDetail="$post->tag"
                     />
                 @endforeach
             </x-blog.components.layout>

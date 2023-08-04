@@ -20,9 +20,10 @@ return new class extends Migration
         });
 
         DB::table('categories')->insert([
-            ['title' => 'News', 'description' => ''],
-            ['title' => 'Packages', 'description' => ''],
-            ['title' => 'Blog Post', 'description' => ''],
+            ['title' => 'blog', 'description' => ''],
+            ['title' => 'tutorial', 'description' => ''],
+            ['title' => 'packages', 'description' => ''],
+            ['title' => 'laravel_the_right_way', 'description' => ''],
         ]);
     }
 

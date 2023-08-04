@@ -14,6 +14,7 @@ class Category extends Model
 
     public function post()
     {
-        return $this->belongsToMany(Post::class, 'post_category');
+        $result =  $this->belongsToMany(Post::class, 'post_category')->latest();
+        return $result;
     }
 }

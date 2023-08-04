@@ -42,7 +42,7 @@
                             </div>
                             <div class="mt-1">
                                 <x-input-error :messages="$errors->get('category')" class="" />
-                                <select name="category" multiple class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
+                                <select name="category" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
                                     
                                     <option value="#" disabled>Select Category</option>
                                     @foreach ($category as $otherCategories)
@@ -58,13 +58,13 @@
 
                             <div class="mt-1">
                                 <x-input-error :messages="$errors->get('tag')" class="" />
-                                    <select name="tag" multiple class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
+                                    <select name="tag" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
                                         <option value="#" disabled>Select Tag</option>
                                             @foreach ($tag as $selectedTag )
-                                                @if (in_array($selectedTag->name, array_values($selectedTags)))
-                                                    <option value="{{ $selectedTag->id }}" selected> {{ $selectedTag->name }}</option>
+                                                @if (in_array($selectedTag->title, array_values($selectedTags)))
+                                                    <option value="{{ $selectedTag->id }}" selected> {{ $selectedTag->title }}</option>
                                                 @else
-                                                    <option value="{{ $selectedTag->id }}"> {{ $selectedTag->name }}</option>
+                                                    <option value="{{ $selectedTag->id }}"> {{ $selectedTag->title }}</option>
                                                 @endif
                                             @endforeach
                                     </select>

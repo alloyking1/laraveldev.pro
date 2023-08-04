@@ -15,20 +15,22 @@ class BlogPostService
         return Post::orderBy('id', 'desc')->paginate($paginate);
     }
 
-    public function recentPost($category = null, $limit = 5, $paginate = null)
+    /**
+     * Returns a category with all
+     * its post
+     *
+     * @param [type] $category
+     * @param integer $paginate
+     * @return void
+     */
+    public function recentPost($category = null, $paginate = 5)
     {
-        // if (!$category == null) {
-        return $categoryPost = Category::with('post')->where('title', $category)->take($limit)->get();
-        // foreach ($categoryPost as $post) {
-        //     return ($post->post);
-        // }
-        // return $post->paginate();
-        // dd($categoryPost->post);
-        // return $categoryPost->post->paginate(5);
-        // } else {
-        //     return Post::with('tag')->orderBy('created_at', 'desc')->limit($limit)->get();
-        // }
+        return Category::with(['post' => function ($query) use ($paginate) {
+            $query->paginate($paginate);
+        }])->where('title', $category)->get();
     }
+
+
 
     public function getPost($id)
     {
@@ -75,8 +77,8 @@ class BlogPostService
             'body' => $postDto->body,
         ]);
 
-        $post->category()->attach($postDto->category);
-        $post->tag()->attach($postDto->tag);
+        $post->category()->sync($postDto->category);
+        $post->tag()->sync($postDto->tag);
 
         PostMeta::where('post_id', $post->id)->update([
             'post_id' => $post->id,

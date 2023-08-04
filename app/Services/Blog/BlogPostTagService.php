@@ -19,7 +19,7 @@ class BlogPostTagService
         $tags = Post::with('tag')->where('id', $id)->get();
         foreach ($tags as $val) {
             foreach ($val->tag as $each) {
-                array_push($value, $each->name);
+                array_push($value, $each->title);
             }
         }
         return $value;
