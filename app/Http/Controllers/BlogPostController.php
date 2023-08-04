@@ -32,7 +32,7 @@ class BlogPostController extends Controller
     {
         return view('blog.create', [
             'category' => Category::get(),
-            'tag' => Tag::get(),
+            'tag' => $this->tag->allTags(),
         ]);
     }
 

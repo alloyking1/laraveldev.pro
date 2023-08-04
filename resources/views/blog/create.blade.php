@@ -49,10 +49,10 @@
                     </div>
                     <div class="mt-1">
                         <x-input-error :messages="$errors->get('tag')" class="" />
-                            <select name="tag" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
+                            <select name="tag" multiple class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
                                 <option value="#" disabled>Select Tag</option>
                                 @foreach ($tag as $item)
-                                    <option value="{{ $item->id }}"> {{ $item->name }}</option>
+                                    <option value="{{ $item->id }}"> {{ $item->title }}</option>
                                 @endforeach
                             </select>
                     </div>
@@ -87,7 +87,7 @@
                         <x-input-error :messages="$errors->get('tag')" class="" />
                             <select name="grade" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" id="">
                                 <option value="#" disabled selected hidden>Select Tag</option>
-                                @foreach (App\Enums\BLogPostGradeEnum::cases() as $item)
+                                @foreach (App\Enums\BlogPostGradeEnum::cases() as $item)
                                     <option value="{{ $item }}"> {{ $item }}</option>
                                 @endforeach
                             </select>

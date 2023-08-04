@@ -13,6 +13,7 @@ class PagesController extends Controller
     public function home()
     {
         return view('blog.pages.home', [
+            //fetch constants from enum class
             'recentPost' => $this->blogPostService->recentPost('tutorial', 5),
             'recentPackages' => $this->blogPostService->recentPost('packages', 5),
             'recentNews' => $this->blogPostService->recentPost('news', 5),
