@@ -48,8 +48,8 @@ class BlogPostService
             'body' => $postDto->body,
         ]);
 
-        $post->category()->syncWithoutDetaching($postDto->category); //make a multi select form
-        $post->tag()->syncWithoutDetaching($postDto->tag); //make a multi select form by passing multiple id's to sync method
+        $post->category()->sync($postDto->category); //make a multi select form
+        $post->tag()->sync($postDto->tag); //make a multi select form by passing multiple id's to sync method
 
         $post->meta()->create([
             'post_id' => $post->id,
