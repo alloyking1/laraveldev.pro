@@ -53,7 +53,7 @@ Route::prefix('blog')->group(function () {
         Route::post('/destroy/{Post}', [BlogPostController::class, 'destroy'])->name('blog.destroy');
     });
 
-    Route::get('/{blog}', [BlogPostController::class, 'index'])->name('blog.show');
+    Route::get('/{slog}', [BlogPostController::class, 'index'])->name('blog.show');
 });
 
 Route::prefix('/category')->group(function () {

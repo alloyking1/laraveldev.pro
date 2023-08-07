@@ -32,9 +32,9 @@ class BlogPostService
 
 
 
-    public function getPost($id)
+    public function getPost($searchValue)
     {
-        $postWithRelationships = Post::with(['category', 'tag', 'grade', 'meta'])->where('id', $id)->get();
+        $postWithRelationships = Post::with(['category', 'tag', 'grade', 'meta'])->where('id', $searchValue)->orWhere('slog', $searchValue)->get();
         return $postWithRelationships;
     }
 
@@ -69,10 +69,10 @@ class BlogPostService
 
     public function updatePost(BlogPostDto $postDto, $blogPost)
     {
-        //refactor into a single function with create
         $post = tap(Post::find($blogPost))->update([
             'title' => $postDto->title,
             'excerpt' => $postDto->excerpt,
+            'slog' => $postDto->slog,
             'min_to_read' => $postDto->min_to_read,
             'body' => $postDto->body,
         ]);

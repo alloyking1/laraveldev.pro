@@ -12,7 +12,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'title', 'excerpt', 'body', 'image_path', 'is_published', 'min_to_read'
+        'user_id', 'title', 'excerpt', 'slog', 'body', 'image_path', 'is_published', 'min_to_read'
     ];
 
     protected $cast = [

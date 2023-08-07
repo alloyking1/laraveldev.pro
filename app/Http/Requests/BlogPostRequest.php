@@ -25,6 +25,7 @@ class BlogPostRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'excerpt' => ['required', 'string', 'max:555'],
+            'slog' => ['required', 'string', 'max:555'],
             'min_to_read' => ['required', 'integer'],
             'category' => ['required', 'integer'],
             'tag' => ['required', 'integer'],

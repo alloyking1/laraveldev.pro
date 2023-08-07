@@ -13,7 +13,7 @@
                 @foreach (Auth::user()->posts as $post)
                     <x-blog.components.post-card 
                         editRoute="{{ route('blog.edit', $post) }}" 
-                        href="{{ route('blog.show', $post)}}" 
+                        href="{{ route('blog.show', $post->slog)}}" 
                         :userId="$post->user_id" 
                         :title="$post->title" 
                         :excerpt="$post->excerpt" 

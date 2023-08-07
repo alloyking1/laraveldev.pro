@@ -20,10 +20,10 @@ class BlogPostController extends Controller
     }
 
 
-    public function index(string $id)
+    public function index(string $slog)
     {
         return view('blog.show', [
-            'postDetail' => $this->service->getPost($id)
+            'postDetail' => $this->service->getPost($slog)
         ]);
     }
 
