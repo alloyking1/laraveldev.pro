@@ -25,10 +25,32 @@
                 enctype="multipart/form-data">
                 @csrf
 
-                <div class="mt-4">
+                {{-- <div class="mt-4">
                     <x-text-input id="title" placeholder="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus autocomplete="title" />
                     <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                </div> --}}
+
+                <div x-data="{
+                    postTitle:'',
+                    makeSlog(slogText){
+                        var slog = this.postTitle.replace(/\s+/g, '-').toLowerCase()
+                        return slog
+                    }
+                }">
+
+                    <div class="mt-4">
+                        <x-text-input id="title" placeholder="title" class="block mt-1 w-full" type="text" name="title" x-model="postTitle" :value="old('title' )" required autofocus autocomplete="title" />
+                        <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                    </div>
+                    <div class="mt-4">
+                        <x-text-input x-model="makeSlog(postTitle)"  class="block mt-1 w-full" type="text" id="slog" name="slog" />
+                        <x-input-error :messages="$errors->get('slog')" class="mt-2" />
+                    </div>
                 </div>
+
+
+
+
                 <div class="mt-4">
                     <textarea placeholder="Enter Excerpt" :value="old('excerpt')" name="excerpt" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="6" cols="80" type="text"></textarea>
                     <x-input-error :messages="$errors->get('excerpt')" class="mt-2" />

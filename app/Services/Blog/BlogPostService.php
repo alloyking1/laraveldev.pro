@@ -44,6 +44,7 @@ class BlogPostService
             'user_id' => auth()->user()->id,
             'title' => $postDto->title,
             'excerpt' => $postDto->excerpt,
+            'slog' => $postDto->slog,
             'min_to_read' => $postDto->min_to_read,
             'body' => $postDto->body,
         ]);
