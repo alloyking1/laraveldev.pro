@@ -22,11 +22,10 @@ use App\Http\Controllers\TagController;
 */
 
 Route::get('/', [PagesController::class, 'home'])->name('home');
-Route::prefix('/pages')->group(function () {
-    Route::get('/blog', [PagesController::class, 'blog'])->name('pages.blog');
-    Route::get('/tutorial', [PagesController::class, 'tutorial'])->name('pages.tutorial');
-    Route::get('/packages', [PagesController::class, 'packages'])->name('pages.packages');
-});
+Route::get('/blog-post', [PagesController::class, 'blog'])->name('blog-post');
+Route::get('/tutorial', [PagesController::class, 'tutorial'])->name('tutorial');
+Route::get('/packages', [PagesController::class, 'packages'])->name('packages');
+
 
 
 

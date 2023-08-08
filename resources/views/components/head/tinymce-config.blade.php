@@ -18,6 +18,9 @@ tinymce.init({
   autosave_restore_when_empty: false,
   autosave_retention: '2m',
   image_advtab: true,
+  // extended_valid_elements: 'img[class=myclass|!src|border:0|alt|title|width|height|style],h1[style|class],h2[style|class],h3[style|class],h4[style|class],p[style|class],a[style|class|href|id|name|target|title],ul[style|class],ol[style|class],li[style|class],span[style|class|id],div[style|class|id],i[style|class],strong,b,br,sup,sub,em,hr,blockquote,pre,img[style|class|src|alt|width|height],video[controls|width|height],iframe[width|height|src|frameborder|allow|allowfullscreen],code,small',
+  // invalid_elements: 'strong,b,em,i',
+  // content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
   link_list: [
     { title: 'My page 1', value: 'https://www.tiny.cloud' },
     { title: 'My page 2', value: 'http://www.moxiecode.com' }

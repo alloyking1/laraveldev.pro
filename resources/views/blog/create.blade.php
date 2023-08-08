@@ -25,11 +25,7 @@
                 enctype="multipart/form-data">
                 @csrf
 
-                {{-- <div class="mt-4">
-                    <x-text-input id="title" placeholder="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus autocomplete="title" />
-                    <x-input-error :messages="$errors->get('title')" class="mt-2" />
-                </div> --}}
-
+                {{-- modify into a component --}}
                 <div x-data="{
                     postTitle:'',
                     makeSlog(slogText){
