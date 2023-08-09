@@ -9,10 +9,12 @@
             $meta_keywords = $post->meta->meta_keywords;
             $meta_robots = $post->meta->meta_robots
         @endphp
-        @section('title', "$post->title")
-        @section('meta_description', "$meta_description") 
-        @section('meta_keywords', "$meta_keywords")
-        @section('meta_robots', "$meta_robots")
+        <x-blog.seo.page-meta
+            :title="$post->title"
+            :description="$meta_description"
+            :keywords="$meta_keywords"
+            :robots="$meta_robots"
+        />
     @endif
 
     <x-blog.pages.section color="black" textColor="white" textSize="large">

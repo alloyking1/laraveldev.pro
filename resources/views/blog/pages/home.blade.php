@@ -1,4 +1,11 @@
 <x-guest-layout>
+  <x-blog.seo.page-meta
+    title="Laraveldev.pro"
+    description="providing laravel coding tutorials for laravel developers "
+    keywords="laravel,coding,tallstack,livewire,laraveldeveloper,laravel jobs, laravel news"
+    robots="laravel,coding,tallstack,livewire,laraveldeveloper,laravel jobs, laravel news"
+  />
+
   <x-blog.pages.section color="green" textColor="black" textSize="large">
     <div class="px-32 py-16">
     <div class="text-center grid place-content-center justify-center">

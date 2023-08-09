@@ -1,4 +1,10 @@
 <x-guest-layout>
+    <x-blog.seo.page-meta
+    title="Laraveldev.pro"
+    description="providing laravel coding tutorials for laravel developers "
+    keywords="laravel,coding,tallstack,livewire,laraveldeveloper,laravel jobs, laravel news"
+    robots="laravel,coding,tallstack,livewire,laraveldeveloper,laravel jobs, laravel news"
+  />
     <x-blog.pages.section color="white" title="{{ $title }}" textColor="black" textSize="large">
         <x-blog.pages.grid-5 class="mt-32">
         @foreach ($data as $post)
