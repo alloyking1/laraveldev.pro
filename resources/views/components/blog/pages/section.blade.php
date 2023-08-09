@@ -6,7 +6,7 @@
     'sub-title'=> null
 ])
 
-<div {{ $attributes->merge(['class' => 'h-full md:p-32 p-12'])->class([
+<div {{ $attributes->merge(['class' => 'h-auto md:p-32 p-12'])->class([
     'bg-black' => $color === 'black', 
     'bg-gray-100' => $color === 'white',
     'bg-gray-200' => $color === 'gray',
