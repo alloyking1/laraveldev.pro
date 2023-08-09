@@ -16,10 +16,10 @@
     @endif
 
     <x-blog.pages.section color="black" textColor="white" textSize="large">
-        <div class="px-34">
+        <div class="px-42">
             <div class="text-center grid place-content-center justify-center">
             <x-blog.text.text textSize="header2" color="white" value="{{ $post->title }}" class="font-black font-serif"/>
-            <x-blog.text.text textSize="large"  color="gray" class="font-mono mt-8" value="{{ $post->excerpt }}"/>
+            <x-blog.text.text textSize="medium"  color="gray" class="font-mono mt-8" value="{{ $post->excerpt }}"/>
                 <x-blog.pages.grid-1>
                     <div class="mt-4">
                         @foreach ($post->tag as $tag )
