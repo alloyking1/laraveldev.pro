@@ -11,7 +11,6 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <x-head.tinymce-config/>
-        <link rel="stylesheet" href="{{ asset('/prism.css') }}">
 
     </head>
     <body class="font-sans antialiased">
@@ -29,6 +28,8 @@
                 {{ $slot }}
             </main>
         </div>
-        <script src="{{ asset('/prism.js') }}"></script>
     </body>
 </html>
+
+
+
