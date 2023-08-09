@@ -73,7 +73,11 @@ Route::prefix('/tag')->group(function () {
     });
 });
 
-/**site map route */
+/**
+ * 
+ * site map route
+ * generate artisan command for this
+ * */
 Route::get('/site-map', function () {
     $path = 'public/sitemap.xml';
     SitemapGenerator::create('https://laraveldev.pro')->writeToFile(public_path('sitemap.xml'));
