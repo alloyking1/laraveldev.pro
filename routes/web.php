@@ -9,7 +9,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\TagController;
-
+use Spatie\Sitemap\SitemapGenerator;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,4 +71,10 @@ Route::prefix('/tag')->group(function () {
         Route::post('/save/{id?}', [TagController::class, 'save'])->name('tag.save');
         Route::get('/delete', [TagController::class, 'destroy'])->name('tag.delete');
     });
+});
+
+/**site map route */
+Route::get('/site-map', function () {
+    $path = 'public/sitemap.xml';
+    SitemapGenerator::create('https://laraveldev.pro')->writeToFile(public_path('sitemap.xml'));
 });
