@@ -8,7 +8,7 @@ use App\Enums\BlogPostCategoryEnum;
 
 class PagesController extends Controller
 {
-    public $paginate = 10;
+    public $paginate = 3;
     public $recentPostPaginate = 5;
 
     public function __construct(protected BlogPostService $blogPostService)

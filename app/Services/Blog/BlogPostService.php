@@ -25,7 +25,7 @@ class BlogPostService
      */
     public function recentPost($category = null, $paginate = 5)
     {
-        return Category::with(['post' => function ($query) use ($paginate) {
+        return $post = Category::with(['post' => function ($query) use ($paginate) {
             $query->paginate($paginate);
         }])->where('title', $category)->get();
     }
