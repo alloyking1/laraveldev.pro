@@ -1,4 +1,4 @@
-<!DOCTYPE html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
     <head>
        <x-blog.seo.google-analytics/>
         <meta charset="utf-8">
