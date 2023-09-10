@@ -23,7 +23,7 @@ class BlogPostService
      * @param integer $paginate
      * @return void
      */
-    public function recentPost($category = null, $paginate = 5)
+    public function recentPost($category = null, $paginate = 30)
     {
         return $post = Category::with(['post' => function ($query) use ($paginate) {
             $query->paginate($paginate);

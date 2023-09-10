@@ -15,7 +15,7 @@
         </x-blog.pages.grid-5>
         <x-blog.pages.grid-1>
             <x-blog.components.paginate>
-                {{ $post->post->paginate(10) }}
+                {{-- {{ $post->post->paginate(10) }} --}}
             </x-blog.components.paginate>
         </x-blog.pages.grid-1>
     </x-blog.pages.section>
