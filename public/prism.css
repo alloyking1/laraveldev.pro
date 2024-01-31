@@ -16,6 +16,22 @@ code{
 }
 a{
     color:green;
+    text-decoration: underline;
+}
+a:hover{
+    background-color: #0b3;
+    color:white
+}
+h1,h2,h3,h4,h5,h6{
+    line-height: 1.5;
+    padding-bottom:1rem;
+    padding-top:1rem;
+    color:#111827
+}
+p{
+    font-size:18px;
+    line-height: 1.5;
+    color:#4b5563;
 }
 code[class*="language-"],
 pre[class*="language-"] {
@@ -24,6 +40,7 @@ pre[class*="language-"] {
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
     font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
     font-size: 1em;
+    /* line-height: 1; */
     text-align: left;
     white-space: pre;
     word-spacing: normal;
