@@ -1,4 +1,4 @@
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/v79e2nvui0kiqxefs2ysre1nm2fi8sf5o47ctlhsq3qanec4/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
 <script>
 const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
