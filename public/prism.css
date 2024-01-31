@@ -16,12 +16,9 @@ code{
 }
 a{
     color:green;
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
-a:hover{
-    background-color: #0b3;
-    color:white
-}
+
 h1,h2,h3,h4,h5,h6{
     line-height: 1.5;
     padding-bottom:1rem;
