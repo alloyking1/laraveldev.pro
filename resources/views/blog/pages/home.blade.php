@@ -15,6 +15,9 @@
   </div>
   </x-blog.pages.section>
 
+  @foreach ($recentPost as $post)
+  @if (count($post->post) > 1)
+    
   <x-blog.pages.section color="white" title="Recent Tutorials" textColor="black" textSize="large">
     <x-blog.pages.grid-5 class="mt-32">
         @foreach ($recentPost as $post)
@@ -23,18 +26,30 @@
           @endforeach
         @endforeach
     </x-blog.pages.grid-5>
-</x-blog.pages.section>
+  </x-blog.pages.section> 
 
-<x-blog.pages.section color="gray" title="Laravel Packages" textColor="black" textSize="large">
-  <x-blog.pages.grid-3 class="mt-32">
-      @foreach ($recentPackages as $post)
-        @foreach ($post->post as $postValue )
-          <x-blog.components.post-card :tagDetail="$postValue->tag" editRoute="{{ route('blog.edit', $postValue) }}" href="{{ route('blog.show', $postValue->slog)}}" :title="$postValue->title" :excerpt="$postValue->excerpt" :userName="$postValue->user->name" :date="$postValue->updated_at" />
-        @endforeach
-      @endforeach
-  </x-blog.pages.grid-3>
-</x-blog.pages.section>
+  @endif
+  @endforeach
 
+
+@foreach ($recentPackages as $post)
+  @if (count($post->post) > 1)
+  
+    <x-blog.pages.section color="gray" title="Laravel Packages" textColor="black" textSize="large">
+      <x-blog.pages.grid-3 class="mt-32">
+          @foreach ($recentPackages as $post)
+            @foreach ($post->post as $postValue )
+              <x-blog.components.post-card :tagDetail="$postValue->tag" editRoute="{{ route('blog.edit', $postValue) }}" href="{{ route('blog.show', $postValue->slog)}}" :title="$postValue->title" :excerpt="$postValue->excerpt" :userName="$postValue->user->name" :date="$postValue->updated_at" />
+            @endforeach
+          @endforeach
+      </x-blog.pages.grid-3>
+    </x-blog.pages.section>
+  @endif
+@endforeach
+
+
+@foreach ($recentNews as $post)
+  @if (count($post->post) > 1)
 <x-blog.pages.section color="lightGray" title="Laravel News" textColor="black" textSize="large">
   <x-blog.pages.grid-3 class="mt-32">
       @foreach ($recentNews as $post)
@@ -44,4 +59,6 @@
       @endforeach
   </x-blog.pages.grid-3>
 </x-blog.pages.section>
+@endif
+@endforeach
 </x-guest-layout>
