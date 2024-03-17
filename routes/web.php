@@ -8,6 +8,7 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashBoardController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\TagController;
 use Spatie\Sitemap\SitemapGenerator;
 /*
@@ -53,6 +54,10 @@ Route::prefix('blog')->group(function () {
     });
 
     Route::get('/{slog}', [BlogPostController::class, 'index'])->name('blog.show');
+});
+
+Route::prefix('job')->group(function () {
+    Route::get('/', [JobController::class, 'index'])->name('job.all');
 });
 
 Route::prefix('/category')->group(function () {
