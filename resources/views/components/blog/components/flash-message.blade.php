@@ -1,5 +1,5 @@
 @props([
-    'status' => 'success', //or error
+    'status' => '', //or error
     'message',
 ])
 

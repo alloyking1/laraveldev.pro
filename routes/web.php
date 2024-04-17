@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\BlogPostPromptController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\TagController;
+use App\Models\BlogPostPrompt;
 use Spatie\Sitemap\SitemapGenerator;
 /*
 |--------------------------------------------------------------------------
@@ -28,11 +30,7 @@ Route::get('/tutorial', [PagesController::class, 'tutorial'])->name('tutorial');
 Route::get('/packages', [PagesController::class, 'packages'])->name('packages');
 
 
-
-
 Route::get('/dashboard', DashBoardController::class)->middleware(['auth', 'verified'])->name('dashboard');
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -51,6 +49,14 @@ Route::prefix('blog')->group(function () {
         Route::get('/edit/{Post}', [BlogPostController::class, 'edit'])->name('blog.edit');
         Route::post('/save/{Post}', [BlogPostController::class, 'update'])->name('blog.update');
         Route::post('/destroy/{Post}', [BlogPostController::class, 'destroy'])->name('blog.destroy');
+    });
+
+    /**
+     * AI generated blogpost route
+     */
+    Route::prefix('/ai-prompt')->group(function () {
+        Route::get('/', [BlogPostPromptController::class, 'index'])->name('blog.ai-prompt.index');
+        Route::post('/save', [BlogPostPromptController::class, 'save'])->name('blog.ai-prompt.save');
     });
 
     Route::get('/{slog}', [BlogPostController::class, 'index'])->name('blog.show');

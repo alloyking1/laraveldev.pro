@@ -26,6 +26,11 @@
                         {{ __('Tag') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('blog.ai-prompt.index')" :active="request()->routeIs('blog.ai-prompt.index')">
+                        {{ __('AI Prompt') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -79,6 +84,21 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Your Posts') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('category.show')" :active="request()->routeIs('category.show')">
+                {{ __('Category') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('tag.show')" :active="request()->routeIs('tag.show')">
+                {{ __('Tag') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('blog.ai-prompt.index')" :active="request()->routeIs('blog.ai-prompt.index')">
+                {{ __('AI Prompt') }}
             </x-responsive-nav-link>
         </div>
 
