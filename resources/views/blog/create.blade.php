@@ -39,7 +39,7 @@
                         <x-input-error :messages="$errors->get('title')" class="mt-2" />
                     </div>
                     <div class="mt-4">
-                        <x-text-input x-model="makeSlog(postTitle)"  class="block mt-1 w-full" type="text" id="slog" name="slog" />
+                        <x-text-input x-model="makeSlog(postTitle)"  class="block mt-1 w-full" type="text" id="slog" name="slog"/>
                         <x-input-error :messages="$errors->get('slog')" class="mt-2" />
                     </div>
                 </div>

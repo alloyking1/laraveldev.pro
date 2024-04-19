@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Services\Blog\AiPost\GenerateAiPostService;
 use Illuminate\Console\Command;
 
 class AiPost extends Command
@@ -23,7 +24,10 @@ class AiPost extends Command
     /**
      * Execute the console command.
      */
-    public function handle(): void
+    public function handle(GenerateAiPostService $AiPostService): void
     {
+        $prompt = $AiPostService->getPrompt();
+        // $writeRequest = $AiPostService->generateBlogPost($prompt->prompt);
+        dd($prompt->prompt);
     }
 }

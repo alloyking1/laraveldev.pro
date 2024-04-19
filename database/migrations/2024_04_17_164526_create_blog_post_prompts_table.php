@@ -13,8 +13,18 @@ return new class extends Migration
     {
         Schema::create('blog_post_prompts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
+            $table->string('title')->unique();
+            $table->text('slog')->nullable();
+            $table->text('category')->nullable();
+            $table->text('tag')->nullable();
+            $table->text('prompt');
+            $table->integer('min_to_read')->default(1);
+            $table->string('image_path')->nullable();
+            $table->string('meta_description');
+            $table->string('meta_keywords');
+            $table->string('meta_robots');
+            $table->string('grade');
+            $table->boolean('is_published')->default(0);
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

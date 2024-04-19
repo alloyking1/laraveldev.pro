@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use App\Models\BlogPostPrompt;
+use App\Services\Blog\BlogPostService;
+use App\DataTransferObjects\BlogPostDto;
 
 class GenerateAiPostService
 {
@@ -20,9 +22,9 @@ class GenerateAiPostService
         $this->client = new Client();
     }
 
-    public function generatePrompt()
+    public function getPrompt()
     {
-        return $prompt = BlogPostPrompt::where('status', 'false')->first();
+        return BlogPostPrompt::where('status', '0')->first();
     }
 
     public function generateBlogPost($prompt)
@@ -45,12 +47,10 @@ class GenerateAiPostService
 
             $body = json_decode($response->getBody(), true);
 
-            //save post to post table
-            //add relationships and SEO tags
-            //mark prompt as done
-            BlogPostPrompt::where('id', $prompt->id)->update([
-                'status' => 1
-            ]);
+            // $post = $blogPostService->createPost(BlogPostDto::fromPostRequest($body));
+            // BlogPostPrompt::where('id', $prompt->id)->update([
+            //     'status' => 1
+            // ]);
 
             return $body['choices'][0]['message']['content'] ?? 'No quote could be generated.';
         } catch (GuzzleException $e) {
