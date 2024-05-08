@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -14,9 +15,24 @@ return new class extends Migration
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('type'); //either service or skill
+            $table->string('type');
             $table->timestamps();
         });
+
+        DB::table('skills')->insert([
+            [
+                'name' => 'PHP',
+                'type' => 'Skill'
+            ],
+            [
+                'name' => 'SEO',
+                'description' => 'Service'
+            ],
+            [
+                'name' => 'Technical writing',
+                'description' => 'Service'
+            ],
+        ]);
     }
 
     /**

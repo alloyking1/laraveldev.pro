@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Skill extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'type'
+    ];
+
+    public function agency()
+    {
+        return $this->belongsToMany(Agency::class, 'agency_id');
+    }
 }

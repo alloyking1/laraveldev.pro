@@ -11,22 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //     - fields
-        // - status
-        // - company name
-        // - company email
-        // - company type -agency -freelancer
-        // - company headquarters - a drop down of continents
-        // - company size
-        // - minimum project size
-        // - website
-        // - video (optional) *premium feature later
-        // - featured img
-        // - short description
-        // - about company
-        // - video under about section (optional) *premium feature later
-        // - company logo
-        // - skills (tags) (json)
         Schema::create('agencies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -35,13 +19,14 @@ return new class extends Migration
             $table->string('headquarters');
             $table->string('size');
             $table->string('project_size');
-            $table->string('video');
-            $table->string('feature_img');
+            $table->string('website');
+            $table->string('video')->nullable();
+            $table->string('feature_img')->nullable();
             $table->string('short_description');
             $table->string('about_company');
-            $table->string('about_video');
-            $table->string('logo');
-            $table->boolean('status');
+            $table->string('about_video')->nullable();
+            $table->string('logo')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -17,6 +18,21 @@ return new class extends Migration
             $table->foreignId('skill_id');
             $table->timestamps();
         });
+
+        DB::table('agencie_skill')->insert([
+            [
+                'agency_id' => 1,
+                'skill_id' => 1
+            ],
+            [
+                'agency_id' => 3,
+                'skill_id' => 1
+            ],
+            [
+                'agency_id' => 2,
+                'skill_id' => 1
+            ]
+        ]);
     }
 
     /**
