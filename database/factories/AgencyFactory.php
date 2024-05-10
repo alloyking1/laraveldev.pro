@@ -17,6 +17,7 @@ class AgencyFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => 1,
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'type' => 'agency',

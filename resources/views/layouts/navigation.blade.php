@@ -26,6 +26,12 @@
                         {{ __('Tag') }}
                     </x-nav-link>
                 </div>
+                {{-- agency --}}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('agency.list')" :active="request()->routeIs('agency.list')">
+                        {{ __('Agency') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -92,6 +98,9 @@
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('agency.list')">
+                    {{ __('Agency') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
