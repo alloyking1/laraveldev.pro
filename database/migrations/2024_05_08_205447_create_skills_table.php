@@ -26,11 +26,11 @@ return new class extends Migration
             ],
             [
                 'name' => 'SEO',
-                'description' => 'Service'
+                'type' => 'Service'
             ],
             [
                 'name' => 'Technical writing',
-                'description' => 'Service'
+                'type' => 'Service'
             ],
         ]);
     }

@@ -6,12 +6,12 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@yield('title')</title>
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        {{-- <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> --}}
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <x-head.tinymce-config/>
-        {{-- @livewireStyles --}}
+        {{-- <x-head.tinymce-config/> --}}
+        @livewireStyles
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -28,7 +28,7 @@
                 {{ $slot }}
             </main>
         </div>
-        {{-- @livewireScripts --}}
+        @livewireScripts
     </body>
 </html>
 

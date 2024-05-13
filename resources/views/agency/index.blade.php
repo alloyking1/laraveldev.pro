@@ -6,15 +6,15 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <x-blog.btn.btn-primary href="{{ route('agency.create') }}"/>
-            <x-blog.components.layout>
-                @forelse ($userAgency->agency as $agencies)
-                    {{ $agencies }}
-                @empty
-                    <h3>No agency added</h3>
-                @endforelse
-            </x-blog.components.layout>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" x-data="{open:false}">
+            <div x-on:click="open = ! open">
+                <x-blog.btn.btn-primary x-on:click="open = ! open"/>
+            </div>
+            <div x-show="open">
+                <livewire:livewire-create-agency x-show="{open}"/> 
+            </div>
+
+           <livewire:livewire-agency-list/>
         </div>
     </div>
 </x-app-layout>

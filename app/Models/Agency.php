@@ -9,6 +9,7 @@ class Agency extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'user_id',
         'name',
         'email',
         'type',
@@ -29,6 +30,6 @@ class Agency extends Model
 
     public function skills()
     {
-        return $this->belongsToMany(Skill::class, 'agency_id');
+        return $this->belongsToMany(Skill::class, 'agencie_skill');
     }
 }

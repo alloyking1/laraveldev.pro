@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\Skill;
 
 class AgencyController extends Controller
 {
@@ -22,6 +23,7 @@ class AgencyController extends Controller
     {
         return view('agency.create');
     }
+    
     public function update()
     {
     }
