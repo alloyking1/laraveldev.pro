@@ -93,12 +93,15 @@
                    
             </div>
         </div>
+        <div class="mt-4 grid grid-cols-1 gap-2">
+            <x-multi-select-dropdown list="skills" selectedOptions="selectedOptions"/>
+        </div>
 
         <div class="mt-4 flex justify-between"> 
         <button
             type="submit"
             class="uppercase mt-15 bg-green-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-2xl">
-            Publish post
+            Save
         </button>
         </div>
     </form>
