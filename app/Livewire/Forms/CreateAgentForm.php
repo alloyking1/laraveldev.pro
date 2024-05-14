@@ -31,20 +31,22 @@ class CreateAgentForm extends Form
     public $short_description ='this is the text just for testing purpose';
     #[Validate('required|string|min:5')]
     public $about_company ='this is the text just for testing purpose';
-    #[Validate('required|string|min:5')]
+    // #[Validate('required|string|min:5')]
 
     // ------> This is the <---------
     // public $about_video = 'this is the text just for testing purpose';
-    // #[Validate('string|min:5')]
+    #[Validate('required|string')]
     public $logo = 'this is the text just for testing purpose';
-    // #[Validate('required|string|min:5')]
-    // public $grade ='';
 
-    public function store() 
+    public function store($multiSelect) 
     {
         $this->validate();
+        if($multiSelect === [] | $multiSelect === null){
+            dd('handle validation error display');
+        }
         $agencyService = new AgencyService();
-        $agencyService->create(AgencyDto::fromPostRequest($this->all()));
+        $agencyService->create(AgencyDto::fromPostRequest($this->all()), $multiSelect);
+        $this->reset(); 
     }
 
     public function update(){

@@ -1,4 +1,12 @@
 <x-blog.components.card title="Create Agency" subtitle="Use the form below to add your agency..">
+    
+    {{-- extract into component --}}
+    @if (session('success'))
+        <div class="bg-green-400 text-white p-4 rounded-sm">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <form wire:submit="save">
 
         <div class="mt-4 grid grid-cols-3 gap-2">

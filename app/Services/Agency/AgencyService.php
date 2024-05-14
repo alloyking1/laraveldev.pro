@@ -4,7 +4,7 @@ use App\DataTransferObjects\AgencyDto;
 use App\Models\Agency;
 
 class AgencyService {
-    public function create(AgencyDto $agencyDto){
+    public function create(AgencyDto $agencyDto, array $skills){
         $agency = Agency::create([
             'user_id' => $agencyDto->user_id,
             'name' =>  $agencyDto->name,
@@ -21,8 +21,11 @@ class AgencyService {
             'about_video' =>  $agencyDto->about_video,
             'logo' =>  $agencyDto->logo,
         ]);
-        $skills = [1,2,3]; //coming form multi select form
-        $agency->skills()->attach($skills);
+
+        $skillsCollection = collect($skills);
+        $skillsId = $skillsCollection->pluck('id')->all();
+
+        $agency->skills()->attach($skillsId);
         return $agency;
     }
 }

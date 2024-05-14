@@ -19,11 +19,9 @@ class LivewireCreateAgency extends Component
     }
 
     public function save(){
-        dump($this->selectedOptions);
-        $this->selectedOptions = [];
-        // $this->form->store();
-        // return redirect()->route('agency.create')->with('status', 'Profile updated!');
-        return redirect()->back()->with('status', 'Profile updated!');
+        $this->form->store($this->selectedOptions);
+        session()->flash('success', 'Agency successfully created.');
+        return redirect()->back();
     }
 
     public function render()

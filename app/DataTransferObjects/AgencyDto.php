@@ -21,7 +21,7 @@ class AgencyDto {
     ){
     }
 
-    public static function fromPostRequest(array $formValue){
+    public static function fromPostRequest(array $formValue, ...$moreValue){
         //implement validation
         return new self(
             user_id: auth()->user()->id,
