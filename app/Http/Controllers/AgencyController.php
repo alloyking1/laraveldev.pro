@@ -24,7 +24,8 @@ class AgencyController extends Controller
         return view('agency.create');
     }
     
-    public function update()
+    public function update($id)
     {
+        dd($id);
     }
 }

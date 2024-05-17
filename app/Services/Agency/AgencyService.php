@@ -4,8 +4,10 @@ use App\DataTransferObjects\AgencyDto;
 use App\Models\Agency;
 
 class AgencyService {
-    public function create(AgencyDto $agencyDto, array $skills){
-        $agency = Agency::create([
+    public function create(AgencyDto $agencyDto, array $skills, $id = NULL){
+        $agency = Agency::updateOrCreate([
+            'id' => $id
+        ],[
             'user_id' => $agencyDto->user_id,
             'name' =>  $agencyDto->name,
             'email' =>  $agencyDto->email,
@@ -26,6 +28,12 @@ class AgencyService {
         $skillsId = $skillsCollection->pluck('id')->all();
 
         $agency->skills()->attach($skillsId);
+        return $agency;
+    }
+
+    public function delete($id){
+        $agency = Agency::find($id);
+        $agency->delete();
         return $agency;
     }
 }

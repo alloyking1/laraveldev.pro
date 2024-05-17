@@ -6,50 +6,72 @@ use Livewire\Attributes\Validate;
 use Livewire\Form;
 use App\Services\Agency\AgencyService;
 use App\DataTransferObjects\AgencyDto;
+use App\Models\Agency;
+use Livewire\WithFileUploads;
 
 class CreateAgentForm extends Form
 {
+    use WithFileUploads;
+
     #[Validate('required|string|min:5')]
-    public $name = 'this is the text just for testing purpose';
+    public $name = '';
     #[Validate('required|email|min:5')]
-    public $email = 'thisisthetexjust@or.testing';
+    public $email = '';
     #[Validate('required|string|min:5')]
-    public $type ='this is the text just for testing purpose';
+    public $type ='';
     #[Validate('required|string|min:2')]
-    public $headquarters ='this is the text just for testing purpose';
+    public $headquarters ='';
     #[Validate('required|string|min:5')]
-    public $size ='this is the text just for testing purpose';
+    public $size ='';
     #[Validate('required|string|min:5')]
-    public $project_size ='this is the text just for testing purpose';
+    public $project_size ='';
     #[Validate('required|string|min:5')]
-    public $website ='this is the text just for testing purpose';
+    public $website ='';
     #[Validate('required|string|min:5')]
-    public $video = 'this is the text just for testing purpose';
+    public $video = '';
+    #[Validate('image|max:1024')]
+    public $feature_img = '';
     #[Validate('required|string|min:5')]
-    public $feature_img = 'this is the text just for testing purpose';
+    public $short_description ='';
     #[Validate('required|string|min:5')]
-    public $short_description ='this is the text just for testing purpose';
-    #[Validate('required|string|min:5')]
-    public $about_company ='this is the text just for testing purpose';
-    // #[Validate('required|string|min:5')]
+    public $about_company ='';
+    #[Validate('image|max:1024')]
+    public $logo = '';
 
-    // ------> This is the <---------
-    // public $about_video = 'this is the text just for testing purpose';
-    #[Validate('required|string')]
-    public $logo = 'this is the text just for testing purpose';
+    public ?Agency $agency;
 
-    public function store($multiSelect) 
+    public function setValue(Agency $agency)
+    {
+        $this->agency = $agency; //remove later
+        $this->name = $agency->name;
+        $this->email = $agency->email;
+        $this->type = $agency->type;
+        $this->headquarters = $agency->headquarters;
+        $this->size = $agency->size;
+        $this->project_size = $agency->project_size;
+        $this->website = $agency->website;
+        $this->video = $agency->video;
+        $this->feature_img = $agency->feature_img;
+        $this->short_description = $agency->short_description;
+        $this->about_company = $agency->about_company;
+        $this->logo = $agency->logo;
+    }
+
+    public function store($multiSelect, $id = NULL) 
     {
         $this->validate();
         if($multiSelect === [] | $multiSelect === null){
             dd('handle validation error display');
         }
-        $agencyService = new AgencyService();
-        $agencyService->create(AgencyDto::fromPostRequest($this->all()), $multiSelect);
+        dd($this->imgUpload());
+
+        // $agencyService = new AgencyService();
+        // $agencyService->create(AgencyDto::fromPostRequest($this->all()), $multiSelect, $id);
+
         $this->reset(); 
     }
 
-    public function update(){
-
+    public function imgUpload(){
+        return $this->feature_img->store(path: 'photos');
     }
 }

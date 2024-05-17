@@ -6,15 +6,10 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" x-data="{open:false}">
-            <div x-on:click="open = ! open">
-                <x-blog.btn.btn-primary x-on:click="open = ! open"/>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">         
+            <div>
+                <livewire:livewire-create-agency/> 
             </div>
-            <div x-show="open">
-                <livewire:livewire-create-agency x-show="{open}"/> 
-            </div>
-
-           <livewire:livewire-agency-list/>
         </div>
     </div>
 </x-app-layout>
