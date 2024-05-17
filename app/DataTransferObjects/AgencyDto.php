@@ -17,12 +17,12 @@ class AgencyDto {
         public readonly string $short_description,
         public readonly string $about_company,
         public readonly string $about_video = '',
+        public readonly array $skills,
         public readonly string $logo = '',
     ){
     }
 
     public static function fromPostRequest(array $formValue, ...$moreValue){
-        //implement validation
         return new self(
             user_id: auth()->user()->id,
             name: $formValue['name'],
@@ -37,6 +37,7 @@ class AgencyDto {
             short_description: $formValue['short_description'],
             about_company: $formValue['about_company'],
             about_video: $formValue['about_video'] ?? '',
+            skills: $formValue['selectedOptions'] ?? '',
             logo: $formValue['logo'],
         );
     }

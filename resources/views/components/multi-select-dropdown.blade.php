@@ -37,6 +37,10 @@
     </ul>
   </div>
 
+  <div>
+    {{ $slot }}
+  </div>
+
 
   <script>
     function multiselectComponent() {

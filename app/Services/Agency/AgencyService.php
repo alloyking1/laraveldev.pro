@@ -4,7 +4,7 @@ use App\DataTransferObjects\AgencyDto;
 use App\Models\Agency;
 
 class AgencyService {
-    public function create(AgencyDto $agencyDto, array $skills, $id = NULL){
+    public function create(AgencyDto $agencyDto, $id = NULL){
         $agency = Agency::updateOrCreate([
             'id' => $id
         ],[
@@ -24,7 +24,7 @@ class AgencyService {
             'logo' =>  $agencyDto->logo,
         ]);
 
-        $skillsCollection = collect($skills);
+        $skillsCollection = collect($agencyDto->skills);
         $skillsId = $skillsCollection->pluck('id')->all();
 
         $agency->skills()->attach($skillsId);

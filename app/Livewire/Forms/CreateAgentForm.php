@@ -14,29 +14,31 @@ class CreateAgentForm extends Form
     use WithFileUploads;
 
     #[Validate('required|string|min:5')]
-    public $name = '';
+    public $name = 'dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
     #[Validate('required|email|min:5')]
-    public $email = '';
+    public $email = 'dlskdfldjlj@dklksflkd.cm';
     #[Validate('required|string|min:5')]
-    public $type ='';
+    public $type ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
     #[Validate('required|string|min:2')]
-    public $headquarters ='';
+    public $headquarters ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
     #[Validate('required|string|min:5')]
-    public $size ='';
+    public $size ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
     #[Validate('required|string|min:5')]
-    public $project_size ='';
+    public $project_size ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
     #[Validate('required|string|min:5')]
-    public $website ='';
+    public $website ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
     #[Validate('required|string|min:5')]
-    public $video = '';
-    #[Validate('image|max:1024')]
+    public $video = 'dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
+    #[Validate('required|image|max:1024')]
     public $feature_img = '';
     #[Validate('required|string|min:5')]
-    public $short_description ='';
+    public $short_description ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
     #[Validate('required|string|min:5')]
-    public $about_company ='';
-    #[Validate('image|max:1024')]
-    public $logo = '';
+    public $about_company ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
+    #[Validate('string|max:1024')]
+    public $logo = 'dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
+    #[Validate('required|array|max:1024')]
+    public $selectedOptions = [];
 
     public ?Agency $agency;
 
@@ -57,21 +59,18 @@ class CreateAgentForm extends Form
         $this->logo = $agency->logo;
     }
 
-    public function store($multiSelect, $id = NULL) 
+    public function store($id = NULL) 
     {
         $this->validate();
-        if($multiSelect === [] | $multiSelect === null){
-            dd('handle validation error display');
-        }
-        dd($this->imgUpload());
-
-        // $agencyService = new AgencyService();
-        // $agencyService->create(AgencyDto::fromPostRequest($this->all()), $multiSelect, $id);
+        $imgPath = $this->imgUpload(); //move into a trait
+        $agencyService = new AgencyService();
+        $agencyService->create(AgencyDto::fromPostRequest($this->all()), $id);
 
         $this->reset(); 
     }
 
     public function imgUpload(){
-        return $this->feature_img->store(path: 'photos');
+        return $this->feature_img = $this->feature_img->store('logo', 'public');
+        
     }
 }

@@ -15,6 +15,7 @@ class LivewireCreateAgency extends Component
     public $selectedOptions=[];
     public $skills=[];
     public $logo;
+
     public CreateAgentForm $form;
 
     public function boot()
@@ -24,8 +25,11 @@ class LivewireCreateAgency extends Component
     }
 
     public function save(){
-        dd($this->form.feature_img);
-        // $this->form->store($this->selectedOptions);
+
+        $this->form->feature_img = $this->logo;
+        $this->form->selectedOptions = $this->selectedOptions;
+        $this->form->store();
+
         session()->flash('success', 'Agency successfully created.');
         return redirect()->back();
     }

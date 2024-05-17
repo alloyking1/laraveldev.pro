@@ -91,7 +91,6 @@
                     <x-input-error :messages="$errors->get('form.short_description')" class="mt-2" />
                 </div>
 
-                {{--  --}}
                 <div class="mt-4">
                     <textarea placeholder="About" wire:model="form.about_company" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="6" cols="80" type="text"></textarea>
                     <x-input-error :messages="$errors->get('form.about_company')" class="mt-2" />
@@ -107,18 +106,19 @@
                     </div>
                     <div class="mt-1">
                         <p class="text-xs">
-                            Youtube video. Note: please use the embed URL. (https://www.youtube.com/embed/0Rq-yHAwYjQ)
-                            {{-- @if ($form.feature_img) 
-                                <img src="{{ $form.feature_img->temporaryUrl() }}">
-                            @endif --}}
+                            @if ($logo) 
+                                <img src="{{ $logo->temporaryUrl() }}">
+                            @endif
                         </p>
-                        <x-text-input placeholder="Featured image" type="file" wire:model="form.feature_img" class="block mt-1 w-full" autofocus autocomplete="feature_img" />
-                        <x-input-error :messages="$errors->get('form.feature_img')" class="mt-2" />
+                        <x-text-input placeholder="Featured image" type="file" wire:model="logo" class="block mt-1 w-full" autofocus autocomplete="logo" />
+                        <x-input-error :messages="$errors->get('form.feature_img')" class="mt-2" /> 
                         
                     </div>
                 </div>
                 <div class="mt-4 grid grid-cols-1 gap-2">
-                    <x-multi-select-dropdown list="skills" selectedOptions="selectedOptions"/>
+                    <x-multi-select-dropdown list="skills" selectedOptions="selectedOptions">
+                        <x-input-error :messages="$errors->get('form.selectedOptions')" class="mt-2" /> 
+                    </x-multi-select-dropdown>
                 </div>
 
                 <div class="mt-4 flex justify-between"> 
@@ -137,8 +137,14 @@
         <x-blog.text.text textSize="header2" color="black" value="Your Company" class="font-black font-serif"/>
         @forelse ($userAgency->agency as $agencies)
         <a href="{{ route('agency.update',['id' => $agencies->id]) }}" wire:navigate>
-            <div class="rounded-sm p-10 bg-white w-full grid grid-cols-1 mb-2 shadow">
-                {{ $agencies->name }}
+            <div class="rounded-sm p-10 bg-white w-full flex justify-between mb-2 shadow">
+                <div>
+                    {{  $agencies->feature_img }}
+                    <img src="{{ asset('storage/' . $agencies->feature_img) }}">
+                </div>
+                <div>
+                    {{ $agencies->name }}
+                </div>
             </div>
         </a>
         @empty

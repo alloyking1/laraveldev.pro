@@ -18,7 +18,7 @@ class Agency extends Model
         'project_size',
         'website',
         'video',
-        'featured_img',
+        'feature_img',
         'short_description',
         'about_company',
         'about_video',
