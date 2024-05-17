@@ -3,8 +3,8 @@
     'list'
 ])
 
-<div class="msa-wrapper" x-data="multiselectComponent()" x-init="$watch('selected', value => selectedString = value.join(','))">
-    <label for="msa-input">Choose some cars:</label>
+<div class="msa-wrapper w-full" x-data="multiselectComponent()" x-init="$watch('selected', value => selectedString = value.join(','))">
+    <label for="msa-input">Select some skills</label>
     <input 
            x-model="selectedString" 
            type="text" id="msa-input" 

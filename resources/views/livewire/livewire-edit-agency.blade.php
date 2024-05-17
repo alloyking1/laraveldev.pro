@@ -9,6 +9,12 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">         
         <div>
             <x-blog.components.card title="Edit agency" subtitle="ksjdflkjsldfjsldjfksldfjslkfjslk">
+
+                <div class="mt-4 grid grid-cols-1 gap-2">
+                    <div class="mt-1">
+                        <livewire:livewire-update-agency-logo :id="$this->id" />
+                    </div>
+                </div>
                 <div>
                     @if (session('success'))
                         <div class="bg-green-400 text-white p-4 rounded-sm">
@@ -92,7 +98,7 @@
                             <x-input-error :messages="$errors->get('form.about_company')" class="mt-2" />
                         </div>
         
-                        <div class="mt-4 grid grid-cols-2 gap-2">
+                        {{-- <div class="mt-4 grid grid-cols-2 gap-2">
                             <div class="mt-1">
                                 <p class="text-xs">
                                     Youtube video. Note: please use the embed URL. (https://www.youtube.com/embed/0Rq-yHAwYjQ)
@@ -108,7 +114,7 @@
                                 <x-input-error :messages="$errors->get('form.feature_img')" class="mt-2" />
                                 
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="mt-4 grid grid-cols-1 gap-2">
                             <x-multi-select-dropdown list="skills" selectedOptions="selectedOptions"/>
                         </div>

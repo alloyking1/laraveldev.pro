@@ -31,6 +31,10 @@ class AgencyService {
         return $agency;
     }
 
+    public function find($id){
+        return  Agency::find($id);
+    }
+
     public function delete($id){
         $agency = Agency::find($id);
         $agency->delete();

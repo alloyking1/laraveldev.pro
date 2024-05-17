@@ -14,29 +14,30 @@ class CreateAgentForm extends Form
     use WithFileUploads;
 
     #[Validate('required|string|min:5')]
-    public $name = 'dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
+    public $name = '';
     #[Validate('required|email|min:5')]
     public $email = 'dlskdfldjlj@dklksflkd.cm';
     #[Validate('required|string|min:5')]
-    public $type ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
+    public $type ='';
     #[Validate('required|string|min:2')]
-    public $headquarters ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
+    public $headquarters ='';
     #[Validate('required|string|min:5')]
-    public $size ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
+    public $size ='';
     #[Validate('required|string|min:5')]
-    public $project_size ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
+    public $project_size ='';
     #[Validate('required|string|min:5')]
-    public $website ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
+    public $website ='';
     #[Validate('required|string|min:5')]
-    public $video = 'dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
-    #[Validate('required|image|max:1024')]
+    public $video = '';
+    // #[Validate('required|image|max:1024')]
+    // #[Validate('required|image|max:1024')]
     public $feature_img = '';
     #[Validate('required|string|min:5')]
-    public $short_description ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
+    public $short_description ='';
     #[Validate('required|string|min:5')]
-    public $about_company ='dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
+    public $about_company ='';
     #[Validate('string|max:1024')]
-    public $logo = 'dfksfjsldjflsfjlsdlksjfdksjdjsldjsfsfsdfsdflk fjsldfjs djfls djl';
+    public $logo = '';
     #[Validate('required|array|max:1024')]
     public $selectedOptions = [];
 
@@ -62,7 +63,9 @@ class CreateAgentForm extends Form
     public function store($id = NULL) 
     {
         $this->validate();
-        $imgPath = $this->imgUpload(); //move into a trait
+        if($id === NULL){
+            $imgPath = $this->imgUpload(); //move into a trait
+        }
         $agencyService = new AgencyService();
         $agencyService->create(AgencyDto::fromPostRequest($this->all()), $id);
 

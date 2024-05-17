@@ -139,8 +139,7 @@
         <a href="{{ route('agency.update',['id' => $agencies->id]) }}" wire:navigate>
             <div class="rounded-sm p-10 bg-white w-full flex justify-between mb-2 shadow">
                 <div>
-                    {{  $agencies->feature_img }}
-                    <img src="{{ asset('storage/' . $agencies->feature_img) }}">
+                    <img src="{{ asset('storage/' . $agencies->feature_img) }}" class="rounded-full w-[100px]">
                 </div>
                 <div>
                     {{ $agencies->name }}
