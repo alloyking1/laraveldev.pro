@@ -12,24 +12,29 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Your Posts') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('category.show')" :active="request()->routeIs('category.show')">
+                    <x-nav-link :href="route('category.show')" :active="request()->routeIs('category.show')" wire:navigate>
                         {{ __('Category') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('tag.show')" :active="request()->routeIs('tag.show')">
+                    <x-nav-link :href="route('tag.show')" :active="request()->routeIs('tag.show')" wire:navigate>
                         {{ __('Tag') }}
                     </x-nav-link>
                 </div>
                 {{-- agency --}}
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('agency.list')" :active="request()->routeIs('agency.list')">
+                    <x-nav-link :href="route('agency.list')" :active="request()->routeIs('agency.list')" wire:navigate>
                         {{ __('Agency') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('jobs.list')" :active="request()->routeIs('jobs.list')" wire:navigate>
+                        {{ __('Jobs') }}
                     </x-nav-link>
                 </div>
             </div>

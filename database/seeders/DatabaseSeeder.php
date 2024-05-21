@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Post;
 use Illuminate\Database\Seeder;
 use App\Models\Agency;
+use App\Models\JobPosting;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,5 +22,6 @@ class DatabaseSeeder extends Seeder
         ]);
         Post::factory(100)->create();
         Agency::factory(10)->create();
+        JobPosting::factory(10)->create();
     }
 }
