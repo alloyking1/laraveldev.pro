@@ -30,7 +30,7 @@ class CreateAgentForm extends Form
     #[Validate('required|string|min:5')]
     public $video = '';
     // #[Validate('required|image|max:1024')]
-    // #[Validate('required|image|max:1024')]
+    #[Validate('required|image|max:1024')]
     public $feature_img = '';
     #[Validate('required|string|min:5')]
     public $short_description ='';

@@ -97,24 +97,7 @@
                             <textarea placeholder="About" wire:model="form.about_company" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="6" cols="80" type="text"></textarea>
                             <x-input-error :messages="$errors->get('form.about_company')" class="mt-2" />
                         </div>
-        
-                        {{-- <div class="mt-4 grid grid-cols-2 gap-2">
-                            <div class="mt-1">
-                                <p class="text-xs">
-                                    Youtube video. Note: please use the embed URL. (https://www.youtube.com/embed/0Rq-yHAwYjQ)
-                                </p>
-                                <x-text-input placeholder="Company logo" class="block mt-1 w-full" type="text" wire:model="form.logo" autofocus autocomplete="logo" />
-                                <x-input-error :messages="$errors->get('form.logo')" class="mt-2" />
-                            </div>
-                            <div class="mt-1">
-                                <p class="text-xs">
-                                    Youtube video. Note: please use the embed URL. (https://www.youtube.com/embed/0Rq-yHAwYjQ)
-                                </p>
-                                <x-text-input placeholder="Featured image" class="block mt-1 w-full" type="text" wire:model="form.feature_img" autofocus autocomplete="feature_img" />
-                                <x-input-error :messages="$errors->get('form.feature_img')" class="mt-2" />
-                                
-                            </div>
-                        </div> --}}
+
                         <div class="mt-4 grid grid-cols-1 gap-2">
                             <x-multi-select-dropdown list="skills" selectedOptions="selectedOptions"/>
                         </div>
