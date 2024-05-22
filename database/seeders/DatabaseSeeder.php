@@ -6,6 +6,8 @@ namespace Database\Seeders;
 
 use App\Models\Post;
 use Illuminate\Database\Seeder;
+use App\Models\Agency;
+use App\Models\JobPosting;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,14 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
         \App\Models\User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-
         Post::factory(100)->create();
-        // $this->call(PostsTableSeeder::class);
+        Agency::factory(10)->create();
+        JobPosting::factory(10)->create();
     }
 }

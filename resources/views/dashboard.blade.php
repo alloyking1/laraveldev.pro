@@ -10,6 +10,7 @@
             <x-blog.btn.btn-primary href="{{ route('blog.create') }}"/>
             <x-blog.components.layout>
                 
+                {{-- remove lazy loading --}}
                 @foreach (Auth::user()->posts as $post)
                     <x-blog.components.post-card 
                         editRoute="{{ route('blog.edit', $post) }}" 

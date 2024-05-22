@@ -1,9 +1,9 @@
 import './bootstrap';
-import Alpine from 'alpinejs';
+// import Alpine from 'alpinejs';
 // import tinymce from 'tinymce';
 
-window.Alpine = Alpine;
-Alpine.start();
+// window.Alpine = Alpine;
+// Alpine.start();
 
 const tinymce = window.tinymce;
 // tinymce.init({

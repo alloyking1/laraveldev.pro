@@ -98,6 +98,6 @@ class BlogPostService
 
     public function delete($postId)
     {
-        return Post::find('id')->delete();
+        return Post::find($postId)->delete();
     }
 }
