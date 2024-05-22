@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\JobPosting;
 use App\Livewire\Forms\CreateJobForm;
 use App\Models\Skill;
-use App\Services\Job\JobServices;
+use App\Services\Job\JobPostingService;
 
 class LivewireEditJob extends Component
 {
@@ -32,11 +32,11 @@ class LivewireEditJob extends Component
         return redirect()->route('jobs.list');
     }
 
-    // public function delete(AgencyService $agencyService){
-    //     $agencyService->delete($this->id);
-    //     session()->flash('success', 'Agency successfully deleted.');
-    //     return redirect()->route('agency.list');
-    // }
+    public function delete(JobPostingService $jobPostingService){
+        $jobPostingService->delete($this->id);
+        session()->flash('success', 'Job successfully deleted.');
+        return redirect()->route('jobs.list');
+    }
 
     public function render()
     {

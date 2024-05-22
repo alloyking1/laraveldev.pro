@@ -28,8 +28,6 @@ class CreateJobForm extends Form
     #[Validate('required|array|max:1024')]
     public $selectedOptions = [];
 
-    // public ?Agency $agency;
-
     public function setValue(JobPosting $jobPosting)
     {
         $this->jobPosting = $jobPosting; //remove later

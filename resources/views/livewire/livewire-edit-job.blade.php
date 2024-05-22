@@ -68,6 +68,13 @@
                             class="uppercase mt-15 bg-green-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-2xl">
                             Save
                         </button>
+                        <button 
+                        type="button"
+                        wire:click="delete"
+                        wire:confirm.prompt="Are you sure you want to delete this job?\n\nType DELETE to confirm|DELETE"
+                            class="uppercase mt-15 bg-red-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-2xl">
+                            Delete
+                        </button>
                      </div>
                     </form>
                 </div>
