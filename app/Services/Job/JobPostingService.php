@@ -34,4 +34,12 @@ class JobPostingService {
         $agency->delete();
         return $agency;
     }
+
+    public function all(){
+       return JobPosting::with('skills')->get();
+    }
+
+    public function recentJobs(){
+
+    }
 }

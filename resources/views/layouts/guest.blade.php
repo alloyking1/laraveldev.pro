@@ -17,9 +17,11 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <link rel="stylesheet" href="{{ asset('/prism.css') }}">
+        @livewireStyles
     </head>
 
-    <body class="font-sans text-gray-900bg-gray-100 antialiased">
+    <body class="font-sans text-gray-900 bg-gray-100 antialiased">
+       
         <div class="w-full sticky top-0">
             @include('layouts.guest-navigation')
         </div>
@@ -28,5 +30,6 @@
         </div>
         <x-footer/>
         <script src="{{ asset('/prism.js') }}"></script>
+        @livewireScripts
     </body>
 </html>

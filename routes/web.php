@@ -11,6 +11,8 @@ use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\TagController;
 use Spatie\Sitemap\SitemapGenerator;
+use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,16 +24,15 @@ use Spatie\Sitemap\SitemapGenerator;
 |
 */
 
-Route::get('/', [PagesController::class, 'home'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('lander');
+
+Route::get('/home', [PagesController::class, 'home'])->name('home');
 Route::get('/blog-post', [PagesController::class, 'blog'])->name('blog-post');
 Route::get('/tutorial', [PagesController::class, 'tutorial'])->name('tutorial');
 Route::get('/packages', [PagesController::class, 'packages'])->name('packages');
 
 
-
-
 Route::get('/dashboard', DashBoardController::class)->middleware(['auth', 'verified'])->name('dashboard');
-
 
 
 Route::middleware('auth')->group(function () {

@@ -40,4 +40,8 @@ class AgencyService {
         $agency->delete();
         return $agency;
     }
+
+    public function all(){
+        return Agency::with('skills')->get();
+    }
 }
