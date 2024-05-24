@@ -13,4 +13,5 @@ Route::prefix('/laravel-consultants')->group(function () {
     });
 
     Route::get('/all', LivewireAgencyController::class)->name('agency.all');
+    Route::get('/all/{agency}',[AgencyController::class,'show'])->name('agency.show');
 });

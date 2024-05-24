@@ -33,28 +33,7 @@
         
                     <x-blog.pages.grid-1 class="pt-32">
                         @foreach ($agencies as $agency )
-                            <x-blog.components.card-long>
-                                <div class="flex justify-between">
-                                    <div class="flex">
-                                        <div class="hidden md:block shadow rounded-lg border p-4 -ml-[3rem]">
-                                            img
-                                        </div>
-                                        <div class="grid">
-                                            <p>Company Name</p>
-                                            <p>Job Title</p>
-                                            <p>type<span>Salary</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="grid grid-cols-1">
-                                        <div>
-                                            Remote, Uk only, 2wk
-                                        </div>
-                                        <div>
-                                            cards, of, diff, skills
-                                        </div>
-                                    </div>
-                                </div>
-                            </x-blog.components.card-long>
+                            <x-blog.components.agency-card :agency="$agency"/>
                         @endforeach
                         
                     </x-blog.pages.grid-1>

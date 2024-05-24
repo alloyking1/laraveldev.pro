@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Skill;
+use App\Models\Agency;
 
 class AgencyController extends Controller
 {
@@ -22,6 +23,12 @@ class AgencyController extends Controller
     public function create()
     {
         return view('agency.create');
+    }
+
+    public function show(Agency $agency){
+        return view('agency.show', [
+            'agency' => $agency
+        ]);
     }
     
     public function update($id)
