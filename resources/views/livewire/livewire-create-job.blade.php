@@ -21,13 +21,27 @@
        <div x-show="open">
            <form wire:submit="save">
 
-               <div class="mt-4 grid grid-cols-1 gap-2">
+               <div class="mt-4 grid grid-cols-2 gap-2">
+                   <div class="mt-1">
+                       <x-text-input wire:model="form.company_name" placeholder="Company Name" class="block mt-1 w-full" type="text" autofocus autocomplete="form.company_name" />
+                       <x-input-error :messages="$errors->get('form.company_name')" class="mt-2" />
+                   </div>
                    <div class="mt-1">
                        <x-text-input wire:model="form.title" placeholder="Job title" class="block mt-1 w-full" type="text" autofocus autocomplete="form.title" />
                        <x-input-error :messages="$errors->get('form.title')" class="mt-2" />
-                   </div>
-                  
+                   </div>                  
                </div>
+
+               <div class="mt-4 grid grid-cols-2 gap-2">
+                    <div class="mt-1">
+                        <x-text-input wire:model="form.contract" placeholder="Contract" class="block mt-1 w-full" type="text" autofocus autocomplete="form.contract" />
+                        <x-input-error :messages="$errors->get('form.contract')" class="mt-2" />
+                    </div>
+                    <div class="mt-1">
+                        <x-text-input wire:model="form.location" placeholder="location" class="block mt-1 w-full" type="text" autofocus autocomplete="form.location" />
+                        <x-input-error :messages="$errors->get('form.location')" class="mt-2" />
+                    </div>
+                </div>
 
                <div class="mt-4">
                    <textarea placeholder="Job description" wire:model="form.description" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="3" cols="80" type="text"></textarea>

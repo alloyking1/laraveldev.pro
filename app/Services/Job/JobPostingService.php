@@ -10,7 +10,10 @@ class JobPostingService {
             'id' => $id
         ],[
             'user_id' => $jobDto->user_id,
+            'company_name' =>  $jobDto->company_name,
             'title' =>  $jobDto->title,
+            'contract' =>  $jobDto->contract,
+            'location' =>  $jobDto->location,
             'description' =>  $jobDto->description,
             'about_company' =>  $jobDto->about_company,
             'salary' =>  $jobDto->salary,
@@ -36,7 +39,7 @@ class JobPostingService {
     }
 
     public function all(){
-       return JobPosting::with('skills')->get();
+       return JobPosting::with('skills')->orderBy('created_at', 'desc')->get();
     }
 
     public function recentJobs(){

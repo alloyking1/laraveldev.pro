@@ -14,7 +14,16 @@ class CreateJobForm extends Form
     use WithFileUploads;
 
     #[Validate('required|string|min:5')]
+    public $company_name = 'Laraveldev.pro';
+
+    #[Validate('required|string|min:5')]
     public $title = '';
+    #[Validate('required|string|min:5')]
+    public $contract = '';
+    #[Validate('required|string|min:5')]
+    public $location = '';
+
+
     #[Validate('required|string|min:5')]
     public $description = '';
     #[Validate('required|string|min:5')]
@@ -31,7 +40,12 @@ class CreateJobForm extends Form
     public function setValue(JobPosting $jobPosting)
     {
         $this->jobPosting = $jobPosting; //remove later
+        $this->company_name = $jobPosting->company_name;
+
         $this->title = $jobPosting->title;
+        $this->contract = $jobPosting->contract;
+        $this->location = $jobPosting->location;
+
         $this->description = $jobPosting->description;
         $this->type = $jobPosting->type;
         $this->about_company = $jobPosting->about_company;
