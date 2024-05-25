@@ -23,11 +23,10 @@
                         </div>
                         <div>
                             <span>Project from: {{ $agency->project_size }} 
-                            {{-- // <x-blog.text.text textSize="xs" color="black" class="font-bold" :value="$agency->project_size"/></span> --}}
                         </div>
                     </div>
                     <div>
-                        {{ $agency->about_company }}
+                        {{ Str::limit($agency->about_company, 150, '... See more') }}
                     </div>
                 </div>
             </div>

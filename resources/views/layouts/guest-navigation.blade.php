@@ -1,27 +1,17 @@
 
 <!-- ====== Navbar Section Start -->
-<header class="bg-black"
+<header class="bg-[linear-gradient(to_right,_#040519,_#040416,_#030313,_#030310,_#02020c,_#02020d,_#02030f,_#020310,_#030416,_#04051b,_#040720,_#030825)]"
     x-data="
     {
     navbarOpen: false
     }
     "
-  class="flex items-center w-full bg-white dark:bg-dark"
   >
   <div class="max-w-6xl mx-auto">
     <div class="relative flex items-center justify-between -mx-4">
         <div class="max-w-full px-4 w-60">
           <a href="{{ route('lander') }}" class="block w-full py-5">
-          <img
-              src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-primary.svg"
-              alt="logo"
-              class="dark:hidden"
-              />
-          <img
-              src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-white.svg"
-              alt="logo"
-              class="hidden dark:block"
-              />
+              <p class="text-2xl font-bold text-white ml-4 mb-2">Laraveldev.pro</p>
           </a>
         </div>
         <div class="flex items-center justify-between w-full px-4">
@@ -42,13 +32,13 @@
                 class="relative my-[6px] block h-[2px] w-[30px] bg-body-color dark:bg-white"
                 ></span>
               </button>
-              
+
+              {{-- large screen --}}
               <nav
-                :class="!navbarOpen && 'hidden' "
                 id="navbarCollapse"
-                class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none dark:bg-dark-2 lg:dark:bg-transparent"
+                class="hidden lg:block absolute right-4 top-full w-full max-w-[250px] rounded-lg py-5 px-6 shadow lg:static lg:w-full lg:max-w-full lg:shadow-none dark:bg-dark-2 lg:dark:bg-transparent"
                 >
-                <ul class="block lg:flex">
+                <ul class="block lg:flex z-10">
                     <li>
                       <a href="{{ route('jobs.all') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
                         <x-blog.text.text color="white" textSize="x-small" value="Jobs"/>
@@ -101,8 +91,60 @@
                 <x-primary-button>My account</x-primary-button>
               </a>
           </div>
+
         </div>
     </div>
   </div>
+
+  {{-- small screen --}}
+
+  <div class="text-white h-auto flex justify-end p-6 shadow-2xl lg:hidden" x-show="navbarOpen" x-cloak x-transition.scale.origin.top>
+    <nav
+      id="navbarCollapse">
+        <div class="px-4 pb-4 pt-1 bg-gray-500 -mt-12 -mr-6">
+          <ul class="block lg:flex z-10">
+              <li>
+                <a href="{{ route('jobs.all') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
+                  <x-blog.text.text color="white" textSize="small" value="Jobs"/>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('agency.all') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
+                  <x-blog.text.text color="white" textSize="small" value="Consultants"/>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('lander') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
+                  <x-blog.text.text color="white" textSize="small" value="Portforlio"/>
+                </a>
+              </li>
+
+              <li>
+                <a href="{{ route('home') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
+                  <x-blog.text.text color="white" textSize="small" value="Blog"/>
+                </a>
+              </li>
+              <li class="mt-4 md:hidden">
+                <a
+                    href="{{ route('login') }}"
+                    class=""
+                    >
+                  <x-danger-button>Post a job</x-danger-button>
+                  </a>
+              </li>
+              <li class="mt-2 md:hidden">
+                <a
+                  href="#"
+                  class=""
+                  >
+                  <x-primary-button>My account</x-primary-button>
+                </a>
+              </li>
+          </ul>
+      </div>
+    </nav>
+  </div>
+  
+  
 </header>
 <!-- ====== Navbar Section End -->
