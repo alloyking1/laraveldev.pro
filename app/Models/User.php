@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+// use App\Models\UserType;
 
 class User extends Authenticatable
 {
@@ -54,5 +55,9 @@ class User extends Authenticatable
     public function jobs()
     {
         return $this->hasMany(JobPosting::class);
+    }
+
+    public function type(){
+        return $this->hasOne(UserType::class);
     }
 }

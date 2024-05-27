@@ -35,7 +35,7 @@
             {{ $slot }}
         </div>
         <x-footer/>
-        <script src="{{ asset('/prism.js') }}"></script>
+        {{-- <script src="{{ asset('/prism.js') }}"></script> --}}
         @livewireScripts
     </body>
 </html>

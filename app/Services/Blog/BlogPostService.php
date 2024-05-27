@@ -28,6 +28,7 @@ class BlogPostService
         return $post = Category::with(['post' => function ($query) use ($paginate) {
             $query->paginate($paginate);
         }])->where('title', $category)->get();
+
     }
 
 

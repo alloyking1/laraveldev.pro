@@ -12,6 +12,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\TagController;
 use Spatie\Sitemap\SitemapGenerator;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +47,8 @@ require __DIR__ . '/auth.php';
 Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.list');
 
-    Route::middleware('auth')->group(function () {
+    // author middleware
+    Route::middleware(['auth'])->group(function () {
         Route::get('/create', [BlogPostController::class, 'show'])->name('blog.create');
         Route::post('/save', [BlogPostController::class, 'create'])->name('blog.save');
         Route::get('/edit/{Post}', [BlogPostController::class, 'edit'])->name('blog.edit');
@@ -61,8 +63,10 @@ Route::prefix('job')->group(function () {
     Route::get('/', [JobController::class, 'index'])->name('job.all');
 });
 
+
+//admin routes
 Route::prefix('/category')->group(function () {
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth','admin'])->group(function () {
         Route::get('/list', [CategoryController::class, 'index'])->name('category.show');
         Route::get('/create/{id?}', [CategoryController::class, 'create'])->name('category.create');
         Route::post('/save/{id?}', [CategoryController::class, 'save'])->name('category.save');
@@ -71,11 +75,17 @@ Route::prefix('/category')->group(function () {
 });
 
 Route::prefix('/tag')->group(function () {
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth','admin'])->group(function () {
         Route::get('/list', [TagController::class, 'index'])->name('tag.show');
         Route::get('/create/{id?}', [TagController::class, 'create'])->name('tag.create');
         Route::post('/save/{id?}', [TagController::class, 'save'])->name('tag.save');
         Route::get('/delete', [TagController::class, 'destroy'])->name('tag.delete');
+    });
+});
+
+Route::prefix('admin')->group(function (){
+    Route::middleware(['auth','admin'])->group(function () {
+        Route::get('/', [AdminController::class, 'index'])->name('admin');
     });
 });
 

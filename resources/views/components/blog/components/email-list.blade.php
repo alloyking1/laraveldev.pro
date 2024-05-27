@@ -10,7 +10,8 @@
 
 
 <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1705921");</style>
-    <style type="text/css">
+
+<style type="text/css">
     /* LOADER */
     .ml-form-embedSubmitLoad {
       display: inline-block;

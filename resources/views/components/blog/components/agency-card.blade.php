@@ -17,15 +17,15 @@
                     @endif
                 </div>
                 <div class="grid grid-cols-1 w-full">
-                    <div class="flex justify-between">
+                    <div class="md:flex justify-between mb-2 md:mb-0">
                         <div>
-                            <x-blog.text.text textSize="x-small" color="black" class="font-bold" :value="$agency->name"/>
+                            <x-blog.text.text textSize="small" color="black" class="font-bold" :value="$agency->name"/>
                         </div>
                         <div>
-                            <span>Project from: {{ $agency->project_size }} 
+                            <span class="text-base font-medium">Project from: {{ $agency->project_size }} 
                         </div>
                     </div>
-                    <div>
+                    <div class="font-thin">
                         {{ Str::limit($agency->about_company, 150, '... See more') }}
                     </div>
                 </div>

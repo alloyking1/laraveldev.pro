@@ -11,7 +11,7 @@
     'postId' => null,
 ])
 
-<div {{ $attributes->merge(['class' => 'w-full rounded-xs bg-white shadow-sm rounded-md p-4 pb-0']) }}>
+<div {{ $attributes->merge(['class' => 'w-full rounded-xs bg-white shadow-sm rounded-md p-4 pb-0 border border-gray-100 hover:border-gray-200']) }}>
         <div class="w-11/12 mx-auto pb-10">
             @if($tagDetail)
                 @foreach ($tagDetail as $tag )
