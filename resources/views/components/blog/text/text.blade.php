@@ -14,6 +14,7 @@
     'md:text-3xl text-2xl' => $textSize === 'medium',
     'md:text-2xl text-xl' => $textSize === 'small',
     'md:text-base text-xs' => $textSize === 'x-small',
+    'md:text-xs text-xs' => $textSize === 'xx-small',
 ]) }}>
     @if ($value != null)
         {{ $value }}

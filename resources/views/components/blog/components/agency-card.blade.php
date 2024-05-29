@@ -2,7 +2,7 @@
     'agency'
 ])
 
-<a href="{{ route('agency.show', $agency) }}" target="_blank" class="text-black">
+{{-- <a href="{{ route('agency.show', $agency) }}" target="_blank" class="text-black"> --}}
     <x-blog.components.card-long>
 
         <div class="">
@@ -32,7 +32,7 @@
             </div>
         </div>
     </x-blog.components.card-long>
-</a>
+{{-- </a> --}}
 
 
 

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Livewire\Forms\CreateJobForm;
 use App\Models\Skill;
 use Livewire\WithFileUploads;
+use App\Services\Job\JobPostingService;
 
 class LivewireCreateJob extends Component
 {
@@ -34,12 +35,13 @@ class LivewireCreateJob extends Component
     }
 
 
-    public function render()
+    public function render(JobPostingService $job)
     {
         return view('livewire.livewire-create-job',[
             'userJobs' => Auth::user()->load(['jobs' => function($query){
                 $query->orderBy('created_at', 'desc');
-            }])
+            }]),
+            'jobs' => $job->all(),
         ])
         ->layout('layouts.app');
     }

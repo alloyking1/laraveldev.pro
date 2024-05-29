@@ -13,20 +13,28 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                        {{ __('Your Posts') }}
+                        {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('category.show')" :active="request()->routeIs('category.show')" wire:navigate>
-                        {{ __('Category') }}
-                    </x-nav-link>
-                </div>
+                {{-- refactor into gates --}}
+                @if (auth()->user()->load('type')->type['status'] === 'admin') 
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('post')" :active="request()->routeIs('post')" wire:navigate>
+                            {{ __('Blog Posts') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('category.show')" :active="request()->routeIs('category.show')" wire:navigate>
+                            {{ __('Category') }}
+                        </x-nav-link>
+                    </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('tag.show')" :active="request()->routeIs('tag.show')" wire:navigate>
                         {{ __('Tag') }}
                     </x-nav-link>
                 </div>
-                {{-- agency --}}
+                @endif
+                
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('agency.list')" :active="request()->routeIs('agency.list')" wire:navigate>
                         {{ __('Agency') }}
@@ -87,11 +95,11 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
+        {{-- <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Your Posts') }}
             </x-responsive-nav-link>
-        </div>
+        </div> --}}
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
@@ -101,13 +109,18 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('agency.list')">
                     {{ __('Agency') }}
                 </x-responsive-nav-link>
-
+                <hr>
+                <x-responsive-nav-link :href="route('agency.list')">
+                    {{ __('Job') }}
+                </x-responsive-nav-link> 
+                <hr>
+                <x-responsive-nav-link :href="route('profile.edit')">
+                    {{ __('Profile') }}
+                </x-responsive-nav-link>
+                <hr>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

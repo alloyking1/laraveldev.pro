@@ -1,3 +1,3 @@
-<div class="text-teal-200 font-black text-2xl">
+<div class="hover:text-gray-500 text-black font-black text-2xl">
     Laraveldev.pro
 </div>

@@ -1,27 +1,19 @@
 @props([
     'status' => 'success', //or error
-    'message',
+    'session' => null,
+    'message' => null
 ])
 
 <div>
-
-    @switch($status != null)
-        @case($status === 'success')
-            @if (session()->has($message))
-                <div class="bg-green-500 text-white font-bold rounded-t px-4">
-                    {{ session()->get($message) }}
-                </div>
-            @endif
-            @break
-        @case($status === 'error')
-            @if (session()->has($message))
-                <div class="bg-red-500 text-white font-bold rounded-t px-4">
-                    {{ session()->get($message) }}
-                </div>
-            @endif
-            @break
-        @default
-            
-    @endswitch
+    @if ($message)
+        <div {{ $attributes->merge()->class([
+            'bg-green-500' => $status == 'success',
+            'bg-red-500' => $status == 'error',
+            'bg-orange-500' => $status == 'warning',
+            'text-white font-bold p-6'
+            ]) }}>
+            {{ $message }}
+        </div>
+    @endif
     
 </div>

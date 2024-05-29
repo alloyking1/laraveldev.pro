@@ -33,7 +33,9 @@
         
                     <x-blog.pages.grid-1 class="pt-32">
                         @foreach ($agencies as $agency )
-                            <x-blog.components.agency-card :agency="$agency"/>
+                        <a href="{{ route('agency.show', $agency) }}" target="_blank" class="text-black">
+                          <x-blog.components.agency-card :agency="$agency"/>
+                          </a>
                         @endforeach
                         
                     </x-blog.pages.grid-1>

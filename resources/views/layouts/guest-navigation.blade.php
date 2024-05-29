@@ -40,19 +40,19 @@
                 >
                 <ul class="block lg:flex z-10">
                     <li>
-                      <a href="{{ route('jobs.all') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
+                      <x-nav-link :href="route('jobs.all')" :active="request()->routeIs('jobs.all')" class="-mt-2 font-bold mr-4" wire:navigate>
                         <x-blog.text.text color="white" textSize="x-small" value="Jobs"/>
-                      </a>
+                      </x-nav-link>
                     </li>
                     <li>
-                      <a href="{{ route('agency.all') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
+                      <x-nav-link :href="route('agency.all')" :active="request()->routeIs('agency.all')" class="-mt-2 font-bold mr-4" wire:navigate>
                         <x-blog.text.text color="white" textSize="x-small" value="Consultants"/>
-                      </a>
+                      </x-nav-link>
                     </li>
                     <li>
-                      <a href="{{ route('lander') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
-                        <x-blog.text.text color="white" textSize="x-small" value="Portforlio"/>
-                      </a>
+                      <x-nav-link :href="route('lander')" :active="request()->routeIs('lander')" class="-mt-2 font-bold mr-4" wire:navigate>
+                        <x-blog.text.text color="white" textSize="x-small" value="Portfolio"/>
+                      </x-nav-link>
                     </li>
                     {{-- <li>
                       <a href="{{ route('tutorial') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
@@ -66,12 +66,9 @@
                     </li> --}}
 
                     <li>
-                      {{-- <a href="{{ route('blog-post') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
+                      <x-nav-link :href="route('home')" :active="request()->routeIs('home')" class="-mt-2 font-bold mr-4" wire:navigate>
                         <x-blog.text.text color="white" textSize="x-small" value="Blog"/>
-                      </a> --}}
-                      <a href="{{ route('home') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
-                        <x-blog.text.text color="white" textSize="x-small" value="Blog"/>
-                      </a>
+                      </x-nav-link>
                     </li>
                 </ul>
               </nav>

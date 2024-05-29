@@ -27,7 +27,7 @@ class LivewireEditAgency extends Component
 
     public function save(){
         $this->form->selectedOptions = $this->selectedOptions;
-        $this->form->store($this->id);
+        $this->form->store($this->id, $this->agency->feature_img);
         session()->flash('success', 'Agency successfully created.');
         return redirect()->route('agency.list');
     }

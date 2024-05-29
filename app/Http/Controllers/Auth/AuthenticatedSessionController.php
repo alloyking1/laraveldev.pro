@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Enums\UserTypeEnum;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -26,8 +27,13 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-
         $request->session()->regenerate();
+
+        //refactor into a gate
+        $user = auth()->user()->load('type'); 
+        if($user->type['status'] === UserTypeEnum::Admin->value){
+            return redirect()->route('admin');
+        }
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }

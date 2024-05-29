@@ -14,7 +14,7 @@ class CreateJobForm extends Form
     use WithFileUploads;
 
     #[Validate('required|string|min:5')]
-    public $company_name = 'Laraveldev.pro';
+    public $company_name = '';
 
     #[Validate('required|string|min:5')]
     public $title = '';
@@ -64,7 +64,6 @@ class CreateJobForm extends Form
 
         $agencyService = new JobPostingService();
         $agencyService->create(JobPostingDto::fromPostRequest($this->all()), $id);
-
         $this->reset(); 
     }
 

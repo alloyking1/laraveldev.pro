@@ -27,7 +27,7 @@ class AgencyService {
         $skillsCollection = collect($agencyDto->skills);
         $skillsId = $skillsCollection->pluck('id')->all();
 
-        $agency->skills()->attach($skillsId);
+        $agency->skills()->sync($skillsId);
         return $agency;
     }
 

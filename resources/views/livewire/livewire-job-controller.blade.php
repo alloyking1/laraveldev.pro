@@ -31,8 +31,10 @@
                 </div>
     
                 <x-blog.pages.grid-1 class="pt-32">
-                    @foreach ($jobs as $job )
-                    <x-blog.components.job-card :job="$job"/>
+                  @foreach ($jobs as $job )
+                    <a href="{{ $job->application_link }}" target="_blank" class="text-black">
+                      <x-blog.components.job-card :job="$job"/>
+                    </a>
                    @endforeach
                     
                 </x-blog.pages.grid-1>

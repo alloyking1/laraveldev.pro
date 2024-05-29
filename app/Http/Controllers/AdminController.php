@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function index(){
-        dd('djfsldk');
         return view('admin.index');
+    }
+
+    public function post(){
+        return view('admin.post');
     }
 }

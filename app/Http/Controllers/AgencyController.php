@@ -20,11 +20,6 @@ class AgencyController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        return view('agency.create');
-    }
-
     public function show(Agency $agency){
         return view('agency.show', [
             'agency' => $agency

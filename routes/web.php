@@ -47,8 +47,9 @@ require __DIR__ . '/auth.php';
 Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.list');
 
-    // author middleware
-    Route::middleware(['auth'])->group(function () {
+    // create author middleware
+    // add admin middleware for now
+    Route::middleware(['auth','admin'])->group(function () {
         Route::get('/create', [BlogPostController::class, 'show'])->name('blog.create');
         Route::post('/save', [BlogPostController::class, 'create'])->name('blog.save');
         Route::get('/edit/{Post}', [BlogPostController::class, 'edit'])->name('blog.edit');
@@ -86,6 +87,7 @@ Route::prefix('/tag')->group(function () {
 Route::prefix('admin')->group(function (){
     Route::middleware(['auth','admin'])->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin');
+        Route::get('/post', [AdminController::class, 'post'])->name('post');
     });
 });
 

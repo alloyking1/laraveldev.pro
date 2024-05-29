@@ -6,7 +6,7 @@ use App\DataTransferObjects\JobPostingDto;
 class JobPostingService {
 
     public function create(JobPostingDto $jobDto, $id = NULL){
-        $agency = JobPosting::updateOrCreate([
+        $job = JobPosting::updateOrCreate([
             'id' => $id
         ],[
             'user_id' => $jobDto->user_id,
@@ -24,8 +24,8 @@ class JobPostingService {
         $skillsCollection = collect($jobDto->skills);
         $skillsId = $skillsCollection->pluck('id')->all();
 
-        $agency->skills()->sync($skillsId);
-        return $agency;
+        $job->skills()->sync($skillsId);
+        return $job;
     }
 
     public function find($id){
@@ -33,9 +33,9 @@ class JobPostingService {
     }
 
     public function delete($id){
-        $agency = JobPosting::find($id);
-        $agency->delete();
-        return $agency;
+        $job = JobPosting::find($id);
+        $job->delete();
+        return $job;
     }
 
     public function all(){
