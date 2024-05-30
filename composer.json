@@ -11,7 +11,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.4",
-        "spatie/laravel-sitemap": "^6.3",
+        "spatie/crawler": "^8.2",
         "tinymce/tinymce": "^6.4"
     },
     "require-dev": {

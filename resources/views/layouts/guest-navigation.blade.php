@@ -51,7 +51,7 @@
                     </li>
                     <li>
                       <x-nav-link :href="route('lander')" :active="request()->routeIs('lander')" class="-mt-2 font-bold mr-4" wire:navigate>
-                        <x-blog.text.text color="white" textSize="x-small" value="Portfolio"/>
+                        <x-blog.text.text color="white" textSize="x-small" value="Roadmap"/>
                       </x-nav-link>
                     </li>
                     {{-- <li>
