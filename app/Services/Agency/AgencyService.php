@@ -44,4 +44,8 @@ class AgencyService {
     public function all(){
         return Agency::with('skills')->get();
     }
+
+    public function featured($limit){
+        return Agency::latest()->limit($limit)->get();
+    }
 }

@@ -42,7 +42,7 @@ class JobPostingService {
        return JobPosting::with('skills')->orderBy('created_at', 'desc')->get();
     }
 
-    public function recentJobs(){
-
+    public function recentJobs($limit){
+        return JobPosting::latest()->limit($limit)->get();
     }
 }

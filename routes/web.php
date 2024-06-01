@@ -48,7 +48,6 @@ Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.list');
 
     // create author middleware
-    // add admin middleware for now
     Route::middleware(['auth','admin'])->group(function () {
         Route::get('/create', [BlogPostController::class, 'show'])->name('blog.create');
         Route::post('/save', [BlogPostController::class, 'create'])->name('blog.save');

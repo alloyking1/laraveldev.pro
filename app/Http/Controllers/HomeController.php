@@ -20,11 +20,9 @@ class HomeController extends Controller
         //     ->setTotalCrawlLimit(1)
         //     ->startCrawling($url);
 
-        // dd($crawledData);
-
         return view('home.index',[
-            'jobs' => $job->all(),
-            'agencies' => $agency->all(),
+            'jobs' => $job->recentJobs(2),
+            'agencies' => $agency->featured(2),
         ]);
     }
 }

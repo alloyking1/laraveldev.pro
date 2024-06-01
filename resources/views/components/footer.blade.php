@@ -21,9 +21,6 @@
                             <a href="{{ route('agency.all') }}" class="text-gray-500 hover:text-gray-300" wire:navigate>Consultants</a>    
                         </div>
                         <div class="text-xl">
-                            <a href="{{ route('jobs.all') }}" class="text-gray-500 hover:text-gray-300" wire:navigate>Portfolio</a>    
-                        </div>
-                        <div class="text-xl">
                             <a href="{{ route('home') }}" class="text-gray-500 hover:text-gray-300" wire:navigate>Blog</a>    
                         </div>
                 </div>
