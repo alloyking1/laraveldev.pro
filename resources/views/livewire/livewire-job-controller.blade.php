@@ -24,13 +24,13 @@
             </div>
         </x-blog.pages.section>
        
-        <x-blog.pages.section color="white" title="" textColor="black" textSize="large">
-            <div class="max-w-4xl mx-auto mt-4">
-                <div class="rounded-2xl shadow-2xl p-6 bg-white -mt-[10rem] md:-mt-[10rem] z-10">
+        <x-blog.pages.section color="white" title="" textColor="black" textSize="large" class="md:-mt-8">
+            <div class="max-w-4xl mx-auto">
+                {{-- <div class="rounded-2xl shadow-2xl p-6 bg-white -mt-[10rem] md:-mt-[10rem] z-10">
                     email list
-                </div>
+                </div> --}}
     
-                <x-blog.pages.grid-1 class="pt-32">
+                <x-blog.pages.grid-1 class="">
                   @foreach ($jobs as $job )
                     <a href="{{ $job->application_link }}" target="_blank" class="text-black">
                       <x-blog.components.job-card :job="$job"/>

@@ -49,11 +49,11 @@
                         <x-blog.text.text color="white" textSize="x-small" value="Consultants"/>
                       </x-nav-link>
                     </li>
-                    <li>
+                    {{-- <li>
                       <x-nav-link :href="route('lander')" :active="request()->routeIs('lander')" class="-mt-2 font-bold mr-4" wire:navigate>
                         <x-blog.text.text color="white" textSize="x-small" value="Roadmap"/>
                       </x-nav-link>
-                    </li>
+                    </li> --}}
                     {{-- <li>
                       <a href="{{ route('tutorial') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
                         <x-blog.text.text color="white" textSize="x-small" value="Tutorials"/>
@@ -110,11 +110,11 @@
                   <x-blog.text.text color="white" textSize="small" value="Consultants"/>
                 </a>
               </li>
-              <li>
+              {{-- <li>
                 <a href="{{ route('lander') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
                   <x-blog.text.text color="white" textSize="small" value="Portforlio"/>
                 </a>
-              </li>
+              </li> --}}
 
               <li>
                 <a href="{{ route('home') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
