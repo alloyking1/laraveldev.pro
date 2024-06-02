@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('job_postings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('company_name');
             $table->string('title');
+            $table->string('contract');
+            $table->string('location');
             $table->string('description');
             $table->string('about_company');
             $table->string('salary');

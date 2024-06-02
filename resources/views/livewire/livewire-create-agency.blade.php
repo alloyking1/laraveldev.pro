@@ -1,20 +1,16 @@
 <x-blog.components.card>
     
     <div x-data={open:false}>
-         {{-- extract into component --}}
-         @if (session('success'))
-         <div class="bg-green-400 text-white p-4 rounded-sm">
-             {{ session('success') }}
-         </div>
-     @endif
-        <div class="flex justify-between">
+        <x-blog.components.flash-message status="{{ session('success') }}"/>
+        <div class="flex justify-between py-4">
             <div>
-                <h1 class="md:text-3xl text-4xl font-black">Create Agency</h1>
-                <p class="text-gray-900 text-xs font-thin">Use the form below to add your agency..</p>
+                <h1 class="md:text-3xl text-4xl text-gray-700">Agency</h1>
             </div>
             <div> 
                 <div x-on:click="open = ! open">
-                    <x-blog.btn.btn-primary x-on:click="open = ! open"/>
+                    <x-primary-button>
+                        <div>Add agency</div>
+                    </x-primary-button>
                 </div>
             </div>
         </div>
@@ -28,7 +24,7 @@
                         <x-input-error :messages="$errors->get('form.name')" class="mt-2" />
                     </div>
                     <div class="mt-1">
-                        <x-text-input wire:model="form.email" placeholder="Email" class="block mt-1 w-full" type="email" autofocus autocomplete="email" />
+                        <x-text-input wire:model="form.email" placeholder="Work Email" class="block mt-1 w-full" type="email" autofocus autocomplete="email" />
                         <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
                     </div>
                     <div class="mt-2">
@@ -81,7 +77,7 @@
                         <x-input-error :messages="$errors->get('form.website')" class="mt-2" />
                     </div>
                     <div class="mt-1">
-                        <x-text-input placeholder="Video link" class="block mt-1 w-full" type="text" wire:model="form.video" autofocus autocomplete="video" />
+                        <x-text-input placeholder="Video link (optional)" class="block mt-1 w-full" type="text" wire:model="form.video" autofocus autocomplete="video" />
                         <x-input-error :messages="$errors->get('form.video')" class="mt-2" />
                     </div>
                 </div>
@@ -96,58 +92,53 @@
                     <x-input-error :messages="$errors->get('form.about_company')" class="mt-2" />
                 </div>
 
-                <div class="mt-4 grid grid-cols-2 gap-2">
-                    <div class="mt-1">
-                        <p class="text-xs">
-                            Youtube video. Note: please use the embed URL. (https://www.youtube.com/embed/0Rq-yHAwYjQ)
-                        </p>
-                        <x-text-input placeholder="Company logo" class="block mt-1 w-full" type="text" wire:model="form.logo" autofocus autocomplete="logo" />
-                        <x-input-error :messages="$errors->get('form.logo')" class="mt-2" />
-                    </div>
-                    <div class="mt-1">
-                        <p class="text-xs">
-                            @if ($logo) 
-                                <img src="{{ $logo->temporaryUrl() }}">
-                            @endif
-                        </p>
-                        <x-text-input placeholder="Featured image" type="file" wire:model="logo" class="block mt-1 w-full" autofocus autocomplete="logo" />
-                        <x-input-error :messages="$errors->get('form.feature_img')" class="mt-2" /> 
-                        
-                    </div>
-                </div>
                 <div class="mt-4 grid grid-cols-1 gap-2">
                     <x-multi-select-dropdown list="skills" selectedOptions="selectedOptions">
                         <x-input-error :messages="$errors->get('form.selectedOptions')" class="mt-2" /> 
                     </x-multi-select-dropdown>
                 </div>
 
+                <div class="mt-4">
+                    <div class="grid gap-4">
+                        <div>
+                            <label for="file" class="p-3 bg-blue-900 rounded-md px-4 hover:cursor text-white text-sm font-semibold">Add a logo</label>
+                            <x-text-input id="file" placeholder="Featured image" type="file" wire:model="logo" class="hidden mt-1 w-full" autofocus autocomplete="logo" />
+                            <x-input-error :messages="$errors->get('form.feature_img')" class="mt-2" /> 
+                        </div>
+                        <div>
+                            @if ($logo) 
+                                <img src="{{ $logo->temporaryUrl() }}" class="w-[6rem]">
+                            @endif
+                        </div>
+                    </div>
+                </div>
+
                 <div class="mt-4 flex justify-between"> 
-                <button
-                    type="submit"
-                    class="uppercase mt-15 bg-green-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-2xl">
-                    Save
-                </button>
+                <x-primary-button class="bg-green-500" wire:click.prevent="save">
+                    Post Job
+                </x-primary-button>
                 </div>
             </form>
+
+            <div class="p-4">
+                <hr>
+            </div>
         </div>
     </div>
     
 
     <div>
-        <x-blog.text.text textSize="header2" color="black" value="Your Company" class="font-black font-serif"/>
-        @forelse ($userAgency->agency as $agencies)
-        <a href="{{ route('agency.update',['id' => $agencies->id]) }}" wire:navigate>
-            <div class="rounded-sm p-10 bg-white w-full flex justify-between mb-2 shadow">
-                <div>
-                    <img src="{{ asset('storage/' . $agencies->feature_img) }}" class="rounded-full w-[100px]">
-                </div>
-                <div>
-                    {{ $agencies->name }}
-                </div>
-            </div>
-        </a>
-        @empty
-            <h3>No agency added</h3>
-        @endforelse
+        <x-blog.pages.grid-1 class="pt-4">
+            @forelse ($userAgency->agency  as $agency )
+                <a href="{{ route('agency.update',['id' => $agency->id]) }}" wire:navigate>
+                    <x-blog.components.agency-card :agency="$agency"/>
+                </a>
+            @empty
+                <x-blog.components.card-long>
+                    <x-blog.text.text textSize="xx-small" color="gray" value="Let the world see your agency!" class=""/>
+                </x-blog.components.card-long>
+            @endforelse
+            
+        </x-blog.pages.grid-1>
     </div>
-    </x-blog-components.card>
+</x-blog-components.card>

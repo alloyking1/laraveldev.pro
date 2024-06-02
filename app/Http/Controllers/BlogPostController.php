@@ -22,8 +22,12 @@ class BlogPostController extends Controller
 
     public function index(string $slog)
     {
+        $selectedPost = $this->service->getPost($slog);
+        $postTags = $selectedPost->pluck('tag');
+
         return view('blog.show', [
-            'postDetail' => $this->service->getPost($slog)
+            'postDetail' => $selectedPost,
+            'recentPosts' => $this->service->relatedPost($postTags),
         ]);
     }
 

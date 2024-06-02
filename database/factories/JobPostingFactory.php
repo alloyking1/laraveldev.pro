@@ -18,7 +18,10 @@ class JobPostingFactory extends Factory
     {
         return [
             'user_id' => 1,
+            'company_name' => $this->faker->name(),
             'title' => $this->faker->name(),
+            'contract' => $this->faker->name(),
+            'location' => $this->faker->name(),
             'description' => $this->faker->realText($maxNbChars = 50),
             'about_company' => $this->faker->realText($maxNbChars = 50),
             'salary' => "$90,000 - $120,000",

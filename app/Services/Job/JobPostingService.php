@@ -6,11 +6,14 @@ use App\DataTransferObjects\JobPostingDto;
 class JobPostingService {
 
     public function create(JobPostingDto $jobDto, $id = NULL){
-        $agency = JobPosting::updateOrCreate([
+        $job = JobPosting::updateOrCreate([
             'id' => $id
         ],[
             'user_id' => $jobDto->user_id,
+            'company_name' =>  $jobDto->company_name,
             'title' =>  $jobDto->title,
+            'contract' =>  $jobDto->contract,
+            'location' =>  $jobDto->location,
             'description' =>  $jobDto->description,
             'about_company' =>  $jobDto->about_company,
             'salary' =>  $jobDto->salary,
@@ -21,8 +24,8 @@ class JobPostingService {
         $skillsCollection = collect($jobDto->skills);
         $skillsId = $skillsCollection->pluck('id')->all();
 
-        $agency->skills()->sync($skillsId);
-        return $agency;
+        $job->skills()->sync($skillsId);
+        return $job;
     }
 
     public function find($id){
@@ -30,8 +33,16 @@ class JobPostingService {
     }
 
     public function delete($id){
-        $agency = JobPosting::find($id);
-        $agency->delete();
-        return $agency;
+        $job = JobPosting::find($id);
+        $job->delete();
+        return $job;
+    }
+
+    public function all(){
+       return JobPosting::with('skills')->orderBy('created_at', 'desc')->get();
+    }
+
+    public function recentJobs($limit){
+        return JobPosting::latest()->limit($limit)->get();
     }
 }

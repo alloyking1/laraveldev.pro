@@ -1,22 +1,33 @@
 <div>
-    {{-- extract into component --}}
-    @if (session('success'))
-    <div class="bg-green-400 text-white p-4 rounded-sm">
-        {{ session('success') }}
+    <x-blog.components.flash-message :message="session('success')" status="success"/>
+    <div class="grid gap-4">
+       
+        <div>
+            @if ($photo) 
+                <img src="{{ $photo->temporaryUrl() }}" class="w-[6rem]">
+            @else
+                <img src="{{ asset('storage/' . $currentLogo) }}" class="w-[6rem]">
+            @endif
+        </div>
     </div>
-    @endif
-    
-    <div class="rounded-full">
-        @if ($photo) 
-            <img src="{{ $photo->temporaryUrl() }}" class="rounded-full w-[100px]">
-        @else
-            <img src="{{ asset('storage/' . $currentLogo) }}" class="rounded-full w-[100px]">
-        @endif
-    </div>
-    <div>
-        <form wire:submit="update">
-            <input type="file" wire:model="photo">
-            <button type="submit">save</button>
+
+    <div class="mt-4">
+        <form>
+            @if($photo === null)
+            <div>
+                <label for="file" class="p-3 bg-blue-900 rounded-md px-4 hover:cursor text-white text-sm font-semibold">Change logo</label>
+                <x-text-input id="file" placeholder="Featured image" type="file" wire:model="photo" class="hidden mt-1 w-full" />
+                <x-input-error :messages="$errors->get('form.photo')" class="mt-2" /> 
+            </div>
+            @else
+            <div>
+                <x-primary-button class="bg-orange-500" wire:click.prevent="update">
+                    Save
+                </x-primary-button>
+                
+            </div>
+            @endif
+            
         </form>
     </div>
 </div>

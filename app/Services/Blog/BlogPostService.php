@@ -28,6 +28,16 @@ class BlogPostService
         return $post = Category::with(['post' => function ($query) use ($paginate) {
             $query->paginate($paginate);
         }])->where('title', $category)->get();
+
+    }
+
+    public function relatedPost($postTags)
+    {
+        $tag = $postTags->toArray();
+        $recentPost = Post::whereHas('tag', function ($query) use ($tag) {
+                    $query->where('title', 'like', '%' . $tag['0']['0']['title'] . '%');
+                })->get();
+        return $recentPost;
     }
 
 

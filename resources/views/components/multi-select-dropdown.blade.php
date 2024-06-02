@@ -4,7 +4,7 @@
 ])
 
 <div class="msa-wrapper w-full" x-data="multiselectComponent()" x-init="$watch('selected', value => selectedString = value.join(','))">
-    <label for="msa-input">Select some skills</label>
+    {{-- <label for="msa-input">Select some skills</label> --}}
     <input 
            x-model="selectedString" 
            type="text" id="msa-input" 
@@ -14,7 +14,7 @@
            hidden>
 
     <div class="input-presentation" @click="listActive = !listActive" @click.away="listActive = false" x-bind:class="{'active': listActive}">
-      <span class="placeholder" x-show="selected.length == 0">Select Tags</span>
+      <span class="placeholder" x-show="selected.length == 0">Select Skills</span>
       <template x-for="(tag, index) in selected">
         <div class="tag-badge">
           <span x-text="tag.name"></span>
@@ -77,7 +77,7 @@
     }
 
     .msa-wrapper {
-    width: 400px;
+    /* width: 400px; */
 
     &:focus-within {
         .input-presentation {
@@ -103,6 +103,7 @@
     border-radius: 10px;
     position: relative;
     cursor: pointer;
+    /* width: 100%; */
     
     .placeholder {
       font-weight: 400;

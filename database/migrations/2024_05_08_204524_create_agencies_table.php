@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('video')->nullable();
             $table->string('feature_img')->nullable();
             $table->string('short_description');
-            $table->string('about_company');
+            $table->text('about_company');
             $table->string('about_video')->nullable();
             $table->string('logo')->nullable();
             $table->boolean('status')->default(0);

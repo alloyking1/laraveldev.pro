@@ -1,14 +1,8 @@
 
-<x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('Edit agency') }}
-    </h2>
-</x-slot>
-
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">         
-        <div>
-            <x-blog.components.card title="Edit agency" subtitle="ksjdflkjsldfjsldjfksldfjslkfjslk">
+        <div class="mx-4">
+            <x-blog.components.card title="Edit agency" subtitle="">
 
                 <div class="mt-4 grid grid-cols-1 gap-2">
                     <div class="mt-1">
@@ -16,11 +10,7 @@
                     </div>
                 </div>
                 <div>
-                    @if (session('success'))
-                        <div class="bg-green-400 text-white p-4 rounded-sm">
-                            {{ session('success') }}
-                        </div>
-                    @endif
+                    <x-blog.components.flash-message :message="session('success')" status="success"/>
         
                     <form wire:submit="save">
         
@@ -83,7 +73,7 @@
                                 <x-input-error :messages="$errors->get('form.website')" class="mt-2" />
                             </div>
                             <div class="mt-1">
-                                <x-text-input placeholder="Video link" class="block mt-1 w-full" type="text" wire:model="form.video" autofocus autocomplete="video" />
+                                <x-text-input placeholder="Video link (Optional)" class="block mt-1 w-full" type="text" wire:model="form.video" autofocus autocomplete="video" />
                                 <x-input-error :messages="$errors->get('form.video')" class="mt-2" />
                             </div>
                         </div>
@@ -103,19 +93,13 @@
                         </div>
         
                         <div class="mt-4 flex justify-between"> 
-                        <button
-                            type="submit"
-                            class="uppercase mt-15 bg-green-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-2xl">
-                            Save
-                        </button>
-
-                        <button 
-                        type="button"
-                        wire:click="delete"
-                        wire:confirm.prompt="Are you sure?\n\nType DELETE to confirm|DELETE"
-                            class="uppercase mt-15 bg-red-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-2xl">
-                            Delete
-                        </button>
+                        <x-primary-button class="bg-green-500" wire:click.prevent="save">
+                            Post Agency
+                        </x-primary-button>
+                        <x-danger-button class="bg-green-500" wire:click="delete"
+                        wire:confirm.prompt="Are you sure?\n\nType DELETE to confirm|DELETE">
+                            Delete Agency
+                        </x-danger-button>
                         </div>
                     </form>
                 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\Blog\BlogPostService;
 use Illuminate\Http\Request;
 use App\Enums\BlogPostCategoryEnum;
+use App\Services\Agency\AgencyService;
 
 class PagesController extends Controller
 {
@@ -15,12 +16,13 @@ class PagesController extends Controller
     {
     }
 
-    public function home()
+    public function home(AgencyService $agency)
     {
         return view('blog.pages.home', [
             'recentPost' => $this->blogPostService->recentPost(BlogPostCategoryEnum::TUTORIAL, $this->recentPostPaginate),
             'recentPackages' => $this->blogPostService->recentPost(BlogPostCategoryEnum::PACKAGES, $this->recentPostPaginate),
             'recentNews' => $this->blogPostService->recentPost(BlogPostCategoryEnum::BLOG, $this->recentPostPaginate),
+            'agencies' => $agency->all()
         ]);
     }
 

@@ -27,7 +27,7 @@ class AgencyService {
         $skillsCollection = collect($agencyDto->skills);
         $skillsId = $skillsCollection->pluck('id')->all();
 
-        $agency->skills()->attach($skillsId);
+        $agency->skills()->sync($skillsId);
         return $agency;
     }
 
@@ -39,5 +39,13 @@ class AgencyService {
         $agency = Agency::find($id);
         $agency->delete();
         return $agency;
+    }
+
+    public function all(){
+        return Agency::with('skills')->get();
+    }
+
+    public function featured($limit){
+        return Agency::latest()->limit($limit)->get();
     }
 }

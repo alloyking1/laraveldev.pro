@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Enums\UserTypeEnum;
+use App\Models\UserType;
 
 class RegisteredUserController extends Controller
 {
@@ -40,6 +42,12 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+        ]);
+
+        // create user type
+        $userType = UserType::create([
+            'user_id' => $user->id,
+            'status' => UserTypeEnum::Guest,
         ]);
 
         event(new Registered($user));
