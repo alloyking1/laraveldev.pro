@@ -7,7 +7,7 @@
       robots="laravel,coding,tallstack,livewire,laraveldeveloper,laravel jobs, laravel news, learn laravel, laravel LMS, laravel saas, laravel coding, laravel architect, whats new in laravel - x"
     />
 
-  <x-blog.pages.section color="gray" textColor="black" textSize="large" class="-mx-8">
+  <x-blog.pages.section color="gray" textColor="black" textSize="large" class="">
       <div class="max-w-6xl mx-auto">
 
         <x-blog.pages.grid-3 class="py-6">
