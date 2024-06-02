@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.4",
         "spatie/crawler": "^8.2",
+        "spatie/laravel-sitemap": "^7.0",
         "tinymce/tinymce": "^6.4"
     },
     "require-dev": {

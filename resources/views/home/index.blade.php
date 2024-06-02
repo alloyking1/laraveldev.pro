@@ -9,13 +9,13 @@
     <x-blog.pages.section color="black" textColor="white" textSize="large" class="relative">
         <div class="">
           <div class="text-center grid place-content-center justify-center">
-            <x-blog.text.text textSize="header2" color="white" value="The official Laravel job board" class="font-black"/>
+            <x-blog.text.text textSize="header2" color="white" value="Looking to hire a Laravel dev?" class="font-black"/>
     
             <div class="max-w-2xl mx-auto mt-4">
               <x-blog.text.text textSize="x-small"
               color="white"
               class="font-thin"
-              value="LaraJobs is our first stop whenever we're hiring a Laravel role. We've hired 10 Laravel developers in the last few years, all thanks to LaraJobs.” — Matthew Hall, ArborXR"/>
+              value="Post your job and receive an impressive number of high-quality applications from top developers. Start finding the perfect fit for your project today!"/>
             
               <x-blog.pages.grid-1 class="mt-4">
                 @forelse ($jobs as $job)
@@ -51,7 +51,7 @@
                         <x-blog.text.text textSize="x-small"
                         color="white"
                         class="font-thin"
-                        value="LaraJobs is our first stop whenever we're hiring a Laravel role. We've hired 10 Laravel developers in the last few years, all thanks to LaraJobs.” — Matthew Hall, ArborXR"/>
+                        value="Streamline your hiring process and get exceptional Laravel solutions today by Partner with top Laravel agencies"/>
                     </div>
                 </div>
                 

@@ -11,13 +11,13 @@
         <x-blog.pages.section color="black" textColor="white" textSize="large" class="relative">
             <div class="">
               <div class="text-center grid place-content-center justify-center">
-                <x-blog.text.text textSize="header2" color="white" value="The official Laravel job board" class="font-black"/>
+                <x-blog.text.text textSize="header2" color="white" value="The Laraveldev.pro job board" class="font-black"/>
         
                 <div class="max-w-2xl mx-auto mt-4">
                   <x-blog.text.text textSize="x-small"
                   color="white"
                   class="font-thin"
-                  value="LaraJobs is our first stop whenever we're hiring a Laravel role. We've hired 10 Laravel developers in the last few years, all thanks to LaraJobs.” — Matthew Hall, ArborXR"/>
+                  value="Gain maximum visibility for your Laravel job posting by showcasing it to thousands of talented Laravel developers that visit Laraveldev.pro"/>
                 
                 </div>
               </div>

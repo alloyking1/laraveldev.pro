@@ -18,7 +18,7 @@
                       <x-blog.text.text textSize="x-small"
                       color="white"
                       class="font-thin"
-                      value="LaraJobs is our first stop whenever we're hiring a Laravel role. We've hired 10 Laravel developers in the last few years, all thanks to LaraJobs.” — Matthew Hall, ArborXR"/>
+                      value="Effortlessly outsource your project or seamlessly integrate Laravel experts into your team when you hire an Agency or Laravel consultant"/>
                     
                     </div>
                   </div>

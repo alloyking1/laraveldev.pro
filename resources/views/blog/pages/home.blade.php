@@ -36,14 +36,14 @@
   {{-- @if (count($post->post) > 1) --}}
     
   <x-blog.pages.section color="offWhite" title="Recent Tutorials" textColor="black" textSize="large">
-    <x-blog.pages.grid-5 class="mt-16">
+    <x-blog.pages.grid-2 class="mt-16 grid md:grid-cols-5">
 
         @foreach ($recentPost as $post)
           @foreach ($post->post as $postValue )
             <x-blog.components.post-card :tagDetail="$postValue->tag" editRoute="{{ route('blog.edit', $postValue) }}" href="{{ route('blog.show', $postValue->slog)}}" :title="$postValue->title" :excerpt="$postValue->excerpt" :userName="$postValue->user->name" :date="$postValue->updated_at" />
           @endforeach
         @endforeach
-    </x-blog.pages.grid-5>
+    </x-blog.pages.grid-2>
   </x-blog.pages.section> 
 
   {{-- @endif --}}

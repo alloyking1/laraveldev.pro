@@ -8,9 +8,9 @@
             </div>
 
             <div class="max-w-4xl mx-auto">
-                <x-blog.text.text color="white" class="font-bold" textSize="small" value="The process was drop-dead simple, and we were shocked by the quality and volume of responses we got by posting on LaraJobs – miles above the usual job boards."/>
+                <x-blog.text.text color="white" class="font-bold" textSize="small" value="The process will be drop-dead simple, and you will be shocked by the quality and volume of responses you will get by posting on Laraveldev.pro"/>
                 
-                <x-blog.text.text color="white" class="font-bold p-2" textSize="small" value="Tommy McGuire"/>
+                {{-- <x-blog.text.text color="white" class="font-bold p-2" textSize="small" value="Jeff Stalman"/> --}}
 
                <div class="gird grid-cols-1 place-content-center">
                 <div class="flex justify-center md:gap-12 gap-4 text-gray-500 py-4">
@@ -25,7 +25,7 @@
                         </div>
                 </div>
                 <div class="text-gray-500">
-                    Built by UserScape in partnership with Laravel News
+                    Built by <a href="https://codecontent.pro" target="_blank" class="hover:text-gray-300 text-indigo-200">codecontent.pro</a> in partnership with Laraveldev.pro
                     <div>
                         © {{ '20'. date('y') }}
                     </div>
