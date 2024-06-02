@@ -3,10 +3,10 @@
 
     <div>
         <x-blog.seo.page-meta
-        title="Laraveldev.pro"
-        description="providing laravel coding tutorials for laravel developers "
-        keywords="laravel,coding,tallstack,livewire,laraveldeveloper,laravel jobs, laravel news"
-        robots="laravel,coding,tallstack,livewire,laraveldeveloper,laravel jobs, laravel news"
+        title="laravel job board | post laravel jobs | laravel developer recruitment"
+        description="posting laravel jobs | posting vue.js jobs | posting laravel TALL stack jobs | find laravel jobs | apply to laravel jobs online | get hired as a laravel developer"
+        keywords="laravel,job,recruitment,laravel-hire,job-board,laraveljobs.com, laravelnews.com, laracast, laraveldev.pro, laravel hire"
+        robots="laravel,job,recruitment,laravel-hire,job-board,laraveljobs.com, laravelnews.com, laracast, laraveldev.pro, laravel hire"
       />
         <x-blog.pages.section color="black" textColor="white" textSize="large" class="relative">
             <div class="">

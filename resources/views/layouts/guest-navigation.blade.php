@@ -49,22 +49,6 @@
                         <x-blog.text.text color="white" textSize="x-small" value="Consultants"/>
                       </x-nav-link>
                     </li>
-                    {{-- <li>
-                      <x-nav-link :href="route('lander')" :active="request()->routeIs('lander')" class="-mt-2 font-bold mr-4" wire:navigate>
-                        <x-blog.text.text color="white" textSize="x-small" value="Roadmap"/>
-                      </x-nav-link>
-                    </li> --}}
-                    {{-- <li>
-                      <a href="{{ route('tutorial') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
-                        <x-blog.text.text color="white" textSize="x-small" value="Tutorials"/>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="{{ route('packages') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
-                        <x-blog.text.text color="white" textSize="x-small" value="Packages"/>
-                      </a>
-                    </li> --}}
-
                     <li>
                       <x-nav-link :href="route('home')" :active="request()->routeIs('home')" class="-mt-2 font-bold mr-4" wire:navigate>
                         <x-blog.text.text color="white" textSize="x-small" value="Blog"/>
@@ -82,7 +66,7 @@
               <x-danger-button>Post a job</x-danger-button>
               </a>
               <a
-                href="javascript:void(0)"
+                href="{{ route('register') }}"
                 class="py-3 text-base font-medium text-white rounded-md bg-primary px-7 hover:bg-primary/90 -ml-6"
                 >
                 <x-primary-button>My account</x-primary-button>
@@ -110,11 +94,6 @@
                   <x-blog.text.text color="white" textSize="small" value="Consultants"/>
                 </a>
               </li>
-              {{-- <li>
-                <a href="{{ route('lander') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
-                  <x-blog.text.text color="white" textSize="small" value="Portforlio"/>
-                </a>
-              </li> --}}
 
               <li>
                 <a href="{{ route('home') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
@@ -131,7 +110,7 @@
               </li>
               <li class="mt-2 md:hidden">
                 <a
-                  href="#"
+                  href="{{ route('register') }}"
                   class=""
                   >
                   <x-primary-button>My account</x-primary-button>
