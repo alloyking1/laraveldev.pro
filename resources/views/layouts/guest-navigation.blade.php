@@ -8,8 +8,9 @@
     "
   >
   <div class="max-w-6xl mx-auto">
-    <div class="relative flex items-center justify-between -mx-4">
-        <div class="max-w-full px-4 w-60">
+    {{-- <div class="relative flex items-center justify-between -mx-4"> --}}
+    <div class="relative flex">
+        <div class="max-w-full px-4">
           <a href="{{ route('lander') }}" class="block w-full py-5">
               <p class="text-2xl font-bold text-white ml-4 mb-2">Laraveldev.pro</p>
           </a>
@@ -33,7 +34,6 @@
                 ></span>
               </button>
 
-              {{-- large screen --}}
               <nav
                 id="navbarCollapse"
                 class="hidden lg:block absolute right-4 top-full w-full max-w-[250px] rounded-lg py-5 px-6 shadow lg:static lg:w-full lg:max-w-full lg:shadow-none dark:bg-dark-2 lg:dark:bg-transparent"

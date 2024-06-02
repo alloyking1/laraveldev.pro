@@ -26,9 +26,9 @@
     
     </head>
 
-    <body class="font-sans text-gray-900 bg-gray-100 antialiased">
+    <body class="font-sans text-gray-900 bg-gray-100">
        
-        <div class="w-full sticky top-0">
+        <div class="sticky top-0">
             @include('layouts.guest-navigation')
         </div>
         <div>
