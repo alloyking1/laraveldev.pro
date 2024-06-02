@@ -20,7 +20,7 @@
         <x-blog.pages.section color="black" textColor="white" textSize="large">
             <div class="px-42">
                 <div class="text-center grid place-content-center justify-center">
-                <x-blog.text.text textSize="header2" color="white" value="{{ $post->title }}" class="font-black font-serif"/>
+                <x-blog.text.text textSize="header2" color="white" value="{{ $post->title }}" class="font-black"/>
                 <x-blog.text.text textSize="medium"  color="gray" class="font-mono mt-8" value="{{ $post->excerpt }}"/>
                     <x-blog.pages.grid-1>
                         <div class="mt-4">
@@ -36,15 +36,10 @@
         
         <x-blog.pages.grid-1 class="mt-16 mb-32 max-w-6xl mx-auto">
             <div class="mx-8 md:mx-auto">
-                <div class="grid md:grid-cols-4 gap-1">
-                    <div class="md:col-span-4 mx-4">
-                        <x-blog.text.text textSize="x-small"  color="gray" class="font-mono mt-8">
-                            {!! $post->body !!}
-                        </x-blog.text.text>
-                    </div>
-                    {{-- <div>
-                        <div class="rounded-md bg-white p-6 mx-4"></div>
-                    </div> --}}
+                <div class="md:col-span-4 mx-4">
+                    <x-blog.text.text textSize="x-small"  color="gray" class="font-mono mt-8">
+                        {!! $post->body !!}
+                    </x-blog.text.text>
                 </div>
             </div> 
         </x-blog.pages.grid-1>

@@ -1,9 +1,9 @@
 <x-guest-layout>
     <x-blog.seo.page-meta
-      title="Laraveldev.pro"
-      description="providing laravel coding tutorials for laravel developers "
-      keywords="laravel,coding,tallstack,livewire,laraveldeveloper,laravel jobs, laravel news"
-      robots="laravel,coding,tallstack,livewire,laraveldeveloper,laravel jobs, laravel news"
+      title="Laraveldev.pro - laravel consultants |laravel agencies | post laravel agency | laravel consultants recruitment"
+      description="A laravel jobboard for Laravel agencies and developers with a deep technical blog for Laravel developers - posting laravel jobs | posting vue.js jobs | posting laravel TALL stack jobs | find laravel jobs | apply to laravel jobs online | get hired as a laravel developer"
+      keywords="laravel,job,recruitment,laravel-hire,job-board,laraveljobs.com, laravelnews.com, laracast, laraveldev.pro, laravel hire"
+      robots="laravel,job,recruitment,laravel-hire,job-board,laraveljobs.com, laravelnews.com, laracast, laraveldev.pro, laravel hire"
     />
 
     <x-blog.pages.section color="black" textColor="white" textSize="large" class="relative">
@@ -75,29 +75,4 @@
             </div>
         </div>
     </x-blog.pages.section>
-
-
-    {{-- <x-blog.pages.section color="black" textColor="white" textSize="large" class="relative">
-        <div class="">
-            <x-blog.pages.grid-2 class="pt-32">
-
-                <div>
-                    <img src="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
-                </div>
-
-                <div class="text-center grid place-content-center justify-center">
-                    <x-blog.text.text textSize="header2" color="white" value="Get a free portfolio website" class="font-black"/>
-            
-                    <div class="max-w-2xl mx-auto mt-4">
-                        <x-blog.text.text textSize="x-small"
-                        color="white"
-                        class="font-thin"
-                        value="LaraJobs is our first stop whenever we're hiring a Laravel role. We've hired 10 Laravel developers in the last few years, all thanks to LaraJobs.” — Matthew Hall, ArborXR"/>
-                    </div>
-                </div>
-
-                
-            </x-blog.pages.grid-2>
-        </div>
-    </x-blog.pages.section> --}}
 </x-guest-layout>
