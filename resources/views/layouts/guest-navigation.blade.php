@@ -8,9 +8,8 @@
     "
   >
   <div class="max-w-6xl mx-auto">
-    {{-- <div class="relative flex items-center justify-between -mx-4"> --}}
-    <div class="relative flex">
-        <div class="max-w-full px-4">
+    <div class="relative flex items-center justify-between">
+        <div class="max-w-full px-4 w-60">
           <a href="{{ route('lander') }}" class="block w-full py-5">
               <p class="text-2xl font-bold text-white ml-4 mb-2">Laraveldev.pro</p>
           </a>
