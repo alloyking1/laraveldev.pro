@@ -1,9 +1,8 @@
 <div>
     <x-blog.pages.section color="black" title="" textColor="white" textSize="large">
         <x-blog.pages.grid-1 class="text-center w-full">
-            <x-blog.text.text color="white" textSize="medium" value="Subscribe to Our Mailing List"/>
-            <div class="py-2">
-
+            <x-blog.text.text color="white" class="" textSize="medium" value="Subscribe to Our Mailing List"/>
+            <div class="">
                 <x-blog.components.email-list/>
             </div>
 

@@ -24,7 +24,7 @@
   
               <div class="text-red-600 font-bold">Join our Slack</div>
               <div>
-                <p class="text-sm text-gray-700 font-thin">This is some fancy text about why you should join!</p>
+                <p class="text-sm text-gray-700 font-thin">coming soon..</p>
               </div>
             </x-blog.components.card-long>
           </div>
