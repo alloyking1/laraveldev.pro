@@ -25,9 +25,9 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('lander');
+Route::get('/home', [HomeController::class, 'index'])->name('lander');
 
-Route::get('/home', [PagesController::class, 'home'])->name('home');
+Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/blog-post', [PagesController::class, 'blog'])->name('blog-post');
 Route::get('/tutorial', [PagesController::class, 'tutorial'])->name('tutorial');
 Route::get('/packages', [PagesController::class, 'packages'])->name('packages');
