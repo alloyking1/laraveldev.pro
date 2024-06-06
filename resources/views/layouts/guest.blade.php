@@ -34,7 +34,9 @@
         <div>
             {{ $slot }}
         </div>
-        <x-footer/>
+        @if (!request()->routeIs('lander'))
+            <x-footer/>
+        @endif
         <script src="{{ asset('/prism.js') }}"></script>
         @livewireScripts
     </body>

@@ -75,3 +75,15 @@ class JobScraperObserver extends CrawlObserver
     }
 
 }
+
+    /**
+     * How to fire the scrapper
+     */
+
+ // $url = "https://laraveljobs.com";
+
+        // $crawledData = Crawler::create()
+        //     ->setCrawlObserver(new JobScraperObserver())
+        //     ->setMaximumDepth(0)
+        //     ->setTotalCrawlLimit(1)
+        //     ->startCrawling($url);

@@ -33,10 +33,18 @@
             </a>
           </div>
         </x-blog.pages.grid-3>
+
+        <x-blog.pages.grid-1>
+          <div class="flex">
+            <a href="{{ route('blog-post') }}" class="m-1 px-2 shadow-sm rounded-md border border-gray-400 text-gray-600 hover:bg-gray-600 hover:text-white text-xs my-auto">Blog</a>
+            <a href="{{ route('tutorial') }}" class="px-2 shadow-sm rounded-md border border-gray-400 text-gray-600 hover:bg-gray-600 hover:text-white text-xs my-auto">Tutorials</a>
+            <a href="{{ route('packages') }}" class="m-1 px-2 shadow-sm rounded-md border border-gray-400 text-gray-600 hover:bg-gray-600 hover:text-white text-xs my-auto">Packages</a>
+          </div>
+        </x-blog.pages.grid-1>
       </div>
   </x-blog.pages.section>
 
-  <x-blog.pages.section color="offWhite" title="Recent Tutorials" textColor="black" textSize="large">
+  <x-blog.pages.section color="offWhite" title="Recent Posts" textColor="black" textSize="large">
     <x-blog.pages.grid-2 class="mt-16 grid md:grid-cols-5">
 
         @foreach ($recentPost as $post)
