@@ -6,7 +6,7 @@ use App\Livewire\LivewireEditAgency;
 use App\Livewire\LivewireAgencyController;
 
 Route::prefix('/laravel-consultants')->group(function () {
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth','verified'])->group(function () {
         Route::get('/list', [AgencyController::class, 'index'])->name('agency.list');
         Route::get('/update/{id?}', LivewireEditAgency::class)->name('agency.update');
     });

@@ -7,7 +7,7 @@ use App\Livewire\LivewireEditJob;
 use App\Livewire\LivewireJobController;
 
 Route::prefix('/jobs')->group(function () {
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth','verified'])->group(function () {
         Route::get('/list', LivewireCreateJob::class)->name('jobs.list');
         Route::get('/update/{id?}', LivewireEditJob::class)->name('jobs.update');
     });
