@@ -83,8 +83,8 @@ Route::prefix('/tag')->group(function () {
     });
 });
 
-Route::prefix(['admin', 'verified'])->group(function (){
-    Route::middleware(['auth','admin'])->group(function () {
+Route::prefix('admin')->group(function (){
+    Route::middleware(['auth','admin','verified'])->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin');
         Route::get('/post', [AdminController::class, 'post'])->name('post');
     });
