@@ -36,7 +36,7 @@ Route::get('/packages', [PagesController::class, 'packages'])->name('packages');
 Route::get('/dashboard', DashBoardController::class)->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -48,7 +48,7 @@ Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.list');
 
     // create author middleware
-    Route::middleware(['auth','admin'])->group(function () {
+    Route::middleware(['auth','admin','verified'])->group(function () {
         Route::get('/create', [BlogPostController::class, 'show'])->name('blog.create');
         Route::post('/save', [BlogPostController::class, 'create'])->name('blog.save');
         Route::get('/edit/{Post}', [BlogPostController::class, 'edit'])->name('blog.edit');
@@ -66,7 +66,7 @@ Route::prefix('job')->group(function () {
 
 //admin routes
 Route::prefix('/category')->group(function () {
-    Route::middleware(['auth','admin'])->group(function () {
+    Route::middleware(['auth','admin','verified'])->group(function () {
         Route::get('/list', [CategoryController::class, 'index'])->name('category.show');
         Route::get('/create/{id?}', [CategoryController::class, 'create'])->name('category.create');
         Route::post('/save/{id?}', [CategoryController::class, 'save'])->name('category.save');
@@ -75,7 +75,7 @@ Route::prefix('/category')->group(function () {
 });
 
 Route::prefix('/tag')->group(function () {
-    Route::middleware(['auth','admin'])->group(function () {
+    Route::middleware(['auth','admin','verified'])->group(function () {
         Route::get('/list', [TagController::class, 'index'])->name('tag.show');
         Route::get('/create/{id?}', [TagController::class, 'create'])->name('tag.create');
         Route::post('/save/{id?}', [TagController::class, 'save'])->name('tag.save');
