@@ -25,13 +25,12 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/home', [HomeController::class, 'index'])->name('lander');
+Route::get('/', [HomeController::class, 'index'])->name('lander');
 
-Route::get('/', [PagesController::class, 'home'])->name('home');
+Route::get('/blog/home', [PagesController::class, 'home'])->name('blog-home');
 Route::get('/blog-post', [PagesController::class, 'blog'])->name('blog-post');
 Route::get('/tutorial', [PagesController::class, 'tutorial'])->name('tutorial');
 Route::get('/packages', [PagesController::class, 'packages'])->name('packages');
-
 
 Route::get('/dashboard', DashBoardController::class)->middleware(['auth', 'verified'])->name('dashboard');
 

@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index(JobPostingService $job, AgencyService $agency)
     {
-        return view('home.maintainance',[ //replace with home/index.blade.php when ready
+        return view('home.index',[ //replace with home/maintenance.blade.php when in maintenance mode
             'jobs' => $job->recentJobs(2),
             'agencies' => $agency->featured(2),
         ]);
