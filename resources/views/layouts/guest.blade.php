@@ -11,12 +11,12 @@
         <title>@yield('title')</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        {{-- <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> --}}
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <link rel="stylesheet" href="{{ asset('/prism.css') }}">
+        {{-- <link rel="stylesheet" href="{{ asset('/prism.css') }}"> --}}
         @livewireStyles
         <style>
             [x-cloak] {
@@ -34,10 +34,9 @@
         <div>
             {{ $slot }}
         </div>
-        @if (!request()->routeIs('lander'))
-            <x-footer/>
-        @endif
-        <script src="{{ asset('/prism.js') }}"></script>
+        <x-footer/>
+        
+        {{-- <script src="{{ asset('/prism.js') }}"></script> --}}
         @livewireScripts
     </body>
 </html>
