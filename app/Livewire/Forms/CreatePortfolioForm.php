@@ -5,23 +5,27 @@ namespace App\Livewire\Forms;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 use Livewire\WithFileUploads;
-// use App\Services\Job\JobPostingService;
-// use App\DataTransferObjects\JobPostingDto;
-// use App\Models\JobPosting;
+use App\Services\Portfolio\PortfolioService;
+use App\DataTransferObjects\PortfolioDto;
 
 class CreatePortfolioForm extends Form
 {
     use WithFileUploads;
 
-    // #[Validate('required|string')]
+    #[Validate('required|string')]
     public $url = '';
-
-    // #[Validate('required|string|min:5')]
-    // public $title = '';
-    // #[Validate('required|string|min:5')]
-    // public $contract = '';
-    // #[Validate('required|string|min:5')]
-    // public $location = '';
+    #[Validate('required|string|min:5')]
+    public $greeting = '';
+    #[Validate('required|string|min:5')]
+    public $about_you = '';
+    #[Validate('required|string|min:5')]
+    public $linkedin = '';
+    #[Validate('required|string|min:5')]
+    public $twitter = '';
+    #[Validate('required|string|min:5')]
+    public $github = '';
+    #[Validate('required|string|min:3')]
+    public $skills = '';
 
 
     // #[Validate('required|string|min:5')]
@@ -55,7 +59,7 @@ class CreatePortfolioForm extends Form
 
     public function store($id = NULL, $logo = NULL) 
     {
-        dd($this->url);
+        // dd($this->all());
         $this->validate();
         // if($id === NULL){
         //     $imgPath = $this->imgUpload(); //move into a trait
@@ -63,8 +67,7 @@ class CreatePortfolioForm extends Form
         //     $this->logo = $logo;
         // }
 
-        $portfolioService = new PortfolioService();
-        $agencyService->create(JobPostingDto::fromPostRequest($this->all()), $id);
+        $agencyService = PortfolioService::save(PortfolioDto::fromPostRequest($this->all()), $id);
         $this->reset(); 
     }
 

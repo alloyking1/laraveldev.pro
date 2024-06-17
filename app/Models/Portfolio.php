@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Portfolio extends Model
 {
     use HasFactory;
+
+    protected $fillable = [];
+
+    protected $cast = [
+        'skills' => 'array'
+    ];
 }

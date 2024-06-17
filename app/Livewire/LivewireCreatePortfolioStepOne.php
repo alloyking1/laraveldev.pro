@@ -11,7 +11,7 @@ use App\Livewire\Forms\CreatePortfolioForm;
 class LivewireCreatePortfolioStepOne extends Component
 {
     use WithFileUploads;
-
+    
     public $url;
     public $availableName;
     public CreatePortfolioForm $form;
