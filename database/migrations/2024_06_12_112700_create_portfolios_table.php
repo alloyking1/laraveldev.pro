@@ -17,14 +17,18 @@ return new class extends Migration
             // $table->foreignId('project_id')->constrained()->cascadeOnDelete();
             // $table->foreignId('portfolio_review_id')->constrained()->cascadeOnDelete();
             // $table->foreignId('portfolio_email_list_id')->constrained()->cascadeOnDelete();
-            $table->string('url');
-            $table->string('greeting')->uniqid()->nullable();
+            $table->string('url')->uniqid()->nullable();
+            $table->string('greeting');
             $table->string('about')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('github')->nullable();
             $table->string('profile_img')->nullable();
             $table->json('skills')->nullable();
             $table->string('cv')->nullable();
             $table->string('status')->default('inprogress');
             $table->boolean('published')->default(0);
+            $table->string('next_step');
             $table->timestamps();
         });
     }

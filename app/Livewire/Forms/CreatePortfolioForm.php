@@ -27,13 +27,6 @@ class CreatePortfolioForm extends Form
     #[Validate('required|string|min:3')]
     public $skills = '';
 
-
-    // #[Validate('required|string|min:5')]
-    // public $description = '';
-    // #[Validate('required|string|min:5')]
-    // public $about_company ='';
-    // #[Validate('required|string|min:2')]
-    // public $salary ='';
     // #[Validate('required|string|min:5')]
     // public $application_link ='';
     // #[Validate('nullable|sometimes|image|max:1024')]
@@ -59,20 +52,8 @@ class CreatePortfolioForm extends Form
 
     public function store($id = NULL, $logo = NULL) 
     {
-        // dd($this->all());
         $this->validate();
-        // if($id === NULL){
-        //     $imgPath = $this->imgUpload(); //move into a trait
-        // }else{
-        //     $this->logo = $logo;
-        // }
-
         $agencyService = PortfolioService::save(PortfolioDto::fromPostRequest($this->all()), $id);
         $this->reset(); 
-    }
-
-    public function imgUpload(){
-        return $this->logo = $this->logo->store('logo', 'public');
-        
     }
 }

@@ -11,7 +11,7 @@ class PortfolioDto {
         public readonly string $linkedin,
         public readonly string $twitter,
         public readonly string $github,
-        public readonly string $skills,
+        public readonly array $skills,
     ){
     }
 
@@ -24,7 +24,7 @@ class PortfolioDto {
             linkedin: $formValue['linkedin'] ?? '',
             twitter: $formValue['twitter'] ?? '',
             github: $formValue['github'] ?? '',
-            skills: $formValue['skills'] ?? '',
+            skills: array_map('trim', explode(',',$formValue['skills'])) ?? '',
         );
     }
 }

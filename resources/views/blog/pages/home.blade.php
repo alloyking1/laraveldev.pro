@@ -60,4 +60,5 @@
   <x-blog.pages.section color="gray" title="Partners" textColor="black" textSize="large">
     <x-blog.text.text textSize="x-small" class="text-gray-700 text-4xl mt-4" value="This add space is for sell"/>
   </x-blog.pages.section> 
+
 </x-guest-layout>

@@ -3,18 +3,36 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Model\Portfolio;
+use App\Models\Portfolio;
 use App\Services\Portfolio\PortfolioService;
 use Livewire\WithFileUploads;
 use App\Livewire\Forms\CreatePortfolioForm;
+use App\Livewire\Forms\CreatePortfolioFormStepTwo;
 
 class LivewireCreatePortfolioStepOne extends Component
 {
     use WithFileUploads;
     
+    public $step;
     public $url;
     public $availableName;
+    public $portfolio;
+    #[Validate('required|image|max:1024')]
+    public $project_img;
+    public $profile_img;
+    public $cv;
     public CreatePortfolioForm $form;
+    public CreatePortfolioFormStepTwo $stepTwoForm;
+    public CreatePortfolioFormStepThree $stepThreeForm;
+
+    public function mount(){
+        $this->portfolio = Portfolio::where('user_id', auth()->id())->first();
+        if($this->portfolio ==  null){
+            $this->step = 1;
+        }else{
+            $this->step = $this->portfolio->next_step;
+        }
+    }
 
     public function urlCheck(){
         $available = PortfolioService::nameCheck($this->url);
@@ -22,13 +40,27 @@ class LivewireCreatePortfolioStepOne extends Component
         if($available){
             return $this->availableName = true;
         }
-
         return $this->availableName = false;
     }
 
+    public function addProject(){
+        // $this->validate();
+        $this->stepTwoForm->project_img = $this->project_img->store('portfolio', 'public');
+        $this->stepTwoForm->addPortfolioProject($this->portfolio->id);
+    }
+
     public function save(){
-        $this->form->url = $this->url;
-        $this->form->store();
+        if($this->step == 1){
+            $this->form->url = $this->url;
+            $this->form->store();
+        }elseif($this->step == 2){
+            $this->stepTwoForm->savePortfolioProject($this->portfolio->id);
+        }elseif($this->step == 3){
+            dd($this->profile_img);
+            $this->stepThreeForm->profile_img = $this->profile_img;
+            // $this->stepThreeForm->cv = $this->cv;
+            $this->stepThreeForm->updateFiles($this->portfolio->id);
+        }
     }
 
     public function render()
