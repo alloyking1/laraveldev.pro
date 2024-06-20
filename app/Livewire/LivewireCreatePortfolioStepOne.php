@@ -8,6 +8,7 @@ use App\Services\Portfolio\PortfolioService;
 use Livewire\WithFileUploads;
 use App\Livewire\Forms\CreatePortfolioForm;
 use App\Livewire\Forms\CreatePortfolioFormStepTwo;
+use App\Livewire\Forms\CreatePortfolioFormStepThree;
 
 class LivewireCreatePortfolioStepOne extends Component
 {
@@ -17,7 +18,6 @@ class LivewireCreatePortfolioStepOne extends Component
     public $url;
     public $availableName;
     public $portfolio;
-    #[Validate('required|image|max:1024')]
     public $project_img;
     public $profile_img;
     public $cv;
@@ -44,7 +44,6 @@ class LivewireCreatePortfolioStepOne extends Component
     }
 
     public function addProject(){
-        // $this->validate();
         $this->stepTwoForm->project_img = $this->project_img->store('portfolio', 'public');
         $this->stepTwoForm->addPortfolioProject($this->portfolio->id);
     }
@@ -56,8 +55,7 @@ class LivewireCreatePortfolioStepOne extends Component
         }elseif($this->step == 2){
             $this->stepTwoForm->savePortfolioProject($this->portfolio->id);
         }elseif($this->step == 3){
-            dd($this->profile_img);
-            $this->stepThreeForm->profile_img = $this->profile_img;
+            $this->stepThreeForm->profile_img = $this->profile_img->store('portfolio', 'public');
             // $this->stepThreeForm->cv = $this->cv;
             $this->stepThreeForm->updateFiles($this->portfolio->id);
         }

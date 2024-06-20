@@ -8,7 +8,7 @@
                 <div>
                     <label for="file" class="p-3 bg-blue-900 rounded-md px-4 hover:cursor text-white text-sm font-semibold">Add profile photo</label>
                     <x-text-input id="file" placeholder="Featured image" type="file" wire:model="profile_img" class="hidden mt-1 w-full" autofocus autocomplete="logo" />
-                    <x-input-error :messages="$errors->get('stepThreeForm.profile_img')" class="mt-2" /> 
+                    <x-input-error :messages="$errors->get('profile_img')" class="mt-2" /> 
                         {{-- {{ $errors }} --}}
                 </div>
                 <div class="justify-end">

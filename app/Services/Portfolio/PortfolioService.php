@@ -48,4 +48,8 @@ class PortfolioService {
         return $portfolioProjects;
     }
 
+    public static function view($url){
+        return Portfolio::with('projects')->where('url',$url)->get();
+    }
+
 }

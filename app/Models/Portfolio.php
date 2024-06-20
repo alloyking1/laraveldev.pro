@@ -14,4 +14,8 @@ class Portfolio extends Model
     protected $casts = [
         'skills' => 'array'
     ];
+
+    public function projects(){
+        return $this->hasMany(PortfolioProject::class, 'portfolio_id');
+    }
 }
