@@ -1,7 +1,7 @@
 
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
     <x-blog.components.card>
-        <div x-data="{open:true, step: @entangle('step')}">
+        <div x-data="{open:false, step: @entangle('step')}">
             <x-blog.components.flash-message status="{{ session('success') }}"/>
 
             <div class="flex justify-between">
@@ -33,15 +33,15 @@
         
         <div>
             <x-blog.pages.grid-1 class="pt-4">
-                {{-- @forelse ($userJobs->jobs  as $jobs )
-                <a href="{{ route('jobs.update',['id' => $jobs->id]) }}" wire:navigate>
-                    <x-blog.components.job-card :job="$jobs"/>
+                @forelse ($portfolios  as $portfolio )
+                <a href="{{ route('portfolio.edit',['id' => $portfolio->id]) }}" wire:navigate>
+                    <x-portfolio.portfolio-list :portfolio="$portfolio"/>
                 </a>
                 @empty
                     <x-blog.components.card-long>
-                        <x-blog.text.text textSize="xx-small" color="gray" value="Let the world see your Job!" class=""/>
+                        <x-blog.text.text textSize="xx-small" color="gray" value="Create a free portfolio website to get started!" class=""/>
                     </x-blog.components.card-long>
-                @endforelse --}}
+                @endforelse
                 
             </x-blog.pages.grid-1>
         </div>

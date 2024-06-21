@@ -21,7 +21,9 @@
         </div>
 
         <div class="mt-4">
-            <textarea placeholder="About you" wire:model="form.about_you" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="6" cols="80" type="text"></textarea>
+            <textarea placeholder="About you" wire:model="form.about_you" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="6" cols="80" type="text">
+                
+            </textarea>
             <x-input-error :messages="$errors->get('form.about_you')" class="mt-2" />
         </div>
 

@@ -7,6 +7,7 @@ use Livewire\Form;
 use Livewire\WithFileUploads;
 use App\Services\Portfolio\PortfolioService;
 use App\DataTransferObjects\PortfolioDto;
+use App\Models\Portfolio;
 
 class CreatePortfolioForm extends Form
 {
@@ -27,28 +28,16 @@ class CreatePortfolioForm extends Form
     #[Validate('required|string|min:3')]
     public $skills = '';
 
-    // #[Validate('required|string|min:5')]
-    // public $application_link ='';
-    // #[Validate('nullable|sometimes|image|max:1024')]
-    // public $logo = '';
-    // #[Validate('required|array|max:1024')]
-    // public $selectedOptions = [];
-
-    // public function setValue(JobPosting $jobPosting)
-    // {
-    //     $this->jobPosting = $jobPosting; //remove later
-    //     $this->company_name = $jobPosting->company_name;
-
-    //     $this->title = $jobPosting->title;
-    //     $this->contract = $jobPosting->contract;
-    //     $this->location = $jobPosting->location;
-
-    //     $this->description = $jobPosting->description;
-    //     $this->type = $jobPosting->type;
-    //     $this->about_company = $jobPosting->about_company;
-    //     $this->salary = $jobPosting->salary;
-    //     $this->application_link = $jobPosting->application_link;
-    // }
+    public function setValue(Portfolio $portfolio)
+    {
+        $this->url = $portfolio->url;
+        $this->greeting = $portfolio->greeting;
+        $this->about_you = $portfolio->about;
+        $this->linkedin = $portfolio->linkedin;
+        $this->twitter = $portfolio->twitter;
+        $this->github = $portfolio->github;
+        $this->skills = implode(',',$portfolio->skills);
+    }
 
     public function store($id = NULL, $logo = NULL) 
     {

@@ -63,6 +63,8 @@ class LivewireCreatePortfolioStepOne extends Component
 
     public function render()
     {
-        return view('livewire.livewire-create-portfolio-step-one');
+        return view('livewire.livewire-create-portfolio-step-one',[
+            'portfolios' =>  PortfolioService::view()
+        ]);
     }
 }

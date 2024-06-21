@@ -17,7 +17,7 @@ return new class extends Migration
             // $table->foreignId('project_id')->constrained()->cascadeOnDelete();
             // $table->foreignId('portfolio_review_id')->constrained()->cascadeOnDelete();
             // $table->foreignId('portfolio_email_list_id')->constrained()->cascadeOnDelete();
-            $table->string('url')->uniqid()->nullable();
+            $table->string('url')->uniqid();
             $table->string('greeting');
             $table->string('about')->nullable();
             $table->string('linkedin')->nullable();
