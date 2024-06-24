@@ -40,10 +40,10 @@
         <x-blog.pages.section color="offWhite" title="What I do" textColor="black" textSize="large">
             
             <x-blog.pages.grid-5 class="mt-4">
-                @foreach ($userPortfolio->projects as $project)
+                @foreach ($userPortfolio->services as $service)
                     <x-blog.components.portfolio-services-card 
-                    :name="$project->name" 
-                    :description="$project->description" 
+                    :name="$service->name" 
+                    :description="$service->description" 
                     />
                 @endforeach
             </x-blog.pages.grid-5>
@@ -81,6 +81,7 @@
             <x-blog.pages.grid-2 class="">
                 <div class="border">
                     <x-blog.text.text textSize="large" class="text-gray-700 text-4xl mt-4" value="My Resume"/>
+                    <embed src="{{ asset('storage/' . $userPortfolio->cv ) }}" width="800px" height="2100px" />
                 </div>
                 <div class="border">
                     <x-blog.text.text textSize="large" class="text-gray-700 text-4xl mt-4" value="Social Media"/>

@@ -16,21 +16,30 @@ class CreatePortfolioFormStepThree extends Form
 {
     use WithFileUploads ; 
 
-    #[Validate('required|string')]
+    #[Validate('string')]
     public $profile_img = '';
-    // #[Validate('required|string|url|min:5')]
-    // public $cv = '';
+    #[Validate('string')]
+    public $cv = '';
 
-    public function updateFiles($id){
+    public function updateImage($id){
         $this->validate();
-        // $profileImgFilePath = $this->cv->store('portfolio', 'public');
-
-        Portfolio::find($id)->update([
+        $portfolio = Portfolio::find($id)->update([
             'profile_img' => $this->profile_img,
-            // 'cv' => $profileImgFilePath,
         ]);
+    }
 
-        dd('updated');
+    public function updateCv($id){
+        $this->validate();
+        $portfolio = Portfolio::find($id)->update([
+            'cv' => $this->cv,
+        ]);
+    }
+
+    public function publish($id){
+        return $portfolio = Portfolio::find($id)->update([
+            'published' => 1,
+            'next_step' => 1
+        ]);
     }
 
 }

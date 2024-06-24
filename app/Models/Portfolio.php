@@ -18,4 +18,8 @@ class Portfolio extends Model
     public function projects(){
         return $this->hasMany(PortfolioProject::class, 'portfolio_id');
     }
+
+    public function services(){
+        return $this->hasMany(PortfolioService::class, 'portfolio_id');
+    }
 }

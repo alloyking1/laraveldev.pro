@@ -35,8 +35,18 @@ class LivewireEditPortfolioStepOne extends Component
     }
 
     public function save(){
-        $this->form->store($this->id);
-        return redirect()->route('portfolio.step-two.edit', ['id' => $this->id]);
+        if($this->availableName || $this->url == $this->portfolio->url){
+            $this->form->url = $this->url;
+            $this->form->store($this->id);
+            return redirect()->route('portfolio.step-two.edit', ['id' => $this->id]);
+        }else{
+            return redirect()->back()->with('error', 'url already in use');
+        }
+    }
+
+    public function delete($id){
+        portfolio::find($id)->delete();
+        return redirect()->route('portfolio.list')->with('success', 'portfolio deleted successfully');
     }
 
     public function render()

@@ -1,25 +1,86 @@
 
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
     <x-blog.components.card>
-        <div>
+        <div x-data={open:false,projectOpen:false}>
             <x-blog.components.flash-message status="{{ session('success') }}"/>
 
-            <div class="flex justify-between">
+            <div class="flex justify-between py-4">
                 <div>
-                    <h1 class="md:text-3xl text-4xl text-gray-700">Edit Portfolios (2)</h1>
+                    <h1 class="md:text-3xl text-4xl text-gray-700">Add your services (2)</h1>
+                    <h2 class="text-gray-600 text-sm">Add services (eg:laravel development, vue.js dev, technical writing, )</h2>
                 </div>
                 <div> 
-                    <div>
-                        <x-danger-button>
-                            <div>Delete Portfolio</div>
-                        </x-danger-button>
+                    <div x-on:click="open =!open">
+                        <x-primary-button>
+                            <div>Add service</div>
+                        </x-primary-button>
                     </div>
                 </div>
             </div>
 
             <div x-show="open">
                 <div>
-                    {{-- <x-portfolio.steps/> --}}
+                    <form wire:submit="addService">
+                        <div class="mt-1 grid grid-cols-1 gap-2">
+                            <div class="mt-1">
+                                <x-text-input wire:model="stepTwoServiceForm.name" placeholder="Project name" class="block mt-1 w-full" type="text" autofocus autocomplete="stepTwoForm.name" />
+                                <x-input-error :messages="$errors->get('stepTwoServiceForm.name')" class="mt-2" />
+                            </div>
+                        </div>
+                
+                        <div class="mt-4">
+                            <textarea placeholder="About project" wire:model="stepTwoServiceForm.description" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="6" cols="80" type="text"></textarea>
+                            <x-input-error :messages="$errors->get('stepTwoServiceForm.description')" class="mt-2" />
+                        </div>
+                
+                        <div class="mt-4 flex justify-between"> 
+                            <x-primary-button class="bg-green-500">
+                                Add service
+                            </x-primary-button>
+                            <a href="{{ route('portfolio.step-three.edit', ['id' => $this->id]) }}" wire:navigate class="font-bold text-green-400 border p-2 border-green-300 rounded-md">
+                                Next >>
+                             </a>
+                        </div>
+                    </form>
+                    
+                </div>
+                <div>
+                   
+                    <x-blog.pages.grid-5 class="mt-4">
+                        @foreach ($portfolio->services as $service)
+                            <x-blog.components.portfolio-project-card 
+                            :name="$service->name" 
+                            :description="$service->description" 
+                            :projectId="$service->id"
+                            :userId="$portfolio->user_id"
+                            useCase="services"
+                            />
+                        @endforeach
+                    </x-blog.pages.grid-5>
+                </div>
+            </div>
+            
+            <div class="my-8">
+                <hr>
+            </div>
+
+
+            <div class="flex justify-between py-4">
+                <div>
+                    <h1 class="md:text-3xl text-4xl text-gray-700">Add projects (2)</h1>
+                    <h2 class="text-gray-600 text-sm">Add sample projects with live links</h2>
+                </div>
+                <div> 
+                    <div x-on:click="projectOpen =!projectOpen">
+                        <x-primary-button>
+                            <div>Add projects</div>
+                        </x-primary-button>
+                    </div>
+                </div>
+            </div>
+
+            <div x-show="projectOpen">
+                <div>
                     <form wire:submit="addProject">
                         <div class="mt-1 grid grid-cols-2 gap-2">
                             <div class="mt-1">
@@ -49,45 +110,37 @@
                                             @endif
                                         </div>
                                 </div>
-                                <div class="justify-end">
-                                    <x-primary-button class="bg-green-500">
-                                        Add project
-                                    </x-primary-button>
-                                </div>
                             </div>
                         </div>
-                    </form>
-                    <div class="mt-4 flex justify-between"> 
-                        <x-primary-button class="bg-green-500" wire:click="save">
-                            Continue
-                        </x-primary-button>
-                        {{-- <a href="{{ route('portfolio.step-three.edit', ['id' => $this->id]) }}" wire:navigate class="font-bold text-green-400 border p-2 border-green-300 rounded-md"> --}}
-                        <a href="" wire:navigate class="font-bold text-green-400 border p-2 border-green-300 rounded-md">
-                            Next >>
-                         </a>
-                    </div>
-                    <div class="py-4">
-                        <hr>
-                    </div>
-                </div>
-               
-            </div>
 
-            <div>
-                <x-blog.pages.grid-5 class="mt-4">
-                    @foreach ($portfolio->projects as $project)
-                    <x-blog.components.portfolio-project-card 
-                    :name="$project->name" 
-                    :description="$project->description" 
-                    :link="$project->link" 
-                    :image="$project->img" 
-                    :projectId="$project->id"
-                    :userId="$portfolio->user_id"
-                    />
-                    @endforeach
-                </x-blog.pages.grid-5>
+                        <div class="mt-4 flex justify-between"> 
+                            <x-primary-button class="bg-green-500">
+                                Add project
+                            </x-primary-button>
+                           <a href="{{ route('portfolio.step-three.edit', ['id' => $this->id]) }}" wire:navigate class="font-bold text-green-400 border p-2 border-green-300 rounded-md">
+                                Next >>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+
+                <div>
+                    <x-blog.pages.grid-5 class="mt-4">
+                        @foreach ($portfolio->projects as $project)
+                                
+                            <x-blog.components.portfolio-project-card 
+                            :name="$project->name" 
+                            :description="$project->description" 
+                            :link="$project->link" 
+                            :image="$project->img" 
+                            :projectId="$project->id"
+                            :userId="$portfolio->user_id"
+                            />
+                        @endforeach
+                    </x-blog.pages.grid-5>
+                </div>
             </div>
+            
         </div>
-        
     </x-blog-components.card>
 </div>

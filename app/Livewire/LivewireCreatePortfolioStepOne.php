@@ -50,9 +50,13 @@ class LivewireCreatePortfolioStepOne extends Component
 
     public function save(){
         if($this->step == 1){
-            $this->form->url = $this->url;
-            $this->form->store();
-        }elseif($this->step == 2){
+            if($this->availableName){
+                $this->form->url = $this->url;
+                $this->form->store();
+            }else{
+                return redirect()->back()->with('error', 'url already in use');
+            }
+        }elseif($this->step == 2){ //remove later as this line is no longer needed
             $this->stepTwoForm->savePortfolioProject($this->portfolio->id);
         }elseif($this->step == 3){
             $this->stepThreeForm->profile_img = $this->profile_img->store('portfolio', 'public');
@@ -64,7 +68,7 @@ class LivewireCreatePortfolioStepOne extends Component
     public function render()
     {
         return view('livewire.livewire-create-portfolio-step-one',[
-            'portfolios' =>  PortfolioService::view()
+            'portfolios' =>  PortfolioService::view(null, null, auth()->id())
         ]);
     }
 }

@@ -2,14 +2,15 @@
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
     <x-blog.components.card>
         <div>
-            <x-blog.components.flash-message status="{{ session('success') }}"/>
+            <x-blog.components.flash-message message="{{ session('success') }}" class="my-2"/>
+            <x-blog.components.flash-message message="{{ session('error') }}" status="error" class="my-2"/>
 
             <div class="flex justify-between">
                 <div>
                     <h1 class="md:text-3xl text-4xl text-gray-700">Portfolios</h1>
                 </div>
                 <div> 
-                    <div>
+                    <div wire:click="delete({{ $this->id }})" wire:confirm.prompt="Are you sure you want to delete this portfolio?\n\nType DELETE to confirm|DELETE">
                         <x-danger-button>
                             <div>Delete Portfolio</div>
                         </x-danger-button>
@@ -18,7 +19,6 @@
             </div>
 
             <div x-show="open">
-                {{-- <x-portfolio.step-one/> --}}
                 <div>
                     <form>
                         <div class="mt-4 grid grid-cols-5 -gap-2">
@@ -76,16 +76,11 @@
                 
                         <div class="mt-4 flex justify-between"> 
                             <x-primary-button class="bg-green-500" wire:click.prevent="save">
-                                Continue
+                                Save
                             </x-primary-button>
                             <a href="{{ route('portfolio.step-two.edit', ['id' => $this->id]) }}" wire:navigate class="font-bold text-green-400 border p-2 border-green-300 rounded-md">
                                Next >>
                             </a>
-                        </div>
-                        <div class="mt-4 flex justify-between">
-                            <x-primary-button class="bg-green-500" wire:click="$commit">
-                                Publish
-                            </x-primary-button>
                         </div>
                     </form>
                     <div class="py-4">

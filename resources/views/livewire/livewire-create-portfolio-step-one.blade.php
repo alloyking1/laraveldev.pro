@@ -1,9 +1,10 @@
 
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
     <x-blog.components.card>
+        <x-blog.components.flash-message message="{{ session('success') }}" class="my-2"/>
+        <x-blog.components.flash-message message="{{ session('error') }}" status="error" class="my-2"/>
         <div x-data="{open:false, step: @entangle('step')}">
-            <x-blog.components.flash-message status="{{ session('success') }}"/>
-
+            
             <div class="flex justify-between">
                 <div>
                     <h1 class="md:text-3xl text-4xl text-gray-700">Portfolios</h1>

@@ -43,6 +43,7 @@ class CreatePortfolioForm extends Form
     {
         $this->validate();
         $agencyService = PortfolioService::save(PortfolioDto::fromPostRequest($this->all()), $id);
-        $this->reset(); 
+        $this->reset();
+        return redirect()->route('portfolio.step-two.edit',['id' => $agencyService->id]); 
     }
 }

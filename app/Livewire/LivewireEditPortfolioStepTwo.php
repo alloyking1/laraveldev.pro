@@ -4,9 +4,11 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Livewire\Forms\CreatePortfolioFormStepTwo;
+use App\Livewire\Forms\CreatePortfolioFormStepTwoService;
 use App\Models\PortfolioProject;
 use App\Models\Portfolio;
 use Livewire\WithFileUploads;
+use App\Models\PortfolioService;
 
 class LivewireEditPortfolioStepTwo extends Component
 {
@@ -16,10 +18,11 @@ class LivewireEditPortfolioStepTwo extends Component
     public $project_img;
     
     public CreatePortfolioFormStepTwo $stepTwoForm;
+    public CreatePortfolioFormStepTwoService $stepTwoServiceForm;
 
     public function mount($id){
         $this->id = $id;
-        $this->portfolio = Portfolio::with('projects')->find($this->id);
+        $this->portfolio = Portfolio::with(['projects','services'])->find($this->id);
     }
 
     public function addProject(){
@@ -27,8 +30,17 @@ class LivewireEditPortfolioStepTwo extends Component
         $this->stepTwoForm->addPortfolioProject($this->portfolio->id);
     }
 
+    public function addService(){
+
+        $this->stepTwoServiceForm->addPortfolioService($this->portfolio->id);
+    }
+
     public function deleteProject($projectId){
         PortfolioProject::find($projectId)->delete();
+    } 
+
+    public function deleteService($projectId){
+        PortfolioService::find($projectId)->delete();
     }
  
     public function render()

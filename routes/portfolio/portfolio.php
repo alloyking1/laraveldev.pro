@@ -7,7 +7,7 @@ Route::prefix('/portfolio')->group(function () {
         Route::prefix('/edit')->group(function(){
             Route::get('/{id}', App\Livewire\LivewireEditPortfolioStepOne::class)->name('portfolio.edit');
             Route::get('/step-two/{id}', App\Livewire\LivewireEditPortfolioStepTwo::class)->name('portfolio.step-two.edit');
-            Route::get('/step-three/{id}', App\Livewire\LivewireEditPortfolioStepOne::class)->name('portfolio.step-three.edit');
+            Route::get('/step-three/{id}', App\Livewire\LivewireEditPortfolioStepThree::class)->name('portfolio.step-three.edit');
         });
     });
 });
