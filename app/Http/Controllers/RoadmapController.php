@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class RoadmapController extends Controller
 {
     public function __invoke(){
-        return view('roadmap.index');
+        return view('Roadmap.index');
     }
 }
