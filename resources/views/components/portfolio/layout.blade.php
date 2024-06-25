@@ -29,12 +29,12 @@
     <body class="font-sans text-gray-900 bg-gray-100">
        
         <div class="sticky top-0">
-            @include('layouts.guest-navigation')
+            <x-portfolio.layout-nav/>
         </div>
         <div>
             {{ $slot }}
         </div>
-        <x-footer/>
+        <x-portfolio.footer/>
         
         {{-- <script src="{{ asset('/prism.js') }}"></script> --}}
         @livewireScripts
