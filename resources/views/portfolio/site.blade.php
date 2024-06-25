@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-portfolio.layout>
  
     <x-blog.seo.page-meta
         title="Laraveldev.pro - portfolio website for laravel developers | software developers portfolio website | free."
@@ -23,13 +23,8 @@
                         class="font-thin"
                         :value="$userPortfolio->about"/>
                     </div>
-                    <div>
-                        <form action="">
-                            <div class="flex mt-4">
-                                <input type="Enter your email" class="p-2 w-48 md:w-80 rounded-md mr-2 border border-white bg-gray-100">
-                                <x-primary-button>Require offer</x-primary-button>
-                            </div>
-                        </form>
+                    <div class="w-[10px]">
+                        <x-portfolio.git-stat :link="$userPortfolio->github"/>
                     </div>
                 </div>
 
@@ -37,63 +32,86 @@
             </x-blog.pages.grid-2>
         </x-blog.pages.section>
         
-        <x-blog.pages.section color="offWhite" title="What I do" textColor="black" textSize="large">
+        <x-blog.pages.section color="offWhite" title="" textColor="black" textSize="large" class="text-center">
             
-            <x-blog.pages.grid-5 class="mt-4">
-                @foreach ($userPortfolio->services as $service)
-                    <x-blog.components.portfolio-services-card 
-                    :name="$service->name" 
-                    :description="$service->description" 
-                    />
-                @endforeach
-            </x-blog.pages.grid-5>
-            <div class="">
+            <div class="p-8 shadow-2xl rounded-2xl py-24">
 
-                <div class="text-center pb-4 mt-24">
-                    <x-blog.text.text color="black" textSize="medium" value="My Skills"/>
+                <x-blog.text.text textSize="large" color="black" value="Services" class="font-black pb-8"/>
+                <div class="mt-4 md:flex justify-center overflow-scroll grid grid-cols-1 gap-2 max-w-4xl mx-auto">
+                    @foreach ($userPortfolio->services as $service)
+                        <x-blog.components.portfolio-services-card 
+                        :name="$service->name" 
+                        :description="$service->description" 
+                        />
+                    @endforeach
                 </div>
-                <div class="flex justify-center max-w-2xl mx-auto">
-                    @foreach ($userPortfolio->skills as $skill )
-                    <x-blog.components.post-tag :text="$skill" :color="array_rand(['sky' => 'sky','black' => 'black', 'green' => 'green', 'orange' => 'orange', 'blue' => 'blue'], 1)"/>
+                <div class="rounded-2xl p-4 mt-8">
+                    <div class="text-center mt-4">
+                        <x-blog.text.text textSize="medium" color="black" value="Skills" class="font-black pb-8"/>
+                    </div>
+                    <div class="justify-center max-w-2xl mx-auto">
+                        @foreach ($userPortfolio->skills as $skill )
+                            <x-blog.components.post-tag :text="$skill" :color="array_rand(['sky' => 'sky','black' => 'black', 'green' => 'green', 'orange' => 'orange', 'blue' => 'blue'], 1)"/>
                         @endforeach
+                    </div>
                 </div>
             </div>
                 
         </x-blog.pages.section>
 
-        <x-blog.pages.section color="gray" title="Projects" textColor="black" textSize="large">
-            <x-blog.text.text textSize="x-small" color="black" class="font-thin" value="Whether you have a mobile app idea that needs to come to life or a website that"/>
-            <x-blog.pages.grid-2 class="mt-16 grid md:grid-cols-5">
-                @foreach ($userPortfolio->projects as $project)
-                    <x-blog.components.portfolio-project-card 
-                    :name="$project->name" 
-                    :description="$project->description" 
-                    :link="$project->link" 
-                    :image="$project->img" 
-                    />
-                @endforeach
-            </x-blog.pages.grid-2>
+        <x-blog.pages.section color="gray" title="" textColor="black" textSize="large">
+                <div class="text-center">
+                    <x-blog.text.text textSize="large" color="black" value="Projects" class="font-black"/>
+                </div>
+                <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-2 max-w-6xl mx-auto">
+                    @foreach ($userPortfolio->projects as $project)
+                        <x-blog.components.portfolio-project-card 
+                        :name="$project->name" 
+                        :description="$project->description" 
+                        :link="$project->link" 
+                        :image="$project->img" 
+                        />
+                    @endforeach
+                </div>
         </x-blog.pages.section> 
 
-        <x-blog.pages.section color="white" title="Find me" textColor="black" textSize="large">
+        <x-blog.pages.section color="white" title="" textColor="black" textSize="large">
+            <x-blog.text.text textSize="large" color="black" value="Contact me" class="font-black"/>
             <x-blog.text.text textSize="x-small" class="text-gray-700 text-4xl mt-4" value="Other places you can find me"/>
             
             <x-blog.pages.grid-2 class="">
-                <div class="border">
-                    <x-blog.text.text textSize="large" class="text-gray-700 text-4xl mt-4" value="My Resume"/>
-                    <embed src="{{ asset('storage/' . $userPortfolio->cv ) }}" width="800px" height="2100px" />
+                <div class="">
+                    <x-blog.text.text textSize="small" class="text-gray-700 text-4xl mt-4 mb-2" value="My Resume"/>
+                        <div class="relative overflow-hidden pt-[56.25%]">
+                            <iframe src="{{ asset('storage/' . $userPortfolio->cv) }}" class="absolute top-0 left-0 w-full h-full border-0"></iframe>
+                        </div>
+                        
                 </div>
-                <div class="border">
-                    <x-blog.text.text textSize="large" class="text-gray-700 text-4xl mt-4" value="Social Media"/>
+                <div class="grid md:justify-center">
                     <x-blog.pages.grid-1 class="">
-                        <div>facebook</div>
-                        <div>Twitter</div>
-                        <div>Github</div>
+                        <div class="flex shadow-2xl rounded-2xl p-8 my-auto">
+                            <div class="">
+                                <a href="{{ $userPortfolio->linkedin }}" target="_blank">
+                                    <x-portfolio.icon-linkedin/>
+                                </a>
+                            </div>
+                            <div class="">
+                                <a href="{{ $userPortfolio->twitter }}" target="_blank">
+                                    <x-portfolio.icon-twitter/>
+                                </a>
+                            </div>
+                            <div class="">
+                                <a href="{{ $userPortfolio->github }}" target="_blank">
+                                    <x-portfolio.icon-github/>
+                                </a>
+                            </div>
+                        </div>
                     </x-blog.pages.grid-1>
                 </div>
             </x-blog.pages.grid-2>
                 
         </x-blog.pages.section> 
     @endforeach
-  
-</x-guest-layout>
+
+</x-portfolio.layout>
+

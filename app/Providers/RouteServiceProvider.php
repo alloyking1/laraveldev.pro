@@ -41,6 +41,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/Job/jobs.php'));
             Route::middleware('web')
                 ->group(base_path('routes/portfolio/portfolio.php'));
+            // Catch-all route for undefined routes
+            Route::fallback(function () {
+                return response()->view('errors.404', [], 404);
+            });
         });
     }
 

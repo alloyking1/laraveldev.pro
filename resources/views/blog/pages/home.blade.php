@@ -10,8 +10,8 @@
   <x-blog.pages.section color="gray" textColor="black" textSize="large" class="">
       <div class="max-w-6xl mx-auto">
 
-        <x-blog.pages.grid-3 class="py-6">
-          <div class="col-span-2">
+        <x-blog.pages.grid-1 class="py-6">
+          <div class="text-center">
             <div class="">
               <p class="sm:text-6xl text-5xl font-black text-black hidden sm:block">Laraveldev Blog</p>
               <p class="sm:text-6xl text-5xl font-black text-black sm:hidden">Blog</p>
@@ -19,7 +19,7 @@
             </div>
           </div>
   
-          <div class="my-4 md:my-0">
+          {{-- <div class="my-4 md:my-0">
             <a href="https://join.slack.com/t/laraveldevpro/shared_invite/zt-2k745coec-v6UNYEkMf9FQbeoJwIIIMg">
               <x-blog.components.card-long>
                 <div class="text-red-600 font-bold flex">
@@ -31,11 +31,11 @@
                 </div>
               </x-blog.components.card-long>
             </a>
-          </div>
-        </x-blog.pages.grid-3>
+          </div> --}}
+        </x-blog.pages.grid-1>
 
         <x-blog.pages.grid-1>
-          <div class="flex">
+          <div class="flex justify-center">
             <a href="{{ route('blog-post') }}" class="m-1 px-2 shadow-sm rounded-md border border-gray-400 text-gray-600 hover:bg-gray-600 hover:text-white text-xs my-auto">Blog</a>
             <a href="{{ route('tutorial') }}" class="px-2 shadow-sm rounded-md border border-gray-400 text-gray-600 hover:bg-gray-600 hover:text-white text-xs my-auto">Tutorials</a>
             <a href="{{ route('packages') }}" class="m-1 px-2 shadow-sm rounded-md border border-gray-400 text-gray-600 hover:bg-gray-600 hover:text-white text-xs my-auto">Packages</a>

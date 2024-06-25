@@ -49,6 +49,16 @@
                       </x-nav-link>
                     </li>
                     <li>
+                      <x-nav-link :href="route('portfolio')" :active="request()->routeIs('portfolio')" class="-mt-2 font-bold mr-4" wire:navigate>
+                        <x-blog.text.text color="white" textSize="x-small" value="Portfolio"/>
+                      </x-nav-link>
+                    </li>
+                    <li>
+                      <x-nav-link :href="route('roadmap')" :active="request()->routeIs('roadmap')" class="-mt-2 font-bold mr-4" wire:navigate>
+                        <x-blog.text.text color="white" textSize="x-small" value="Roadmap"/>
+                      </x-nav-link>
+                    </li>
+                    <li>
                       <x-nav-link :href="route('blog-home')" :active="request()->routeIs('blog-home')" class="-mt-2 font-bold mr-4" wire:navigate>
                         <x-blog.text.text color="white" textSize="x-small" value="Blog"/>
                       </x-nav-link>
@@ -62,13 +72,13 @@
                 href="{{ route('login') }}"
                 class="py-3 text-base font-medium px-7 text-dark dark:text-white hover:text-primary -mr-4"
                 >
-              <x-danger-button>Post a job</x-danger-button>
+              <x-danger-button>Login</x-danger-button>
               </a>
               <a
                 href="{{ route('register') }}"
                 class="py-3 text-base font-medium text-white rounded-md bg-primary px-7 hover:bg-primary/90 -ml-6"
                 >
-                <x-primary-button>My account</x-primary-button>
+                <x-primary-button>Register</x-primary-button>
               </a>
           </div>
 
@@ -93,6 +103,16 @@
                   <x-blog.text.text color="white" textSize="small" value="Consultants"/>
                 </a>
               </li>
+              <li>
+                <a href="{{ route('portfolio') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
+                  <x-blog.text.text color="white" textSize="small" value="Portfolio"/>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('roadmap') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
+                  <x-blog.text.text color="white" textSize="small" value="Road-map"/>
+                </a>
+              </li>
 
               <li>
                 <a href="{{ route('blog-home') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
@@ -104,7 +124,7 @@
                     href="{{ route('login') }}"
                     class=""
                     >
-                  <x-danger-button>Post a job</x-danger-button>
+                  <x-danger-button>Login</x-danger-button>
                   </a>
               </li>
               <li class="mt-2 md:hidden">
@@ -112,7 +132,7 @@
                   href="{{ route('register') }}"
                   class=""
                   >
-                  <x-primary-button>My account</x-primary-button>
+                  <x-primary-button>Register</x-primary-button>
                 </a>
               </li>
           </ul>

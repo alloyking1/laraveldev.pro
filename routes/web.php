@@ -13,6 +13,7 @@ use App\Http\Controllers\TagController;
 use Spatie\Sitemap\SitemapGenerator;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RoadmapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,6 +89,8 @@ Route::prefix('admin')->group(function (){
         Route::get('/post', [AdminController::class, 'post'])->name('post');
     });
 });
+
+Route::get('/road-map', RoadmapController::class)->name('roadmap');
 
 /**
  * 

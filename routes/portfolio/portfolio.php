@@ -10,7 +10,8 @@ Route::prefix('/portfolio')->group(function () {
             Route::get('/step-three/{id}', App\Livewire\LivewireEditPortfolioStepThree::class)->name('portfolio.step-three.edit');
         });
     });
+
+    Route::get('/', [App\Http\Controllers\PortfolioController::class, 'homePage'])->name('portfolio');
 });
 
 Route::get('/{url}', [App\Http\Controllers\PortfolioController::class, 'show'])->name('portfolio.live');
-
