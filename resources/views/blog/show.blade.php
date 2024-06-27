@@ -37,9 +37,9 @@
         <x-blog.pages.grid-1 class="mt-16 mb-32 max-w-6xl mx-auto">
             <div class="mx-8 md:mx-auto">
                 <div class="max-w-4xl mx-auto">
-                    <x-blog.text.text textSize="x-small"  color="gray" class="font-mono mt-8">
+                    {{-- <x-blog.text.text textSize="x-small"  color="gray" class="font-mono mt-8"> --}}
                         {!! $post->body !!}
-                    </x-blog.text.text>
+                    {{-- </x-blog.text.text> --}}
                 </div>
             </div> 
         </x-blog.pages.grid-1>
