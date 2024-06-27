@@ -37,26 +37,30 @@
         <x-blog.pages.grid-1 class="mt-16 mb-32 max-w-6xl mx-auto">
             <div class="mx-8 md:mx-auto">
                 <div class="max-w-4xl mx-auto">
-                    {{-- <x-blog.text.text textSize="x-small"  color="gray" class="font-mono mt-8"> --}}
-                        {!! $post->body !!}
-                    {{-- </x-blog.text.text> --}}
+                    @php
+                        $content = str_replace("<pre>", "<p>", $post->body);
+                        echo $content
+                    @endphp
+
+                    <x-blog.pages.grid-1>
+                        <div class="">
+
+                            <span class="text-gray-900">
+                                Author:
+                                <a
+                                    href="https://twitter.com/alloyking_1"
+                                    target="_blank"
+                                    class="font-bold text-green-500 hover:text-green-400 hover:border-b-2 border-green-400 pb-3 transition-all py-20">
+                                    {{ $post->user->name }}
+                                </a>
+                                on {{ date('d-m-Y', strtotime($post->created_at)) }}
+                            </span>
+                        </div>
+                    </x-blog.pages.grid-1>
                 </div>
             </div> 
         </x-blog.pages.grid-1>
 
-
-        <x-blog.pages.grid-1>
-            <span class="sm:text-left text-center sm:inline block text-gray-900 pb-10 sm:pt-0 pt-0 pl-0 -mt-8 sm:-mt-0 mx-32">
-                Author:
-                <a
-                    href="https://twitter.com/alloyking_1"
-                    target="_blank"
-                    class="font-bold text-green-500 hover:text-green-400 hover:border-b-2 border-green-400 pb-3 transition-all py-20">
-                    {{ $post->user->name }}
-                </a>
-                on {{ date('d-m-Y', strtotime($post->created_at)) }}
-            </span>
-        </x-blog.pages.grid-1>
     
     @endforeach
 
@@ -75,5 +79,11 @@
         </x-blog.pages.grid-1>
     </x-blog.pages.section> 
 
-
+    <style>
+        h2 {
+            font-size:2rem;
+            padding-top:.5rem;
+            padding-bottom:.5rem;
+        }
+    </style>
 </x-guest-layout>

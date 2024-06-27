@@ -1,5 +1,5 @@
-<script src="https://cdn.tiny.cloud/1/v79e2nvui0kiqxefs2ysre1nm2fi8sf5o47ctlhsq3qanec4/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-{{-- jx16purck6xndlsfdtm17w3zsjyzopaqfeb58tavs7mq87g0 --}}
+<script src="https://cdn.tiny.cloud/1/v79e2nvui0kiqxefs2ysre1nm2fi8sf5o47ctlhsq3qanec4/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+{{--n jx16purck6xndlsfdtm17w3zsjyzopaqfeb58tavs7mq87g0 --}}  
 {{-- v79e2nvui0kiqxefs2ysre1nm2fi8sf5o47ctlhsq3qanec4 --}}
 
 <script>

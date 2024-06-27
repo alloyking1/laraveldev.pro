@@ -16,7 +16,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        {{-- <link rel="stylesheet" href="{{ asset('/prism.css') }}"> --}}
+        <link rel="stylesheet" href="{{ asset('/prism.css') }}">
         @livewireStyles
         <style>
             [x-cloak] {
@@ -36,7 +36,7 @@
         </div>
         <x-footer/>
         
-        {{-- <script src="{{ asset('/prism.js') }}"></script> --}}
+        <script src="{{ asset('/prism.js') }}"></script>
         @livewireScripts
     </body>
 </html>
