@@ -36,7 +36,7 @@
         
         <x-blog.pages.grid-1 class="mt-16 mb-32 max-w-6xl mx-auto">
             <div class="mx-8 md:mx-auto">
-                <div class="md:col-span-4 mx-4">
+                <div class="max-w-4xl mx-auto">
                     <x-blog.text.text textSize="x-small"  color="gray" class="font-mono mt-8">
                         {!! $post->body !!}
                     </x-blog.text.text>
