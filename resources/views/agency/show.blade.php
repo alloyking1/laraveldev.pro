@@ -13,9 +13,8 @@
             <div class="">
                 <x-blog.pages.grid-2 class="">
     
-                    <div class="border">
+                    <div class="">
                         <img src="{{ asset('storage/' . $agency->feature_img) }}" alt="">
-                        {{-- <img src="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt=""> --}}
                     </div>
     
                     <div class="text-center grid place-content-center justify-center">
@@ -56,7 +55,6 @@
                 href="{{ $agency->website }}"
                 class=""
                 >
-                {{-- <x-danger-button class="p-6" style="padding:2rem;">Visit {{ $agency->name }}</x-danger-button> --}}
                 <x-primary-button class="p-6" style="padding:2rem;">Visit {{ $agency->name }}</x-primary-button>
                 </a>
             </div>

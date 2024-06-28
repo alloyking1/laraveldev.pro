@@ -115,7 +115,7 @@
 
                 <div class="mt-4 flex justify-between"> 
                 <x-primary-button class="bg-green-500" wire:click.prevent="save">
-                    Post Job
+                    Add Agency
                 </x-primary-button>
                 </div>
             </form>
