@@ -14,6 +14,7 @@ use Spatie\Sitemap\SitemapGenerator;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RoadmapController;
+use App\Http\Controllers\NewsletterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +92,11 @@ Route::prefix('admin')->group(function (){
 });
 
 Route::get('/road-map', RoadmapController::class)->name('roadmap');
+
+// use a route group for the newsletter
+Route::prefix('newsletter')->group(function () {
+    Route::post('/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+});
 
 /**
  * 

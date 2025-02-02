@@ -1,10 +1,12 @@
 <div>
+    {{-- this should not show on the home page but on every other page --}}
+    @if (!request()->is('/'))
     <x-blog.pages.section color="black" title="" textColor="white" textSize="large">
         <x-blog.pages.grid-1 class="text-center w-full">
-            <x-blog.text.text color="white" class="" textSize="medium" value="Subscribe to Our Mailing List"/>
+            {{-- <x-blog.text.text color="white" class="" textSize="medium" value="Subscribe to Our Mailing List"/>
             <div class="">
                 <x-blog.components.email-list/>
-            </div>
+            </div> --}}
 
             <div class="max-w-4xl mx-auto">
                 {{-- <x-blog.text.text color="white" class="font-bold" textSize="small" value="The process will be drop-dead simple, and you will be shocked by the quality and volume of responses you will get by posting on Laraveldev.pro"/> --}}
@@ -31,4 +33,5 @@
             </div>
         </x-blog.pages.grid-1>
     </x-blog.pages.section>
+    @endif
 </div>

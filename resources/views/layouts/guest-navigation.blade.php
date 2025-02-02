@@ -38,7 +38,7 @@
                 class="hidden lg:block absolute right-4 top-full w-full max-w-[250px] rounded-lg py-5 px-6 shadow lg:static lg:w-full lg:max-w-full lg:shadow-none dark:bg-dark-2 lg:dark:bg-transparent"
                 >
                 <ul class="block lg:flex z-10">
-                    <li>
+                    {{-- <li>
                       <x-nav-link :href="route('jobs.all')" :active="request()->routeIs('jobs.all')" class="-mt-2 font-bold mr-4" wire:navigate>
                         <x-blog.text.text color="white" textSize="x-small" value="Jobs"/>
                       </x-nav-link>
@@ -62,13 +62,33 @@
                       <x-nav-link :href="route('blog-home')" :active="request()->routeIs('blog-home')" class="-mt-2 font-bold mr-4" wire:navigate>
                         <x-blog.text.text color="white" textSize="x-small" value="Blog"/>
                       </x-nav-link>
-                    </li>
+                    </li> --}}
                 </ul>
               </nav>
           </div>
 
           <div class="justify-end hidden pr-16 sm:flex lg:pr-0">
-              <a
+            <li>
+              <x-nav-link :href="route('blog-home')" :active="request()->routeIs('blog-home')" class="-mt-2 font-bold mr-4" wire:navigate>
+                <x-blog.text.text color="white" textSize="x-small" value="Blog"/>
+              </x-nav-link>
+            </li>
+            <li>
+              <x-nav-link href="#" class="-mt-2 font-bold mr-4" wire:navigate>
+                <x-blog.text.text color="white" textSize="x-small" value="Books"/>
+              </x-nav-link>
+            </li>
+            <li>
+              <x-nav-link href="#" class="-mt-2 font-bold mr-4" wire:navigate>
+                <x-blog.text.text color="white" textSize="x-small" value="Courses"/>
+              </x-nav-link>
+            </li>
+            <li>
+              <x-nav-link :href="route('roadmap')" :active="request()->routeIs('roadmap')" class="-mt-2 font-bold mr-4" wire:navigate>
+                <x-blog.text.text color="white" textSize="x-small" value="Roadmap"/>
+              </x-nav-link>
+            </li>
+              {{-- <a
                 href="{{ route('login') }}"
                 class="py-3 text-base font-medium px-7 text-dark dark:text-white hover:text-primary -mr-4"
                 >
@@ -79,7 +99,7 @@
                 class="py-3 text-base font-medium text-white rounded-md bg-primary px-7 hover:bg-primary/90 -ml-6"
                 >
                 <x-primary-button>Register</x-primary-button>
-              </a>
+              </a> --}}
           </div>
 
         </div>
@@ -93,33 +113,28 @@
       id="navbarCollapse">
         <div class="px-4 pb-4 pt-1 bg-gray-500 -mt-12 -mr-6">
           <ul class="block lg:flex z-10">
-              <li>
-                <a href="{{ route('jobs.all') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
-                  <x-blog.text.text color="white" textSize="small" value="Jobs"/>
-                </a>
-              </li>
-              <li>
-                <a href="{{ route('agency.all') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
-                  <x-blog.text.text color="white" textSize="small" value="Consultants"/>
-                </a>
-              </li>
-              <li>
-                <a href="{{ route('portfolio') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
-                  <x-blog.text.text color="white" textSize="small" value="Portfolio"/>
-                </a>
-              </li>
-              <li>
-                <a href="{{ route('roadmap') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
-                  <x-blog.text.text color="white" textSize="small" value="Road-map"/>
-                </a>
-              </li>
-
-              <li>
-                <a href="{{ route('blog-home') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
-                  <x-blog.text.text color="white" textSize="small" value="Blog"/>
-                </a>
-              </li>
-              <li class="mt-4 md:hidden">
+            
+            <li>
+              <a href="{{ route('blog-home') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
+                <x-blog.text.text color="white" textSize="small" value="Blog"/>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
+                <x-blog.text.text color="white" textSize="small" value="Books"/>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer" wire:navigate>
+                <x-blog.text.text color="white" textSize="small" value="Courses"/>
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('roadmap') }}" class="block mt-4 lg:inline-block lg:mt-0 font-bold text-gray-400 hover:text-teal-200 mr-4 hover:cursor-pointer"  wire:navigate>
+                <x-blog.text.text color="white" textSize="small" value="Road-map"/>
+              </a>
+            </li>
+              {{-- <li class="mt-4 md:hidden">
                 <a
                     href="{{ route('login') }}"
                     class=""
@@ -134,7 +149,7 @@
                   >
                   <x-primary-button>Register</x-primary-button>
                 </a>
-              </li>
+              </li> --}}
           </ul>
       </div>
     </nav>
